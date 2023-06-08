@@ -16,7 +16,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-HIND_SILIGURI_REGULAR relative">
         <Navbar />
-
         {children}
       </body>
     </html>

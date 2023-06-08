@@ -7,8 +7,8 @@ import { AiOutlineUser } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { GiSelfLove } from "react-icons/gi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import { StateFullTextInputLabel } from "../input/statefullinput";
 import { ShadeCnNavbar } from "../shadecncomponents/navbar";
+import { StateFullTextInputLabel } from "./input/statefullinput";
 
 export function Navbar() {
   const [searchProduct, setSearchProduct] = useState("");
