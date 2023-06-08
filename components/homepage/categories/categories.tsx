@@ -1,12 +1,13 @@
 "use client";
 import { MinimalBlurImage } from "@/lib/blurimage";
 import { productCateGories } from "@/utils/categories";
+import BannerCategories from "./bannercategories";
 
 const Categories = () => {
   return (
     <section className="container mt-24 mb-24">
-      <h2 className="text-2xl font-HIND_SILIGURI_SEMI_BOLD mb-5">
-        Product categories are available
+      <h2 className="text-2xl font-HIND_SILIGURI_SEMI_BOLD mb-16">
+        Available product categories are :
       </h2>
       <div className="grid grid-cols-6 gap-3 ">
         {productCateGories.map((item, i) => (
@@ -27,6 +28,8 @@ const Categories = () => {
           </div>
         ))}
       </div>
+
+      <BannerCategories />
     </section>
   );
 };

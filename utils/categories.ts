@@ -1,6 +1,8 @@
-import { ProductCateGoriesType } from "@/types/global";
-
-export const productCateGories: ProductCateGoriesType = [
+export const productCateGories: {
+  title: string;
+  picture: string;
+  tag: string[];
+}[] = [
   {
     title: "Dairy, Bread & Eggs",
     picture: "/assets/categories/category-dairy-bread-eggs.jpeg",
