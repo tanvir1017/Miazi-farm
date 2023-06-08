@@ -14,8 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-HIND_SILIGURI_REGULAR">
+      <body className="font-HIND_SILIGURI_REGULAR relative">
         <Navbar />
+
         {children}
       </body>
     </html>

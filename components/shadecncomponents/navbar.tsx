@@ -53,89 +53,115 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
+const megaMenu: { title: string; href: string; description?: string }[] = [
+  {
+    title: "Butter",
+    href: "/shop",
+  },
+  {
+    title: "Milk Drinks",
+    href: "/shop",
+  },
+  {
+    title: "Curd & Yogurt",
+    href: "/shop",
+  },
+  {
+    title: "Eggs",
+    href: "/shop",
+  },
+  {
+    title: "Curd & Yogurt",
+    href: "/shop",
+  },
+  {
+    title: "Eggs",
+    href: "/shop",
+  },
+];
+
 export function ShadeCnNavbar() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/shop">
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Shop
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/recipe">
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Recipe
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Mega Menu</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[800px] lg:grid-cols-3">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    <Image
-                      src="/assets/covers/mega-menu.png"
-                      width={300}
-                      height={100}
-                      alt="cover"
-                    />
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              <Link href="/shop">
-                <ListItem title="Dairy, Bread & Eggs"></ListItem>
-              </Link>{" "}
-              <Link href="/shop">
-                <ListItem title="Dairy, Bread & Eggs"></ListItem>
-              </Link>{" "}
-              <Link href="/shop">
-                <ListItem title="Dairy, Bread & Eggs"></ListItem>
-              </Link>{" "}
-              <Link href="/shop">
-                <ListItem title="Dairy, Bread & Eggs"></ListItem>
-              </Link>{" "}
-              <Link href="/shop">
-                <ListItem title="Dairy, Bread & Eggs"></ListItem>
-              </Link>{" "}
-              <Link href="/shop">
-                <ListItem title="Dairy, Bread & Eggs"></ListItem>
-              </Link>{" "}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        {/* <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem> */}
-        <NavigationMenuItem>
-          <Link href="/docs" passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Store
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <div className="container relative">
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <Link href="/shop">
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Shop
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/recipe">
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Recipe
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Mega Menu</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <div className="grid gap-3 p-6 md:w-[400px] lg:w-[800px] lg:grid-cols-3">
+                <ul className="row-span-3">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md no-underline outline-none focus:shadow-md"
+                        href="/"
+                      >
+                        <Image
+                          src="/assets/covers/mega-menu.png"
+                          width={300}
+                          height={100}
+                          alt="cover"
+                        />
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[500px]">
+                  {megaMenu.map((component, i) => (
+                    <NavigationMenuLink asChild key={i}>
+                      <Link
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href={component.href}
+                      >
+                        <li>{component.title}</li>
+                      </Link>
+                    </NavigationMenuLink>
+                  ))}
+                </ul>
+              </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                {megaMenu.map((component) => (
+                  <NavigationMenuLink asChild key={component.title}>
+                    <Link
+                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      href={component.href}
+                    >
+                      {component.title}
+                    </Link>
+                  </NavigationMenuLink>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/shop" passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Store
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
   );
 }
 
@@ -155,9 +181,9 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          {/* <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
-          </p>
+          </p> */}
         </a>
       </NavigationMenuLink>
     </li>

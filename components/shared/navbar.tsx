@@ -14,7 +14,7 @@ export function Navbar() {
   const [searchProduct, setSearchProduct] = useState("");
   return (
     <header className="">
-      <nav className="">
+      <nav className="mb-3">
         {/*  First row of header*/}
         <div className="bg-slate-100 py-1">
           <div className="container flex justify-between items-center">
@@ -80,10 +80,11 @@ export function Navbar() {
         </div>
 
         {/*ShadCn navigation menus*/}
-        <div className="container relative">
+        <div className="">
           <ShadeCnNavbar />
         </div>
       </nav>
+      <hr className="border border-slate-100 " />
     </header>
   );
 }
