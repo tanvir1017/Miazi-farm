@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { GiSelfLove } from "react-icons/gi";
@@ -12,6 +12,10 @@ import { StateFullTextInputLabel } from "./input/statefullinput";
 
 export function Navbar() {
   const [searchProduct, setSearchProduct] = useState("");
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <header className="">
       <nav className="mb-3">
@@ -80,9 +84,7 @@ export function Navbar() {
         </div>
 
         {/*ShadCn navigation menus*/}
-        <div className="">
-          <ShadeCnNavbar />
-        </div>
+        <div className="">{mounted && <ShadeCnNavbar />}</div>
       </nav>
       <hr className="border border-slate-100 " />
     </header>

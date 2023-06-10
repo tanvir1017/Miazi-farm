@@ -1,5 +1,4 @@
-import { featuresOfServices } from "@/utils/staticfeatures";
-import Image from "next/image";
+import { featuresOfServices } from "@/data/staticfeatures";
 
 const Features = () => {
   return (
@@ -8,17 +7,13 @@ const Features = () => {
         {featuresOfServices.map((item, i) => (
           <div
             key={i}
-            className={`px-5 py-7 text-center ${
+            className={`px-5 py-7 text-center  ${
               ![2, 5].includes(i) && "border-r-2"
             }  ${![3, 4, 5].includes(i) && "border-b-2"}`}
           >
-            <Image
-              alt={item.title}
-              src={item.icon}
-              height={50}
-              width={50}
-              className="inline-block"
-            />
+            <i className="inline-block text-5xl font-HIND_SILIGURI_LIGHT text-primaryalternative">
+              {item.icon}
+            </i>
             <h3 className="my-5 font-bold ">{item.title}</h3>
             <p>{item.description}</p>
           </div>

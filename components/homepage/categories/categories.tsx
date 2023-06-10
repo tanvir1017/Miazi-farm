@@ -1,6 +1,6 @@
 "use client";
+import { productCateGories } from "@/data/categories";
 import { MinimalBlurImage } from "@/lib/blurimage";
-import { productCateGories } from "@/utils/categories";
 import BannerCategories from "./bannercategories";
 
 const Categories = () => {
