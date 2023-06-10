@@ -2,7 +2,7 @@ import { featuresOfServices } from "@/data/staticfeatures";
 
 const Features = () => {
   return (
-    <section className="container my-[12.5rem]">
+    <section className="container mb-[12.5rem] mt-[10.5rem]">
       <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3">
         {featuresOfServices.map((item, i) => (
           <div

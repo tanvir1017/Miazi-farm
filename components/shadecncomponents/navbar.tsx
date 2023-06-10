@@ -153,7 +153,7 @@ export function ShadeCnNavbar() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="/shop" passHref>
+            <Link href="/store" passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Store
               </NavigationMenuLink>

@@ -10,3 +10,10 @@ export function ButtonOutline({ children }: { children: React.ReactNode }) {
 export function ButtonModified({ children }: { children: React.ReactNode }) {
   return <Button className="">{children}</Button>;
 }
+export function ButtonAlternative({ children }: { children: React.ReactNode }) {
+  return (
+    <Button className="bg-primaryalternative hover:bg-primaryalternative">
+      {children}
+    </Button>
+  );
+}
