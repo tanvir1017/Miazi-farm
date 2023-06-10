@@ -1,3 +1,4 @@
+import Footer from "@/components/shared/footer";
 import Categories from "../categories/categories";
 import Features from "../features/features";
 import HeadingSection from "../headingsection/headingsection";
@@ -10,6 +11,7 @@ const HomePages = () => {
       <Categories />
       <Products />
       <Features />
+      <Footer />
     </>
   );
 };

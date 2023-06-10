@@ -7,7 +7,6 @@ import { AiOutlineUser } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { GiSelfLove } from "react-icons/gi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import { ShadeCnNavbar } from "../shadecncomponents/navbar";
 import { StateFullTextInputLabel } from "./input/statefullinput";
 
 export function Navbar() {
@@ -84,7 +83,7 @@ export function Navbar() {
         </div>
 
         {/*ShadCn navigation menus*/}
-        <div className="">{mounted && <ShadeCnNavbar />}</div>
+        {/* <div className="">{mounted && <ShadeCnNavbar />}</div> */}
       </nav>
       <hr className="border border-slate-100 " />
     </header>
