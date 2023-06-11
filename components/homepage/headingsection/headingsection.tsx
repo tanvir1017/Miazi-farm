@@ -1,22 +1,17 @@
+import { HeadingBannerWithAspectRatio } from "@/components/shadecncomponents/aspectration";
 import { ButtonSecondary } from "@/components/shadecncomponents/button";
-import Image from "next/image";
 import { BsArrowRightShort } from "react-icons/bs";
 
 const HeadingSection = () => {
   return (
     <section className="container ">
-      <div className="max-w-[75.8rem] h-[500px] m-auto relative overflow-hidden rounded-lg my-10 p-5">
-        <Image
-          className="absolute"
+      <div className="max-w-[75.8rem] h-[500px] m-auto relative  rounded-lg my-10 p-5">
+        <HeadingBannerWithAspectRatio
           src="/assets/covers/slider_background.jpeg"
           alt="Heading slider cover"
-          fill
-          style={{
-            objectFit: "cover",
-          }}
         />
 
-        <div className="absolute px-11 pt-24">
+        <div className="absolute px-11 inset-y-0 pt-28">
           <strong className="bg-brand px-5 text-white font-HIND_SILIGURI_LIGHT ">
             Opening sale discount 50%
           </strong>

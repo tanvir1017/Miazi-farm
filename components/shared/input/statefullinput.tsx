@@ -1,4 +1,4 @@
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { EyeOff, Lock, View } from "lucide-react";
 
 type TextInputLabelPropsType = {
   disabled: boolean;
@@ -10,7 +10,6 @@ type TextInputLabelPropsType = {
   type: string;
   title: string;
   nameText: string;
-  top?: number;
   handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -18,7 +17,6 @@ type PasswordInputLabelPropsType = {
   inputValue: string;
   labelTex?: string | number;
   requiredType?: boolean;
-  iconComponent?: React.ReactNode;
   placeholderText?: string;
   title?: string;
   nameText?: string;
@@ -31,7 +29,6 @@ export const StateFullPasswordInputLabel = ({
   inputValue,
   labelTex,
   requiredType,
-  iconComponent,
   placeholderText,
   title,
   nameText,
@@ -42,33 +39,27 @@ export const StateFullPasswordInputLabel = ({
   return (
     <label
       className={`relative block space-y-2 ${
-        labelTex === "Wrong credential" &&
-        "text-[var(--red-primary-brand-color)] italic"
+        labelTex === "Wrong credential" && "text-text-brand italic"
       }`}
     >
       <span
-        className={`
-        ${
-          labelTex === "Wrong credential" &&
-          "text-[var(--red-primary-brand-color)] italic"
-        }
-      ${labelTex === "User login successfully" && "text-green-400 "}
+        className={`s
         ${
           requiredType &&
-          "after:content-['*'] after:ml-0.5 after:text-[var(--red-primary-brand-color)]"
+          "after:content-['*'] after:ml-0.5 after:text-text-brand"
         }  block text-sm font-HSLight `}
       >
         {labelTex}
       </span>
 
-      <span className="absolute inset-y-0 top-5 left-0 flex items-center pl-2">
-        {iconComponent}
+      <span className="absolute inset-y-0 top-4 left-0 flex items-center pl-2">
+        <Lock strokeWidth={0.5} className="w-5 h-5" />
       </span>
       <input
         value={inputValue}
         onChange={handleOnChange}
         required
-        className="placeholder:italic placeholder:text-slate-400 block dark:bg-[#232229] bg-slate-50  w-full border border-gray-500  rounded-md py-3 pl-9 pr-3 shadow-sm focus:outline-none focus:border-[var(--red-primary-brand-color)]  focus:ring-[var(--red-primary-brand-color)] focus:ring-1 sm:text-sm"
+        className="placeholder:italic placeholder:text-slate-400 block  bg-slate-50 w-full border-b-2 border-b-brand py-3 pl-9 pr-3 shadow-sm focus:outline-none focus:border-text-brand sm:text-sm"
         placeholder={placeholderText}
         type={seePassword ? "text" : "password"}
         name={nameText}
@@ -82,9 +73,9 @@ export const StateFullPasswordInputLabel = ({
           onClick={onClickFunc}
         >
           {seePassword ? (
-            <FiEyeOff className="text-gray-500" />
+            <EyeOff strokeWidth={0.5} className="text-gray-500" />
           ) : (
-            <FiEye className="text-gray-500" />
+            <View strokeWidth={0.5} className="text-gray-500" />
           )}
         </button>
       )}
@@ -103,14 +94,12 @@ export const StateFullTextInputLabel = ({
   type,
   title,
   nameText,
-  top = 5,
 }: TextInputLabelPropsType) => {
   return (
-    <label className={`relative block space-y-2 ${type === "email" && "pb-3"}`}>
+    <label className={`relative block space-y-2 ${type === "email" && "pb-2"}`}>
       <span
         className={`${
-          labelTex === "Wrong credential" &&
-          "text-[var(--red-primary-brand-color)] italic"
+          labelTex === "Wrong credential" && "text-text-brand italic"
         }
       ${labelTex === "User login successfully" && "text-green-400 "} ${
           requiredType && " after:content-['*'] after:ml-0.5 after:text-red-500"
@@ -120,9 +109,7 @@ export const StateFullTextInputLabel = ({
       </span>
 
       <span
-        className={`absolute ${
-          type === "email" ? "top-2" : `top-${top}`
-        }  left-0 flex items-center pl-2`}
+        className={`absolute inset-y-0 pt-[0.6rem] left-0 flex items-center pl-2`}
       >
         {iconComponent}
       </span>
@@ -130,14 +117,11 @@ export const StateFullTextInputLabel = ({
         disabled={disabled}
         value={inputValue}
         onChange={handleOnChange}
-        className={`${
-          nameText === "Add tags" && "hidden"
-        } placeholder:italic placeholder:text-slate-400 block dark:bg-[#232229] bg-slate-50  w-full border border-gray-500  rounded-md py-3 pl-9 pr-3 shadow-sm focus:outline-none ${
-          type !== "email" &&
-          "focus:border-[var(--red-primary-brand-color)]  focus:ring-[var(--red-primary-brand-color)]"
-        } focus:ring-1 sm:text-sm ${disabled && "cursor-no-drop"}  ${
+        className={`placeholder:italic placeholder:text-slate-400 block bg-slate-50 w-full border-b-2  py-3 pl-9 pr-3 shadow-sm focus:outline-none  ${
+          type !== "email" && "focus:border-b-text-brand"
+        } sm:text-sm ${disabled && "cursor-no-drop"}  ${
           type === "email" &&
-          " peer focus:border-green-500 focus:ring-green-600 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+          "peer focus:border-b-green-500  disabled:bg-secondary disabled:text-slate-500 disabled:border-b-slate-200 disabled:shadow-none invalid:border-b-brand invalid:text-brand focus:invalid:border-b-brand"
         }`}
         placeholder={placeholderText}
         type={type}
@@ -146,8 +130,8 @@ export const StateFullTextInputLabel = ({
         required={requiredType}
       />
       {type === "email" && (
-        <p className="absolute -bottom-[10px] invisible peer-invalid:visible peer-invalid:translate-y-1 duration-300  text-[var(--red-primary-brand-color)] text-sm ">
-          একটি বৈধ ইমেইল ঠিকানা প্রদান কর ।
+        <p className="absolute -bottom-[10px] invisible peer-invalid:visible peer-invalid:translate-y-1 duration-300 text-brand text-sm ">
+          Enter your valid email to login
         </p>
       )}
     </label>

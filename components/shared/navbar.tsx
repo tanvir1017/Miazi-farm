@@ -1,14 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AiOutlineUser } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
-import { GiSelfLove } from "react-icons/gi";
-import { HiOutlineShoppingBag } from "react-icons/hi";
-import { StateFullTextInputLabel } from "./input/statefullinput";
+
+import { AiFillTwitterCircle } from "react-icons/ai";
+import { RiInstagramFill } from "react-icons/ri";
+import { SiFacebook } from "react-icons/si";
+
+import { Heart, Search, ShoppingCart } from "lucide-react";
+import { DropdownMenuModified } from "../shadecncomponents/dropdownmenu";
 import { ShadeCnNavbar } from "../shadecncomponents/navbar";
+import BrandLogo from "./brandlogo/brandlogo";
 
 export function Navbar() {
   const [searchProduct, setSearchProduct] = useState("");
@@ -22,45 +23,34 @@ export function Navbar() {
         {/*  First row of header*/}
         <div className="bg-slate-100 py-1">
           <div className="container flex justify-between items-center">
-            <p>Hotline: +98754698</p>
-            <p>Follow our facebook page</p>
+            <p>Help Line: +98754698</p>
+
+            <span className="flex items-center space-x-4">
+              <i className="border hover:border-blue-400 rounded-full p-2 hover:text-blue-400 duration-200 transition-all cursor-pointer">
+                <SiFacebook />
+              </i>
+              <i className="border hover:border-purple-700 rounded-full p-2 hover:text-purple-400 duration-200 transition-all cursor-pointer">
+                <RiInstagramFill />
+              </i>
+              <i className="border hover:border-blue-400 rounded-full p-2 hover:text-blue-400 duration-200 transition-all cursor-pointer">
+                <AiFillTwitterCircle />
+              </i>
+            </span>
           </div>
         </div>
 
         {/*  Second row of header*/}
         <div className="container py-2">
           <div className="grid grid-cols-5 gap-5 ">
-            <Link href="/">
-              {/* <div className="col-span-1 relative"> */}
-              <div className="col-span-1 flex items-center">
-                <Image
-                  src="/assets/logos/logo1.png"
-                  width={70}
-                  height={70}
-                  alt="Miyazi Farm Logo"
-                />
-                {/* <h2 className="font-HIND_SILIGURI_BOLD text-2xl text-[#388740] absolute top-7 right-16"> */}
-                <h2 className="font-HIND_SILIGURI_BOLD text-2xl text-brand-foreground">
-                  <span className="text-brand">মিয়াজী</span> ফার্ম
-                </h2>
-              </div>
-            </Link>
+            <BrandLogo />
 
             {/* <div className="col-span-3 mt-2"> */}
             <div className="col-span-3 ">
-              <div className="relative ">
-                <StateFullTextInputLabel
-                  disabled={false}
-                  requiredType={false}
-                  iconComponent={<BsSearch />}
-                  inputValue={searchProduct}
-                  handleOnChange={(e) => setSearchProduct(e.target.value)}
-                  nameText="Search for product"
-                  placeholderText="What do you want? "
-                  title="Search to find your product on মিয়াজী ফার্ম"
-                  type="text"
-                  top={2}
-                />
+              <div className="relative">
+                <span className="absolute inset-y-0 px-1.5 pt-[0.7rem]">
+                  <Search strokeWidth={0.5} />
+                </span>
+                <input className="py-2.5 pl-8 border-2  focus:outline-none rounded-md w-full" />
                 <button
                   className="absolute -right-[0.25rem] bg-primaryalternative text-white inset-y-0 rounded-r-lg px-5 border border-gray-500"
                   type="submit"
@@ -70,14 +60,29 @@ export function Navbar() {
               </div>
             </div>
             <div className="col-span-1 flex items-center justify-self-end space-x-10 text-xl">
-              <span className="bg-slate-200 p-2 rounded-full cursor-pointer">
-                <GiSelfLove className="hover:text-primaryalternative" />
+              <span
+                title="Wish List"
+                className="bg-slate-200 p-2 rounded-full cursor-pointer"
+              >
+                <Heart
+                  strokeWidth={1}
+                  className="hover:text-primaryalternative"
+                />
               </span>
-              <span className="bg-slate-200 p-2 rounded-full cursor-pointer">
-                <AiOutlineUser className="hover:text-primaryalternative" />
+              <span
+                title="Profile information"
+                className="bg-slate-200 p-2 rounded-full cursor-pointer"
+              >
+                <DropdownMenuModified />
               </span>
-              <span className="bg-slate-200 p-2 rounded-full cursor-pointer">
-                <HiOutlineShoppingBag className="hover:text-primaryalternative" />
+              <span
+                title="Shopping cart"
+                className="bg-slate-200 p-2 rounded-full cursor-pointer"
+              >
+                <ShoppingCart
+                  strokeWidth={1}
+                  className="hover:text-primaryalternative"
+                />
               </span>
             </div>
           </div>
