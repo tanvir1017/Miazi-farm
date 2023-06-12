@@ -49,12 +49,12 @@ export function DropdownMenuModified() {
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <LogOut className="mr-2 h-4 w-4" />
-          <Link className="" href="/auth/login">
-            <span>Login</span>
-          </Link>
-        </DropdownMenuItem>
+        <Link className="" href="/auth/login">
+          <DropdownMenuItem>
+            <LogOut className="mr-2 h-4 w-4" />
+            <span>Login/Sign-up</span>
+          </DropdownMenuItem>
+        </Link>
       </DropdownMenuContent>
     </DropdownMenu>
   );

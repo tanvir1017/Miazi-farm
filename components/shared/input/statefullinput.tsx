@@ -8,6 +8,7 @@ type TextInputLabelPropsType = {
   iconComponent: React.ReactNode;
   placeholderText: string;
   type: string;
+  top?: number | string;
   title: string;
   nameText: string;
   handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -94,6 +95,7 @@ export const StateFullTextInputLabel = ({
   type,
   title,
   nameText,
+  top,
 }: TextInputLabelPropsType) => {
   return (
     <label className={`relative block space-y-2 ${type === "email" && "pb-2"}`}>
@@ -109,7 +111,7 @@ export const StateFullTextInputLabel = ({
       </span>
 
       <span
-        className={`absolute inset-y-0 pt-[0.6rem] left-0 flex items-center pl-2`}
+        className={`absolute inset-y-0 pt-${top} left-0 flex items-center pl-2`}
       >
         {iconComponent}
       </span>
@@ -117,7 +119,7 @@ export const StateFullTextInputLabel = ({
         disabled={disabled}
         value={inputValue}
         onChange={handleOnChange}
-        className={`placeholder:italic placeholder:text-slate-400 block bg-slate-50 w-full border-b-2  py-3 pl-9 pr-3 shadow-sm focus:outline-none  ${
+        className={`placeholder:italic placeholder:text-slate-400 block bg-slate-50 w-full border-b-2 border-b-brand py-3 pl-9 pr-3 shadow-sm focus:outline-none  ${
           type !== "email" && "focus:border-b-text-brand"
         } sm:text-sm ${disabled && "cursor-no-drop"}  ${
           type === "email" &&

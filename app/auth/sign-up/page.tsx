@@ -13,7 +13,7 @@ import Link from "next/link";
 
 import { useState } from "react";
 
-import { MailCheck } from "lucide-react";
+import { Phone, User, Verified } from "lucide-react";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,17 +51,51 @@ const SignUp = () => {
               <StateFullTextInputLabel
                 disabled={false}
                 handleOnChange={(e) => setEmail(e.target.value)}
-                iconComponent={
-                  <MailCheck strokeWidth={0.5} className="w-5 h-5" />
-                }
+                iconComponent={<User strokeWidth={0.5} className="w-5 h-5" />}
                 inputValue={email}
-                nameText="email"
-                placeholderText="your email"
+                nameText="full_name"
+                placeholderText="Full Name"
                 requiredType={true}
-                title="Your email that you provided before for registered your account"
-                type="email"
-                labelTex="Email"
+                title="Your full name"
+                type="text"
+                labelTex="Full Name"
+                top="[0.7rem]"
               />
+
+              <div className="mt-5">
+                <StateFullTextInputLabel
+                  disabled={false}
+                  handleOnChange={(e) => setEmail(e.target.value)}
+                  iconComponent={
+                    <Phone strokeWidth={0.5} className="w-5 h-5" />
+                  }
+                  inputValue={email}
+                  nameText="phone_number"
+                  placeholderText="your Phone"
+                  requiredType={true}
+                  title="Your phone number, which we can reach you"
+                  type="number"
+                  labelTex="Phone"
+                  top={4}
+                />
+              </div>
+              <div className="mt-5">
+                <StateFullTextInputLabel
+                  disabled={false}
+                  handleOnChange={(e) => setEmail(e.target.value)}
+                  iconComponent={
+                    <Verified strokeWidth={0.5} className="w-5 h-5" />
+                  }
+                  inputValue={email}
+                  nameText="verification_code"
+                  placeholderText="verification code"
+                  requiredType={true}
+                  title="Enter the verification code that sended to your provided phone number"
+                  type="number"
+                  labelTex="Verification code"
+                  top={4}
+                />
+              </div>
               <div className="mt-5">
                 <StateFullPasswordInputLabel
                   inputValue={password}
@@ -75,11 +109,23 @@ const SignUp = () => {
                   title=""
                 />
               </div>
+              <div className="mt-5">
+                <StateFullPasswordInputLabel
+                  inputValue={password}
+                  handleOnChange={(e) => setPassword(e.target.value)}
+                  labelTex="Re-enter password"
+                  nameText="re-enter_password"
+                  onClickFunc={handelPasswordEye}
+                  placeholderText="***"
+                  requiredType={true}
+                  seePassword={seePassWord}
+                  title="Re enter password"
+                />
+              </div>
               <div className="mt-10"></div>
               <SubmitButton loading={loading} loadingText="Loging">
                 Login
               </SubmitButton>
-
               <p className="mt-10">
                 Forget password? Don&#39;t wary
                 <Link
