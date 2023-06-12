@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  BlurredButton,
   LoginButton,
   SubmitButton,
 } from "@/components/shadecncomponents/button";
@@ -13,7 +14,7 @@ import Link from "next/link";
 
 import { useState } from "react";
 
-import { MailCheck } from "lucide-react";
+import { ChevronLeft, MailCheck } from "lucide-react";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,11 +29,16 @@ const Login = () => {
   };
 
   return (
-    <main className="container my-10">
-      <div className="max-w-5xl border mx-auto rounded-md overflow-hidden">
+    <main className="container my-10 ">
+      <div className="max-w-5xl border mx-auto rounded-md shadow-md overflow-hidden">
         <section className="grid grid-cols-2">
           <div className="bg-[url('/assets/banners/login.webp')] bg-cover bg-center relative overflow-clip">
             <div className="px-16 py-20">
+              <Link href="/">
+                <BlurredButton>
+                  <ChevronLeft strokeWidth={0.5} /> Home
+                </BlurredButton>
+              </Link>
               <h3 className="text-2xl font-HIND_SILIGURI_LIGHT text-white mt-16 mb-8">
                 Get access your Orders, <br /> Wishlist and Reconditions
               </h3>

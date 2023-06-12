@@ -51,3 +51,11 @@ export function SubmitButton({
     </Button>
   );
 }
+
+export function BlurredButton({ children }: { children: React.ReactNode }) {
+  return (
+    <Button className="bg-white/30 backdrop-blur-md text-white hover:bg-white/30 border ">
+      {children}
+    </Button>
+  );
+}

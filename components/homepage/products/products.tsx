@@ -7,7 +7,7 @@ const Products = () => {
     <section className="container  mt-24 mb-24">
       <SectionTitle
         link_text="View all"
-        tagline="Here are some of the popular products that people love to get from"
+        tagline="Here are some of the popular products that people love to get from "
         title="Popular products"
         url="/shop"
       />

@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  BlurredButton,
   LoginButton,
   SubmitButton,
 } from "@/components/shadecncomponents/button";
@@ -13,7 +14,7 @@ import Link from "next/link";
 
 import { useState } from "react";
 
-import { Mail, User, Verified } from "lucide-react";
+import { ChevronLeft, Mail, User, Verified } from "lucide-react";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,6 +34,11 @@ const SignUp = () => {
         <section className="grid grid-cols-2">
           <div className="bg-[url('/assets/banners/login.webp')] bg-cover bg-center relative overflow-clip">
             <div className="px-16 py-20">
+              <Link href="/">
+                <BlurredButton>
+                  <ChevronLeft strokeWidth={0.5} /> Home
+                </BlurredButton>
+              </Link>
               <h3 className="text-2xl font-HIND_SILIGURI_LIGHT text-white mt-16 mb-8">
                 Get access your Orders, <br /> Wishlist and Reconditions
               </h3>

@@ -7,18 +7,23 @@ import { RiInstagramFill } from "react-icons/ri";
 import { SiFacebook } from "react-icons/si";
 
 import { Heart, Search, ShoppingCart } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { DropdownMenuModified } from "../shadecncomponents/dropdownmenu";
 import { ShadeCnNavbar } from "../shadecncomponents/navbar";
 import BrandLogo from "./brandlogo/brandlogo";
 
 export function Navbar() {
+  const pathname = usePathname();
+
   const [searchProduct, setSearchProduct] = useState("");
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const ignoreRoute = ["/auth/sign-up", "/auth/login"];
   return (
-    <header className="">
+    <header className={`${ignoreRoute.includes(pathname) && "hidden"}`}>
       <nav className="mb-3">
         {/*  First row of header*/}
         <div className="bg-slate-100 py-1">
@@ -27,7 +32,13 @@ export function Navbar() {
 
             <span className="flex items-center space-x-4">
               <i className="border hover:border-blue-400 rounded-full p-2 hover:text-blue-400 duration-200 transition-all cursor-pointer">
-                <SiFacebook />
+                <a
+                  href="https://www.facebook.com/profile.php?id=100093039156234"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <SiFacebook />
+                </a>
               </i>
               <i className="border hover:border-purple-700 rounded-full p-2 hover:text-purple-400 duration-200 transition-all cursor-pointer">
                 <RiInstagramFill />
@@ -62,8 +73,11 @@ export function Navbar() {
             <div className="col-span-1 flex items-center justify-self-end space-x-10 text-xl">
               <span
                 title="Wish List"
-                className="bg-slate-200 p-2 rounded-full cursor-pointer"
+                className="bg-slate-200 p-2 rounded-full cursor-pointer relative"
               >
+                <button className="w-5 h-5 p-0.5 bg-brand rounded-full text-white text-xs absolute right-0 -top-2 overflow-hidden">
+                  0
+                </button>
                 <Heart
                   strokeWidth={1}
                   className="hover:text-primaryalternative"
@@ -77,8 +91,11 @@ export function Navbar() {
               </span>
               <span
                 title="Shopping cart"
-                className="bg-slate-200 p-2 rounded-full cursor-pointer"
+                className="bg-slate-200 p-2 rounded-full cursor-pointer relative"
               >
+                <button className="w-5 h-5 p-0.5 bg-primaryalternative rounded-full text-white text-xs absolute right-0 -top-2 overflow-hidden">
+                  0
+                </button>
                 <ShoppingCart
                   strokeWidth={1}
                   className="hover:text-primaryalternative"
