@@ -13,11 +13,16 @@ import {
 import { User2 } from "lucide-react";
 import Link from "next/link";
 
-export function DropdownMenuModified() {
+export function ProfileDropDown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <User2 strokeWidth={1} className="hover:text-primaryalternative" />
+        <span
+          title="Profile information"
+          className="bg-slate-200 p-2 rounded-full cursor-pointer"
+        >
+          <User2 strokeWidth={1} className="hover:text-primaryalternative" />
+        </span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>

@@ -270,3 +270,111 @@ export const dailySells: Products[] = [
     image: "/assets/products/Onion-Flavour-Potato.jpeg",
   },
 ];
+export const shoppingCart: Products[] = [
+  {
+    title: "Britannia Cheese Slices",
+    slug: "Britannia-Cheese-Slices",
+    brand: "Britannia",
+    price: 2.49,
+    description:
+      "Britannia Cheese Slices are a convenient and delicious way to add creamy goodness to your meals. Made from high-quality cheese, these slices are perfect for sandwiches, burgers, or simply enjoyed on their own. Each slice melts beautifully, adding a rich and cheesy flavor to your favorite dishes. Enjoy the taste and convenience of Britannia Cheese Slices.",
+    features: [
+      "Made from high-quality cheese",
+      "Perfect for sandwiches and burgers",
+      "Melts beautifully for a rich and cheesy flavor",
+      "Convenient and delicious",
+    ],
+    rating: 4.5,
+    reviews: 162,
+    image: "/assets/products/Britannia-Cheese-Slices.jpeg",
+  },
+
+  {
+    title: "Kellogg’s Original Cereals",
+    slug: "Kelloggs-Original-Cereals",
+    brand: "Kellogg's",
+    price: 3.79,
+    description:
+      "Kellogg’s Original Cereals are a classic choice for a nutritious breakfast. Made from wholesome grains, these cereals offer a crunchy and satisfying start to your day. Packed with essential vitamins and minerals, they provide energy and support overall well-being. Enjoy a bowl of Kellogg’s Original Cereals with milk or as a topping for yogurt and smoothies.",
+    features: [
+      "Made from wholesome grains",
+      "Crunchy and satisfying breakfast option",
+      "Packed with essential vitamins and minerals",
+      "Versatile as a cereal or topping",
+    ],
+    rating: 4.4,
+    reviews: 195,
+    image: "/assets/products/Kellogg’s-Original-Cereals.jpeg",
+  },
+
+  {
+    title: "Onion Flavour Potato",
+    slug: "Onion-Flavour-Potato",
+    brand: "Miyazi Farm",
+    price: 1.49,
+    description:
+      "Savor the delicious taste of Miyazi Farm Onion Flavour Potato chips. Made from premium quality potatoes and seasoned with a delightful onion flavor, these chips are a perfect snack for any occasion. Enjoy the crispy texture and mouthwatering taste of Miyazi Farm Onion Flavour Potato chips with friends and family.",
+    features: [
+      "Made from premium quality potatoes",
+      "Delightful onion flavor",
+      "Crispy texture for an enjoyable snacking experience",
+      "Perfect for sharing with friends and family",
+    ],
+    rating: 4.7,
+    reviews: 295,
+    image: "/assets/products/Onion-Flavour-Potato.jpeg",
+  },
+  {
+    title: "Britannia Cheese Slices",
+    slug: "Britannia-Cheese-Slices",
+    brand: "Britannia",
+    price: 2.49,
+    description:
+      "Britannia Cheese Slices are a convenient and delicious way to add creamy goodness to your meals. Made from high-quality cheese, these slices are perfect for sandwiches, burgers, or simply enjoyed on their own. Each slice melts beautifully, adding a rich and cheesy flavor to your favorite dishes. Enjoy the taste and convenience of Britannia Cheese Slices.",
+    features: [
+      "Made from high-quality cheese",
+      "Perfect for sandwiches and burgers",
+      "Melts beautifully for a rich and cheesy flavor",
+      "Convenient and delicious",
+    ],
+    rating: 4.5,
+    reviews: 162,
+    image: "/assets/products/Britannia-Cheese-Slices.jpeg",
+  },
+
+  {
+    title: "Kellogg’s Original Cereals",
+    slug: "Kelloggs-Original-Cereals",
+    brand: "Kellogg's",
+    price: 3.79,
+    description:
+      "Kellogg’s Original Cereals are a classic choice for a nutritious breakfast. Made from wholesome grains, these cereals offer a crunchy and satisfying start to your day. Packed with essential vitamins and minerals, they provide energy and support overall well-being. Enjoy a bowl of Kellogg’s Original Cereals with milk or as a topping for yogurt and smoothies.",
+    features: [
+      "Made from wholesome grains",
+      "Crunchy and satisfying breakfast option",
+      "Packed with essential vitamins and minerals",
+      "Versatile as a cereal or topping",
+    ],
+    rating: 4.4,
+    reviews: 195,
+    image: "/assets/products/Kellogg’s-Original-Cereals.jpeg",
+  },
+
+  {
+    title: "Onion Flavour Potato",
+    slug: "Onion-Flavour-Potato",
+    brand: "Miyazi Farm",
+    price: 1.49,
+    description:
+      "Savor the delicious taste of Miyazi Farm Onion Flavour Potato chips. Made from premium quality potatoes and seasoned with a delightful onion flavor, these chips are a perfect snack for any occasion. Enjoy the crispy texture and mouthwatering taste of Miyazi Farm Onion Flavour Potato chips with friends and family.",
+    features: [
+      "Made from premium quality potatoes",
+      "Delightful onion flavor",
+      "Crispy texture for an enjoyable snacking experience",
+      "Perfect for sharing with friends and family",
+    ],
+    rating: 4.7,
+    reviews: 295,
+    image: "/assets/products/Onion-Flavour-Potato.jpeg",
+  },
+];

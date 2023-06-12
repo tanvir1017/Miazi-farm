@@ -6,10 +6,12 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { RiInstagramFill } from "react-icons/ri";
 import { SiFacebook } from "react-icons/si";
 
-import { Heart, Search, ShoppingCart } from "lucide-react";
+import { Search } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { DropdownMenuModified } from "../shadecncomponents/dropdownmenu";
+import { CardWishlists } from "../shadecncomponents/cartdropdown";
 import { ShadeCnNavbar } from "../shadecncomponents/navbar";
+import { ProfileDropDown } from "../shadecncomponents/profile";
+import { Wishlists } from "../shadecncomponents/wishlist";
 import BrandLogo from "./brandlogo/brandlogo";
 
 export function Navbar() {
@@ -63,6 +65,7 @@ export function Navbar() {
                 </span>
                 <input className="py-2.5 pl-8 border-2  focus:outline-none rounded-md w-full" />
                 <button
+                  placeholder="search a product"
                   className="absolute -right-[0.25rem] bg-primaryalternative text-white inset-y-0 rounded-r-lg px-5 border border-gray-500"
                   type="submit"
                 >
@@ -71,36 +74,9 @@ export function Navbar() {
               </div>
             </div>
             <div className="col-span-1 flex items-center justify-self-end space-x-10 text-xl">
-              <span
-                title="Wish List"
-                className="bg-slate-200 p-2 rounded-full cursor-pointer relative"
-              >
-                <button className="w-5 h-5 p-0.5 bg-brand rounded-full text-white text-xs absolute right-0 -top-2 overflow-hidden">
-                  0
-                </button>
-                <Heart
-                  strokeWidth={1}
-                  className="hover:text-primaryalternative"
-                />
-              </span>
-              <span
-                title="Profile information"
-                className="bg-slate-200 p-2 rounded-full cursor-pointer"
-              >
-                <DropdownMenuModified />
-              </span>
-              <span
-                title="Shopping cart"
-                className="bg-slate-200 p-2 rounded-full cursor-pointer relative"
-              >
-                <button className="w-5 h-5 p-0.5 bg-primaryalternative rounded-full text-white text-xs absolute right-0 -top-2 overflow-hidden">
-                  0
-                </button>
-                <ShoppingCart
-                  strokeWidth={1}
-                  className="hover:text-primaryalternative"
-                />
-              </span>
+              <Wishlists />
+              <CardWishlists />
+              <ProfileDropDown />
             </div>
           </div>
         </div>
