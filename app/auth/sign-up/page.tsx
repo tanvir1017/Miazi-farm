@@ -13,7 +13,7 @@ import Link from "next/link";
 
 import { useState } from "react";
 
-import { Phone, User, Verified } from "lucide-react";
+import { Mail, User, Verified } from "lucide-react";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,7 +29,7 @@ const SignUp = () => {
 
   return (
     <main className="container my-10">
-      <div className="max-w-5xl border mx-auto rounded-md overflow-hidden">
+      <div className="max-w-5xl border mx-auto rounded-xl shadow-md overflow-hidden">
         <section className="grid grid-cols-2">
           <div className="bg-[url('/assets/banners/login.webp')] bg-cover bg-center relative overflow-clip">
             <div className="px-16 py-20">
@@ -61,25 +61,30 @@ const SignUp = () => {
                 labelTex="Full Name"
                 top="[0.7rem]"
               />
-
               <div className="mt-5">
                 <StateFullTextInputLabel
                   disabled={false}
                   handleOnChange={(e) => setEmail(e.target.value)}
-                  iconComponent={
-                    <Phone strokeWidth={0.5} className="w-5 h-5" />
-                  }
+                  iconComponent={<Mail strokeWidth={0.5} className="w-5 h-5" />}
                   inputValue={email}
-                  nameText="phone_number"
-                  placeholderText="your Phone"
+                  nameText="email"
+                  placeholderText="your email"
                   requiredType={true}
-                  title="Your phone number, which we can reach you"
-                  type="number"
-                  labelTex="Phone"
-                  top={4}
+                  title="Your email, which we can reach you"
+                  type="email"
+                  labelTex="Email"
+                  top="[0.7rem]"
                 />
               </div>
-              <div className="mt-5">
+              <div
+                className="mt-5 relative"
+                style={{
+                  overflow: "hidden",
+                }}
+              >
+                <button className="absolute right-0 bottom-0 py-2.5 px-5 bg-transparent text-brand font-bold z-10">
+                  Send
+                </button>
                 <StateFullTextInputLabel
                   disabled={false}
                   handleOnChange={(e) => setEmail(e.target.value)}
@@ -90,10 +95,10 @@ const SignUp = () => {
                   nameText="verification_code"
                   placeholderText="verification code"
                   requiredType={true}
-                  title="Enter the verification code that sended to your provided phone number"
-                  type="number"
-                  labelTex="Verification code"
-                  top={4}
+                  title="enter the verification code that we sent to your  email"
+                  type="text"
+                  labelTex="Verification Code"
+                  top="[0.7rem]"
                 />
               </div>
               <div className="mt-5">

@@ -110,12 +110,16 @@ export const StateFullTextInputLabel = ({
         {labelTex}
       </span>
 
+      <span className={`${type === "email"}`}></span>
       <span
-        className={`absolute inset-y-0 pt-${top} left-0 flex items-center pl-2`}
+        className={`${
+          nameText === "verification_code" ? `pt-[1.2rem]` : `pt-${top}`
+        } absolute inset-y-0  left-0 flex items-center pl-2`}
       >
         {iconComponent}
       </span>
       <input
+        autoComplete="on"
         disabled={disabled}
         value={inputValue}
         onChange={handleOnChange}
