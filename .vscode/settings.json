@@ -1,4 +1,10 @@
 {
   "css.validate": false,
-  "cSpell.words": ["lucide", "miyazi", "primaryalternative"]
+  "cSpell.words": [
+    "blurhash",
+    "Hashdata",
+    "lucide",
+    "miyazi",
+    "primaryalternative"
+  ]
 }

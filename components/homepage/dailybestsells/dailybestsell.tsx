@@ -1,10 +1,10 @@
+import BlurImageWithBlurHash from "@/components/blurredimage";
 import {
   ButtonOutline,
   ButtonSecondary,
 } from "@/components/shadecncomponents/button";
 import { Products } from "@/data/product";
 import { Plus, ShoppingCart } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const DailySell = ({ item }: { item: Products }): any => {
@@ -18,11 +18,19 @@ const DailySell = ({ item }: { item: Products }): any => {
     price,
     rating,
     reviews,
+    blurhash,
   } = item;
   return (
-    <div className="border  hover:border-primaryalternative p-5 rounded-lg cursor-pointer">
+    <div className="border  hover:border-primaryalternative p-5 rounded-lg cursor-pointer overflow-hidden">
       <Link href={`/product/${slug}`}>
-        <Image src={image} alt={title} width={350} height={100} />
+        <BlurImageWithBlurHash
+          src={image}
+          alt={title}
+          width={350}
+          height={100}
+          placeholder="blur"
+          blurDataURL={blurhash}
+        />
       </Link>
       <Link href={`/product/${slug}`}>
         <strong>{title}</strong>

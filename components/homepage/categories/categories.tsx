@@ -1,6 +1,6 @@
 "use client";
+import BlurImageWithBlurHash from "@/components/blurredimage";
 import { productCateGories } from "@/data/categories";
-import { MinimalBlurImage } from "@/lib/blurimage";
 import Link from "next/link";
 import BannerCategories from "./bannercategories";
 
@@ -24,14 +24,14 @@ const Categories = () => {
             key={i}
             className="border hover:border-brand-foreground cursor-pointer border-gray-300 px-3 py-5 text-center hover:shadow-md transition-colors duration-300 rounded-lg"
           >
-            <MinimalBlurImage
+            <BlurImageWithBlurHash
               alt={item.title}
-              imageSrc={item.picture}
+              src={item.picture}
               width={80}
               height={100}
-              customHeight="4.875rem"
-              customStyle="bg-white/60"
-              customClass="inline-block"
+              className="inline-block  object-cover"
+              placeholder="blur"
+              blurDataURL={item.blurHashdata ?? "LvPG87.TxtIT-;RQRjoexuRjaeoe"}
             />
             <p>{item.title}</p>
           </div>

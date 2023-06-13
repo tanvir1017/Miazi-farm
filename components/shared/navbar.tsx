@@ -1,5 +1,6 @@
 "use client";
 
+import NextNProgress from "nextjs-progressbar";
 import { useEffect, useState } from "react";
 
 import { AiFillTwitterCircle } from "react-icons/ai";
@@ -26,6 +27,9 @@ export function Navbar() {
   const ignoreRoute = ["/auth/sign-up", "/auth/login"];
   return (
     <header className={`${ignoreRoute.includes(pathname) && "hidden"}`}>
+      <div className="z-20">
+        <NextNProgress color="#ff2c45" />
+      </div>
       <nav className="mb-3">
         {/*  First row of header*/}
         <div className="bg-slate-100 py-1">

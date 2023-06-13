@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/cart-dropdown-menu";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { shoppingCart } from "@/data/product";
-import Image from "next/image";
+import BlurImageWithBlurHash from "../blurredimage";
 
 export function Wishlists() {
   return (
@@ -42,13 +42,17 @@ export function Wishlists() {
                       <p>{item.rating} rating</p>
                     </span>
                   </div>
-                  <Image
-                    alt={item.title}
-                    src={item.image}
-                    width={90}
-                    height={70}
-                    className="inline-block "
-                  />
+                  <div className="overflow-hidden">
+                    <BlurImageWithBlurHash
+                      src={item.image}
+                      alt={item.title}
+                      width={90}
+                      height={70}
+                      className="inline-block"
+                      placeholder="blur"
+                      blurDataURL={item.blurhash}
+                    />
+                  </div>
                 </div>
               </DropdownMenuItem>
             ))}

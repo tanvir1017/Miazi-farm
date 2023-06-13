@@ -1,6 +1,6 @@
+import BlurImageWithBlurHash from "@/components/blurredimage";
 import { dailySells } from "@/data/product";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import { ButtonAlternative } from "../../shadecncomponents/button";
 import SectionTitle from "../../shared/sectiontitle/sectiontitle";
 import DailyBestSell from "./dailybestsell";
@@ -18,7 +18,7 @@ const DailyBestSells = () => {
       <div className="grid grid-cols-6">
         <div className="col-span-2">
           <div className="w-[20.375rem] h-[28rem]  relative overflow-hidden rounded-xl">
-            <Image
+            <BlurImageWithBlurHash
               src="/assets/covers/banner-deal.jpeg"
               alt="Banner deal with coffe cover & Daily best sell cover"
               fill
@@ -26,6 +26,8 @@ const DailyBestSells = () => {
               style={{
                 objectFit: "cover",
               }}
+              placeholder="blur"
+              blurDataURL={"L28NFD4U9cI-5[9[x@v%0P^PwHS~"}
             />
 
             <div className="cover-text absolute text-white p-10">
