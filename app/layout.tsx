@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/shared/navbar";
 
+import Footer from "@/components/shared/footer";
 import "./globals.css";
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className="font-HIND_SILIGURI_REGULAR relative">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
