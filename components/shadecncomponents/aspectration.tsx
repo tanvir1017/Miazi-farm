@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import BlurImageWithBlurHash from "../blurredimage";
 
 export function HeadingBannerWithAspectRatio({
   src,
@@ -12,13 +11,12 @@ export function HeadingBannerWithAspectRatio({
 }) {
   return (
     <AspectRatio ratio={12 / 5} className="bg-muted relative overflow-hidden">
-      <BlurImageWithBlurHash
+      <Image
         src={src}
         alt={alt}
         fill
-        className="rounded-md object-cover"
-        placeholder="blur"
-        blurDataURL="LPNKw;y?XSL}J.s9n#I[-;IURj%M"
+        priority
+        className="rounded-xl object-cover"
       />
     </AspectRatio>
   );
