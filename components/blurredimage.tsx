@@ -1,6 +1,5 @@
 "use client";
 import { WithClassName } from "@/types/common";
-import cn from "clsx";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -17,13 +16,11 @@ export default function BlurImageWithBlurHash(props: BlurImageProps) {
     <Image
       {...props}
       alt={props.alt}
-      className={ (
-        props.className,
-        "duration-700 ease-in-out",
-        isLoading
-          ? "blur-2xl scale-110"
-          : "blur-0 scale-100"
-      )}
+      className={
+        (props.className,
+        "duration-700 ease-in-out transition-all",
+        isLoading ? " blur-2xl scale-110" : "blur-0 scale-100")
+      }
       onLoadingComplete={() => setLoading(false)}
     />
   );

@@ -12,8 +12,7 @@ const BrandLogo = () => {
             width={70}
             height={70}
             priority
-            alt="Miyazi Farm Logo"
-            
+            alt="Miazi Farm Logo"
           />
         </div>
         {/* <h2 className="font-HIND_SILIGURI_BOLD text-2xl text-[#388740] absolute top-7 right-16"> */}

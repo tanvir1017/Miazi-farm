@@ -22,17 +22,20 @@ const Categories = () => {
         {productCateGories.map((item, i) => (
           <div
             key={i}
-            className="border hover:border-brand-foreground cursor-pointer border-gray-300 px-3 py-5 text-center hover:shadow-md transition-colors duration-300 rounded-lg"
+            className="border hover:border-brand-foreground cursor-pointer border-gray-300 px-3 py-5 text-center hover:shadow-md transition-colors duration-300 rounded-lg "
           >
-            <BlurImageWithBlurHash
-              alt={item.title}
-              src={item.picture}
-              width={80}
-              height={100}
-              className="inline-block  object-cover"
-              placeholder="blur"
-              blurDataURL={item.blurHashdata ?? "LvPG87.TxtIT-;RQRjoexuRjaeoe"}
-            />
+            <div className="mx-auto inline-block">
+              <BlurImageWithBlurHash
+                alt={item.title}
+                src={item.picture}
+                width={80}
+                height={100}
+                placeholder="blur"
+                blurDataURL={
+                  item.blurHashdata ?? "LvPG87.TxtIT-;RQRjoexuRjaeoe"
+                }
+              />
+            </div>
             <p>{item.title}</p>
           </div>
         ))}

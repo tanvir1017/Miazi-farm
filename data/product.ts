@@ -14,10 +14,10 @@ export const products: Products[] = [
   {
     title: "Fresh Banana",
     slug: "Fresh-Banana",
-    brand: "Miyazi Farm",
+    brand: "Miazi Farm",
     price: 0.99,
     description:
-      "Experience the freshness of Miyazi Farm's Fresh Banana. This nutritious fruit is rich in potassium and provides a natural source of energy. With its sweet and creamy taste, Fresh Banana is a versatile ingredient for smoothies, desserts, and healthy snacks. Add a touch of freshness to your day with Miyazi Farm's Fresh Banana.",
+      "Experience the freshness of Miazi Farm's Fresh Banana. This nutritious fruit is rich in potassium and provides a natural source of energy. With its sweet and creamy taste, Fresh Banana is a versatile ingredient for smoothies, desserts, and healthy snacks. Add a touch of freshness to your day with Miazi Farm's Fresh Banana.",
     features: [
       "Rich in potassium and nutrients",
       "Natural source of energy",
@@ -32,10 +32,10 @@ export const products: Products[] = [
   {
     title: "Fresh Apple",
     slug: "Fresh-Apple",
-    brand: "Miyazi Farm",
+    brand: "Miazi Farm",
     price: 1.29,
     description:
-      "Discover the crispness and juiciness of Miyazi Farm's Fresh Apple. Bursting with flavor, this refreshing fruit is a perfect choice for a healthy snack or as an ingredient in salads and baked goods. Packed with essential vitamins and antioxidants, Fresh Apple supports overall well-being. Experience the goodness of Miyazi Farm's Fresh Apple.",
+      "Discover the crispness and juiciness of Miazi Farm's Fresh Apple. Bursting with flavor, this refreshing fruit is a perfect choice for a healthy snack or as an ingredient in salads and baked goods. Packed with essential vitamins and antioxidants, Fresh Apple supports overall well-being. Experience the goodness of Miazi Farm's Fresh Apple.",
     features: [
       "Crisp and juicy texture",
       "Refreshing and flavorful",
@@ -50,10 +50,10 @@ export const products: Products[] = [
   {
     title: "Crushed Tomatoes",
     slug: "Crushed-Tomatoes",
-    brand: "Miyazi Farm",
+    brand: "Miazi Farm",
     price: 1.99,
     description:
-      "Experience the rich and tangy flavor of Miyazi Farm's Crushed Tomatoes. Made from ripe and juicy tomatoes, these crushed tomatoes are perfect for creating delicious sauces, soups, and stews. Their vibrant color and smooth texture add a delightful touch to your culinary creations. Elevate your dishes with the exceptional taste of Miyazi Farm's Crushed Tomatoes.",
+      "Experience the rich and tangy flavor of Miazi Farm's Crushed Tomatoes. Made from ripe and juicy tomatoes, these crushed tomatoes are perfect for creating delicious sauces, soups, and stews. Their vibrant color and smooth texture add a delightful touch to your culinary creations. Elevate your dishes with the exceptional taste of Miazi Farm's Crushed Tomatoes.",
     features: [
       "Made from ripe and juicy tomatoes",
       "Ideal for sauces, soups, and stews",
@@ -104,10 +104,10 @@ export const products: Products[] = [
   {
     title: "Blueberry Greek Yogurt",
     slug: "Blueberry-Greek-Yogurt",
-    brand: "Miyazi Farm",
+    brand: "Miazi Farm",
     price: 3.99,
     description:
-      "Experience the tangy and creamy delight of Miyazi Farm Blueberry Greek Yogurt. Made with authentic Greek yogurt culture and luscious blueberries, this yogurt offers a refreshing and nutritious snack. Packed with protein and probiotics, it promotes gut health and satisfies your cravings. Enjoy the creamy texture and burst of blueberry flavor with Miyazi Farm Blueberry Greek Yogurt.",
+      "Experience the tangy and creamy delight of Miazi Farm Blueberry Greek Yogurt. Made with authentic Greek yogurt culture and luscious blueberries, this yogurt offers a refreshing and nutritious snack. Packed with protein and probiotics, it promotes gut health and satisfies your cravings. Enjoy the creamy texture and burst of blueberry flavor with Miazi Farm Blueberry Greek Yogurt.",
     features: [
       "Made with authentic Greek yogurt culture",
       "Infused with luscious blueberries",
@@ -122,10 +122,10 @@ export const products: Products[] = [
   {
     title: "Beatroot",
     slug: "Beatroot",
-    brand: "Miyazi Farm",
+    brand: "Miazi Farm",
     price: 0.99,
     description:
-      "Discover the vibrant and earthy flavors of Miyazi Farm Beetroot. Grown with care, this nutritious root vegetable is known for its rich color and unique taste. Packed with vitamins, minerals, and antioxidants, beetroot offers numerous health benefits. Incorporate it into salads, soups, or roast it for a delicious side dish. Embrace the natural goodness of Miyazi Farm Beetroot.",
+      "Discover the vibrant and earthy flavors of Miazi Farm Beetroot. Grown with care, this nutritious root vegetable is known for its rich color and unique taste. Packed with vitamins, minerals, and antioxidants, beetroot offers numerous health benefits. Incorporate it into salads, soups, or roast it for a delicious side dish. Embrace the natural goodness of Miazi Farm Beetroot.",
     features: [
       "Vibrant and earthy flavors",
       "Rich in vitamins, minerals, and antioxidants",
@@ -176,7 +176,7 @@ export const products: Products[] = [
   {
     title: "Napolitanke Ljesnjak",
     slug: "Napolitanke-Ljesnjak",
-    brand: "Miyazi Farm",
+    brand: "Miazi Farm",
     price: 2.99,
     description:
       "Napolitanke Ljesnjak is a delightful hazelnut wafer biscuit that will satisfy your sweet cravings. Made with layers of crispy wafer and a rich hazelnut filling, it offers a perfect balance of textures and flavors. Whether enjoyed with a cup of coffee or as a snack on its own, Napolitanke Ljesnjak is a delicious treat that will leave you wanting more.",
@@ -194,7 +194,7 @@ export const products: Products[] = [
   {
     title: "NutriChoice Digestive",
     slug: "NutriChoice-Digestive",
-    brand: "Miyazi Farm",
+    brand: "Miazi Farm",
     price: 2.49,
     description:
       "NutriChoice Digestive biscuits are a wholesome and nutritious snack. Made with whole wheat flour and a blend of natural ingredients, these biscuits offer a perfect balance of taste and health. They are rich in fiber and provide a feeling of satiety. Enjoy NutriChoice Digestive biscuits as a guilt-free snack or as an accompaniment to tea or coffee.",
@@ -212,10 +212,10 @@ export const products: Products[] = [
   {
     title: "Onion Flavour Potato",
     slug: "Onion-Flavour-Potato",
-    brand: "Miyazi Farm",
+    brand: "Miazi Farm",
     price: 1.49,
     description:
-      "Savor the delicious taste of Miyazi Farm Onion Flavour Potato chips. Made from premium quality potatoes and seasoned with a delightful onion flavor, these chips are a perfect snack for any occasion. Enjoy the crispy texture and mouthwatering taste of Miyazi Farm Onion Flavour Potato chips with friends and family.",
+      "Savor the delicious taste of Miazi Farm Onion Flavour Potato chips. Made from premium quality potatoes and seasoned with a delightful onion flavor, these chips are a perfect snack for any occasion. Enjoy the crispy texture and mouthwatering taste of Miazi Farm Onion Flavour Potato chips with friends and family.",
     features: [
       "Made from premium quality potatoes",
       "Delightful onion flavor",
@@ -268,10 +268,10 @@ export const dailySells: Products[] = [
   {
     title: "Onion Flavour Potato",
     slug: "Onion-Flavour-Potato",
-    brand: "Miyazi Farm",
+    brand: "Miazi Farm",
     price: 1.49,
     description:
-      "Savor the delicious taste of Miyazi Farm Onion Flavour Potato chips. Made from premium quality potatoes and seasoned with a delightful onion flavor, these chips are a perfect snack for any occasion. Enjoy the crispy texture and mouthwatering taste of Miyazi Farm Onion Flavour Potato chips with friends and family.",
+      "Savor the delicious taste of Miazi Farm Onion Flavour Potato chips. Made from premium quality potatoes and seasoned with a delightful onion flavor, these chips are a perfect snack for any occasion. Enjoy the crispy texture and mouthwatering taste of Miazi Farm Onion Flavour Potato chips with friends and family.",
     features: [
       "Made from premium quality potatoes",
       "Delightful onion flavor",
@@ -324,10 +324,10 @@ export const shoppingCart: Products[] = [
   {
     title: "Onion Flavour Potato",
     slug: "Onion-Flavour-Potato",
-    brand: "Miyazi Farm",
+    brand: "Miazi Farm",
     price: 1.49,
     description:
-      "Savor the delicious taste of Miyazi Farm Onion Flavour Potato chips. Made from premium quality potatoes and seasoned with a delightful onion flavor, these chips are a perfect snack for any occasion. Enjoy the crispy texture and mouthwatering taste of Miyazi Farm Onion Flavour Potato chips with friends and family.",
+      "Savor the delicious taste of Miazi Farm Onion Flavour Potato chips. Made from premium quality potatoes and seasoned with a delightful onion flavor, these chips are a perfect snack for any occasion. Enjoy the crispy texture and mouthwatering taste of Miazi Farm Onion Flavour Potato chips with friends and family.",
     features: [
       "Made from premium quality potatoes",
       "Delightful onion flavor",

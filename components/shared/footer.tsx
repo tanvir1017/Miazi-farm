@@ -71,7 +71,7 @@ const Footer = () => {
             ))}
           </div>
           <div>
-            <strong className="mb-5 inline-block">Miyazi Farm programs</strong>
+            <strong className="mb-5 inline-block">Miazi Farm programs</strong>
             {programs.map((item, i) => (
               <div key={i}>
                 <Link
@@ -99,7 +99,7 @@ const Footer = () => {
             />
           </div>{" "}
           <div className="flex items-center justify-end">
-            <strong className="mr-5">Get deliveries with Miyazi Farms</strong>
+            <strong className="mr-5">Get deliveries with Miazi Farms</strong>
             <div className="flex items-center lg:space-x-2">
               <Image
                 className="border-l-1 border"
