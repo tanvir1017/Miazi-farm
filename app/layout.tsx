@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/shared/navbar";
 
+import { CardWishlists } from "@/components/shadecncomponents/cartdropdown";
 import Footer from "@/components/shared/footer";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { RiInstagramFill } from "react-icons/ri";
@@ -19,6 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-HIND_SILIGURI_REGULAR relative">
+        <div className="handy-cart fixed bottom-5 right-5">
+          <CardWishlists />
+        </div>
         <div className="bg-slate-100 py-1">
           <div className="container flex justify-between items-center">
             <p>Help Line: +98754698</p>
