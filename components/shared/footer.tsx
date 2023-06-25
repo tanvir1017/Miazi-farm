@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import {
   about,
   becomeAShopper,
@@ -9,17 +9,18 @@ import {
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
-  // const pathname = usePathname();
-  // const ignoreRoute = ["/shop"];
+  const pathname = usePathname();
+  const ignoreRoute = ["/auth/login", "/auth/sign-up"];
   return (
-    // <footer
-    //   className={`${
-    //     ignoreRoute.includes(pathname) && "hidden"
-    //   }  bg-secondary py-20`}
-    // >
-    <footer className={`bg-secondary py-20`}>
+    <footer
+      className={`${
+        ignoreRoute.includes(pathname) && "hidden"
+      }  bg-secondary py-20`}
+    >
+      {/* <footer className={`bg-secondary py-20`}> */}
       <div className="container">
         <div className="grid grid-cols-6 gap-5">
           <div className="col-span-2">

@@ -1,7 +1,7 @@
-import { Navbar } from "@/components/shared/navbar";
 
 import { CardWishlists } from "@/components/shadecncomponents/cartdropdown";
 import Footer from "@/components/shared/footer";
+import { Navbar } from "@/components/shared/navbar";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { RiInstagramFill } from "react-icons/ri";
 import { SiFacebook } from "react-icons/si";
@@ -10,16 +10,20 @@ import "./globals.css";
 export const metadata = {
   title: "Miazi Farm",
   description: "Grocery will sent door to door",
+  
 };
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+  }) {
+  
+
   return (
     <html lang="en">
       <body className="font-HIND_SILIGURI_REGULAR relative">
+          
         <div className="handy-cart fixed bottom-5 right-5">
           <CardWishlists />
         </div>
@@ -46,6 +50,8 @@ export default function RootLayout({
             </span>
           </div>
         </div>
+        
+      
         <Navbar />
         {children}
         <Footer />

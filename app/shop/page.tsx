@@ -5,12 +5,35 @@ import { SortBySelect } from "@/components/shadecncomponents/sortbyselect";
 import { Slider } from "@/components/ui/slider";
 import { productCateGories } from "@/data/categories";
 import { products } from "@/data/product";
-import { cn } from "@/utils/utils";
+import { cn } from "@/lib/utils";
 import { LayoutDashboard, LayoutList } from "lucide-react";
 import { useState } from "react";
+import useSWR from 'swr';
+
+
+const fetcher = (url:string) => fetch(url).then(res => res.json())
 
 const Shop = () => {
   const [viewCol, setViewCol] = useState<"grid" | "list">("grid");
+  const { data, error, isLoading } = useSWR('/api/products', fetcher)
+
+  let content = null;
+  
+  if (!error && !data && isLoading) {
+    content = <p>Loading..</p>
+  }
+  if (!isLoading && !data  && error) {
+    content = <p>Error found</p>
+  }
+  if (!isLoading && !error && data) {
+    content = <div
+            className={`grid grid-cols-${viewCol !== "grid" ? "1" : "4"} gap-3`}
+          >
+            {products.map((item, i) => (
+              <Product key={i} item={item} />
+            ))}
+          </div>
+    }
   return (
     <main className="App container ">
       <div className="grid grid-cols-12 gap-4 place-items-start mt-4 ">
@@ -92,13 +115,7 @@ const Shop = () => {
               </span>
             </div>
           </div>
-          <div
-            className={`grid grid-cols-${viewCol !== "grid" ? "1" : "4"} gap-3`}
-          >
-            {products.map((item, i) => (
-              <Product key={i} item={item} />
-            ))}
-          </div>
+        {content}
         </section>
       </div>
     </main>

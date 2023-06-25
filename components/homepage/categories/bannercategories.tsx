@@ -1,3 +1,5 @@
+"use client";
+
 import { ButtonSecondary } from "@/components/shadecncomponents/button";
 import Image from "next/image";
 import { BsArrowRightShort } from "react-icons/bs";
@@ -19,14 +21,13 @@ const BannerCategories = () => {
             Fruits & Vegetables
           </h1>
           <p className="text-accent-foreground">Get Upto 30% Off</p>
-          <div className=" mt-2">
-            <ButtonSecondary>
-              shop now
-              <span className="ml-2">
-                <BsArrowRightShort className="font-HIND_SILIGURI_LIGHT text-base" />
-              </span>
-            </ButtonSecondary>
-          </div>
+
+          <ButtonSecondary>
+            shop now
+            <span className="ml-2">
+              <BsArrowRightShort className="font-HIND_SILIGURI_LIGHT text-base" />
+            </span>
+          </ButtonSecondary>
         </div>
       </div>
       <div className="relative overflow-clip">
