@@ -1,39 +1,40 @@
 "use client";
+import Error from "@/components/error";
 import Product from "@/components/homepage/products/product";
 import { ButtonOutline } from "@/components/shadecncomponents/button";
 import { SortBySelect } from "@/components/shadecncomponents/sortbyselect";
 import { Slider } from "@/components/ui/slider";
 import { productCateGories } from "@/data/categories";
-import { products } from "@/data/product";
+import { fetcher } from "@/lib/fetcher";
 import { cn } from "@/lib/utils";
+import { ProductData, ProductPropertiesType } from "@/types/common";
 import { LayoutDashboard, LayoutList } from "lucide-react";
 import { useState } from "react";
-import useSWR from 'swr';
-
-
-const fetcher = (url:string) => fetch(url).then(res => res.json())
+import useSWR from "swr";
 
 const Shop = () => {
   const [viewCol, setViewCol] = useState<"grid" | "list">("grid");
-  const { data, error, isLoading } = useSWR('/api/products', fetcher)
+  const {
+    data: products,
+    error,
+    isLoading,
+  }: ProductData = useSWR("/api/product", fetcher);
 
   let content = null;
-  
-  if (!error && !data && isLoading) {
-    content = <p>Loading..</p>
+
+  if (isLoading) content = <p className="container">Loading..</p>;
+
+  if (error) content = <Error />;
+
+  if (products) {
+    content = (
+      <div className={`grid grid-cols-${viewCol !== "grid" ? "1" : "4"} gap-3`}>
+        {products.data.map((item: ProductPropertiesType, i: number) => (
+          <Product key={i} item={item} />
+        ))}
+      </div>
+    );
   }
-  if (!isLoading && !data  && error) {
-    content = <p>Error found</p>
-  }
-  if (!isLoading && !error && data) {
-    content = <div
-            className={`grid grid-cols-${viewCol !== "grid" ? "1" : "4"} gap-3`}
-          >
-            {products.map((item, i) => (
-              <Product key={i} item={item} />
-            ))}
-          </div>
-    }
   return (
     <main className="App container ">
       <div className="grid grid-cols-12 gap-4 place-items-start mt-4 ">
@@ -115,7 +116,7 @@ const Shop = () => {
               </span>
             </div>
           </div>
-        {content}
+          {content}
         </section>
       </div>
     </main>

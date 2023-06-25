@@ -4,3 +4,8 @@ export interface ContextType{
         id?:string | number
     }
 }
+export interface ResponseDataType<T>{
+    success: boolean,
+    message: string,
+    data:T
+}
