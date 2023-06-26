@@ -10,22 +10,20 @@ export async function GET(req: Request) {
   const products = await Products.find({});
   if (!products) {
     return new NextResponse<CaptureResponseType_Generics>(
-    JSON.stringify({
-      success: false,
-      message: "Failed to retrieve products data",
-      data:[]
-    })
-  );
-  } 
+      JSON.stringify({
+        success: false,
+        message: "Failed to retrieve products data",
+        data: [],
+      })
+    );
+  }
   return new NextResponse<CaptureResponseType_Generics>(
     JSON.stringify({
       success: true,
       message: "Retrieve all data from database",
-      data:products
+      data: products,
     })
   );
-
-  
 }
 
 export async function POST(req: Request) {

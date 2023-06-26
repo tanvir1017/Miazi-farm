@@ -15,9 +15,9 @@ const Products = () => {
   }: ProductData = useSWR("/api/product", fetcher);
 
   let content = null;
-  if (isLoading) content = <p>Loading..</p>;
-  if (error) content = <Error />;
-  if (products) {
+  if (!error && !products && isLoading) content = <p>Loading..</p>;
+  if (!products && !isLoading && error) content = <Error />;
+  if (!error && !isLoading && products) {
     content = (
       <div className="grid grid-cols-5 gap-3">
         {products.data.map((item: ProductPropertiesType, i: number) => (

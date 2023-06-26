@@ -1,4 +1,5 @@
 "use client";
+import BlurImageWithBlurHash from "@/components/blurredimage";
 import Error from "@/components/error";
 import { ButtonAlternative } from "@/components/shadecncomponents/button";
 import { fetcher } from "@/lib/fetcher";
@@ -14,21 +15,21 @@ const ProductDetails = ({ params }: { params: { id: string } }) => {
     isLoading,
   }: ViewProductDataType = useSWR(`/api/product/${id}`, fetcher);
   let content = null;
-  if (isLoading) content = <p>Loading...</p>;
-  if (error) content = <Error />;
-  if (product) {
+  if (!error && !product && isLoading) content = <p>Loading...</p>;
+  if (!product && !isLoading && error) content = <Error />;
+  if (!error && !isLoading && product) {
     content = (
       <>
         <div className="grid grid-cols-2 place-items-center">
           <div>
-            {/* <BlurImageWithBlurHash
-              src={`${product.image}`}
-              alt={product.title}
+            <BlurImageWithBlurHash
+              src={`${product.data.image}`}
+              alt={product.data.title}
               width={500}
               height={100}
               placeholder="blur"
-              blurDataURL={product.blurhash}
-            /> */}
+              blurDataURL={product.data.blurhash}
+            />
           </div>
           <div>
             <h2>{product.data.title}</h2>

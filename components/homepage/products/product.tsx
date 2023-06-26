@@ -22,7 +22,7 @@ const Product = ({ item }: { item: ProductPropertiesType }) => {
           blurDataURL={blurhash}
         />
       </Link>
-      <Link href={`/product/${slug}`}>
+      <Link href={`/product/${_id}`}>
         <strong>{title}</strong>
       </Link>
       <p>{rating}</p>

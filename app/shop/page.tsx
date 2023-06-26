@@ -22,11 +22,12 @@ const Shop = () => {
 
   let content = null;
 
-  if (isLoading) content = <p className="container">Loading..</p>;
+  if (!error && !products && isLoading)
+    content = <p className="container">Loading..</p>;
 
-  if (error) content = <Error />;
+  if (!products && !isLoading && error) content = <Error />;
 
-  if (products) {
+  if (!error && !isLoading && products) {
     content = (
       <div className={`grid grid-cols-${viewCol !== "grid" ? "1" : "4"} gap-3`}>
         {products.data.map((item: ProductPropertiesType, i: number) => (
