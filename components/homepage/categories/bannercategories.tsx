@@ -22,12 +22,14 @@ const BannerCategories = () => {
           </h1>
           <p className="text-accent-foreground">Get Upto 30% Off</p>
 
-          <ButtonSecondary>
-            shop now
-            <span className="ml-2">
-              <BsArrowRightShort className="font-HIND_SILIGURI_LIGHT text-base" />
-            </span>
-          </ButtonSecondary>
+          <div className=" mt-2">
+            <ButtonSecondary>
+              shop now
+              <span className="ml-2">
+                <BsArrowRightShort className="font-HIND_SILIGURI_LIGHT text-base" />
+              </span>
+            </ButtonSecondary>
+          </div>
         </div>
       </div>
       <div className="relative overflow-clip">

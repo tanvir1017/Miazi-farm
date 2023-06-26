@@ -1,12 +1,13 @@
-import ConnectToDB from "@/lib/db.connector";
 import { default as Products } from "@/models/testmodel";
 
+import dbConnect from "@/lib/db.connector";
 import { NextResponse } from "next/server";
 import { CaptureResponseType_Generics } from "./product.type";
 
 export async function GET(req: Request) {
-  await ConnectToDB();
-
+  console.log("connecting to db");
+  await dbConnect();
+  console.log("connected to db");
   const products = await Products.find({});
   if (!products) {
     return new NextResponse<CaptureResponseType_Generics>(
@@ -30,8 +31,9 @@ export async function POST(req: Request) {
   // graving document data from client
   const body = await req.json();
 
-  // connecting to database
-  await ConnectToDB();
+  console.log("connecting to db");
+  await dbConnect();
+  console.log("connected to db");
 
   const postProduct = await Products.create(body);
   if (postProduct) {
