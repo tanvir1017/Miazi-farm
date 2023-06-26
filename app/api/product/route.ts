@@ -1,15 +1,28 @@
 import ConnectToDB from "@/lib/db.connector";
-import { default as Products, default as TestModel } from "@/models/testmodel";
+import { default as Products } from "@/models/testmodel";
 
 import { NextResponse } from "next/server";
+import { CaptureResponseType_Generics } from "./product.type";
 
 export async function GET(req: Request) {
   await ConnectToDB();
 
-  const products = await TestModel.find({});
-
-  return new NextResponse(
-    JSON.stringify({products})
+  const products = await Products.find({});
+  if (!products) {
+    return new NextResponse<CaptureResponseType_Generics>(
+      JSON.stringify({
+        success: false,
+        message: "Failed to retrieve products data",
+        data: [],
+      })
+    );
+  }
+  return new NextResponse<CaptureResponseType_Generics>(
+    JSON.stringify({
+      success: true,
+      message: "Retrieve all data from database",
+      data: products,
+    })
   );
 }
 

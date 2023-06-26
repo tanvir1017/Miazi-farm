@@ -3,26 +3,16 @@ import {
   ButtonOutline,
   ButtonSecondary,
 } from "@/components/shadecncomponents/button";
-import { Products } from "@/data/product";
+import { ProductPropertiesType } from "@/types/common";
+
 import { Plus, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
-const Product = ({ item }: { item: Products }): any => {
-  const {
-    brand,
-    description,
-    features,
-    slug,
-    image,
-    title,
-    price,
-    rating,
-    reviews,
-    blurhash,
-  } = item;
+const Product = ({ item }: { item: ProductPropertiesType }) => {
+  const { slug, image, title, price, rating, blurhash, _id } = item;
   return (
     <div className="border  hover:border-primaryalternative p-5 rounded-lg cursor-pointer overflow-hidden">
-      <Link href={`/product/${slug}`} className="overflow-hidden">
+      <Link href={`/product/${_id}`} className="overflow-hidden">
         <BlurImageWithBlurHash
           src={image}
           alt={title}
@@ -32,7 +22,7 @@ const Product = ({ item }: { item: Products }): any => {
           blurDataURL={blurhash}
         />
       </Link>
-      <Link href={`/product/${slug}`}>
+      <Link href={`/product/${_id}`}>
         <strong>{title}</strong>
       </Link>
       <p>{rating}</p>

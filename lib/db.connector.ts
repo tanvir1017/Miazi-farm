@@ -4,9 +4,9 @@ import mongoose from "mongoose";
 async function ConnectToDB() {
   try {
     console.log("connecting database");
-    console.log(process.env.MONGODB_URI);
-    await mongoose.connect(process.env.MONGODB_URI as string, {
+    mongoose.connect(process.env.MONGODB_URI as string, {
       useNewUrlParser: true,
+      maxPoolSize: 10,
       useUnifiedTopology: true,
     });
     console.log("database is connected");
