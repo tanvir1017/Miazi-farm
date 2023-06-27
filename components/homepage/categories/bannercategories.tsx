@@ -13,7 +13,7 @@ const BannerCategories = () => {
           alt="card banner categories"
           width={700}
           height={90}
-          className="w-full h-64 object-cover"
+          className="w-full h-64 object-cover rounded-lg"
           priority
         />
         <div className="absolute inset-y-0 px-5 mt-16">
@@ -21,8 +21,7 @@ const BannerCategories = () => {
             Fruits & Vegetables
           </h1>
           <p className="text-accent-foreground">Get Upto 30% Off</p>
-
-          <div className=" mt-2">
+          <div className="mt-2">
             <ButtonSecondary>
               shop now
               <span className="ml-2">
@@ -38,7 +37,7 @@ const BannerCategories = () => {
           alt="card banner categories"
           width={700}
           height={90}
-          className="w-full h-64 object-cover"
+          className="w-full h-64 object-cover rounded-lg"
           priority
         />
 
