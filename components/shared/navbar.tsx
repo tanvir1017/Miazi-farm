@@ -1,12 +1,10 @@
 "use client";
-
-import { useEffect, useState } from "react";
-
 import { Search } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { CardWishlists } from "../shadecncomponents/cartdropdown";
 import { ShadeCnNavbar } from "../shadecncomponents/navbar";
-import { ProfileDropDown } from "../shadecncomponents/profile";
+import { ProfileDropDown } from "../shadecncomponents/profiledropdown";
 import BrandLogo from "./brandlogo/brandlogo";
 
 export function Navbar() {

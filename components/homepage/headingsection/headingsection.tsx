@@ -5,12 +5,13 @@ import { BsArrowRightShort } from "react-icons/bs";
 const HeadingSection = () => {
   return (
     <section className="container ">
-      <div className="max-w-[75.8rem] h-[500px] m-auto relative  rounded-lg my-10 p-5 -z-10">
-        <HeadingBannerWithAspectRatio
-          src="/assets/covers/slider_background.jpeg"
-          alt="Heading slider cover"
-        />
-
+      <div className="max-w-[75.8rem] h-[500px] m-auto relative  rounded-lg my-10 p-5 ">
+        <div className="-z-10">
+          <HeadingBannerWithAspectRatio
+            src="/assets/covers/slider_background.jpeg"
+            alt="Heading slider cover"
+          />
+        </div>
         <div className="absolute px-11 inset-y-0 pt-28">
           <strong className="bg-brand px-5 text-white font-HIND_SILIGURI_LIGHT ">
             Opening sale discount 50%

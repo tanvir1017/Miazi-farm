@@ -1,3 +1,7 @@
+import { ShoppingCart } from "lucide-react";
+import { ScrollArea } from "../../components/ui/scroll-area";
+import { shoppingCart } from "../../data/product";
+import BlurImageWithBlurHash from "../blurredimage";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,11 +10,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/cart-dropdown-menu";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { shoppingCart } from "@/data/product";
-import { ShoppingCart } from "lucide-react";
-import BlurImageWithBlurHash from "../blurredimage";
+} from "../ui/cart-dropdown-menu";
 
 export function CardWishlists() {
   return (
