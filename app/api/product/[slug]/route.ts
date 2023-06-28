@@ -1,8 +1,8 @@
+import ConnectToDB from "@/backend/lib/db.connector";
+import Products from "@/backend/models/testmodel";
+import { CaptureResponseType_Generics } from "@/backend/types/product.type";
 import { ContextType } from "@/interfaces/api/common";
-import ConnectToDB from "@/lib/db.connector";
-import Products from "@/models/testmodel";
 import { NextResponse } from "next/server";
-import { CaptureResponseType_Generics } from "../product.type";
 
 export async function GET(request: Request, context: ContextType) {
   const {

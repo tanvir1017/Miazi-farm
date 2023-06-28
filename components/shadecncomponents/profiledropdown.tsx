@@ -32,9 +32,7 @@ import Image from "next/image";
 
 export function ProfileDropDown() {
   const { data: session } = useSession();
-  const handleSignInWithGoogle = () => {
-    signIn("google");
-  };
+
   // Merged from api-endpoint
 
   return (
@@ -48,7 +46,10 @@ export function ProfileDropDown() {
               placeholder="blur"
               fill
               alt={session?.user?.name ?? ""}
-              src={session?.user?.image as string}
+              src={
+                session?.user?.image ||
+                ("/assets/icons/user-check.svg" as string)
+              }
             />
           </div>
         ) : (
@@ -87,38 +88,41 @@ export function ProfileDropDown() {
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
+        {session && (
+          <DropdownMenuItem onClick={() => signOut()}>
+            <VscSignOut className="mr-2 h-4 w-4" />
+            <span>Signout</span>
+          </DropdownMenuItem>
+        )}
+        {!session && (
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Registration</span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <Link href="/auth/login">
+                  {/* <DropdownMenuItem disabled={session?.user && true}> */}
+                  <DropdownMenuItem>
+                    <Mail className="mr-2 h-4 w-4" />
+                    <span>Login/Sign-up</span>
+                  </DropdownMenuItem>
+                </Link>
 
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
-            <LogOut className="mr-2 h-4 w-4" />
-            <span>Registration</span>
-          </DropdownMenuSubTrigger>
-          <DropdownMenuPortal>
-            <DropdownMenuSubContent>
-              <Link href="/auth/login">
-                <DropdownMenuItem>
-                  <Mail className="mr-2 h-4 w-4" />
-                  <span>Login/Sign-up</span>
-                </DropdownMenuItem>
-              </Link>
-              {session && session.user ? (
-                <DropdownMenuItem onClick={() => signOut()}>
-                  <VscSignOut className="mr-2 h-4 w-4" />
-                  <span>Signout</span>
-                </DropdownMenuItem>
-              ) : (
-                <DropdownMenuItem onClick={handleSignInWithGoogle}>
+                <DropdownMenuItem onClick={() => signIn("google")}>
                   <FcGoogle className="mr-2 h-4 w-4" />
                   <span>Google</span>
                 </DropdownMenuItem>
-              )}
-              <DropdownMenuItem>
-                <FaFacebook className="text-sky-500 mr-2 h-4 w-4" />
-                <span>Facebook</span>
-              </DropdownMenuItem>
-            </DropdownMenuSubContent>
-          </DropdownMenuPortal>
-        </DropdownMenuSub>
+
+                <DropdownMenuItem disabled={session === true}>
+                  <FaFacebook className="text-sky-500 mr-2 h-4 w-4" />
+                  <span>Facebook</span>
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );

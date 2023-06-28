@@ -1,8 +1,8 @@
-import { default as Products } from "@/models/testmodel";
+import { default as Products } from "@/backend/models/testmodel";
 
-import dbConnect from "@/lib/db.connector";
+import dbConnect from "@/backend/lib/db.connector";
+import { CaptureResponseType_Generics } from "@/backend/types/product.type";
 import { NextResponse } from "next/server";
-import { CaptureResponseType_Generics } from "./product.type";
 
 export async function GET(req: Request) {
   console.log("connecting to db");

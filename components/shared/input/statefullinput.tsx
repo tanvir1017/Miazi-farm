@@ -1,4 +1,4 @@
-import { EyeOff, Lock, View } from "lucide-react";
+import { Fingerprint, Lock } from "lucide-react";
 
 type TextInputLabelPropsType = {
   disabled: boolean;
@@ -74,9 +74,9 @@ export const StateFullPasswordInputLabel = ({
           onClick={onClickFunc}
         >
           {seePassword ? (
-            <EyeOff strokeWidth={0.5} className="text-gray-500" />
+            <Fingerprint className="text-black" />
           ) : (
-            <View strokeWidth={0.5} className="text-gray-500" />
+            <Fingerprint strokeWidth={0.5} className="text-gray-500" />
           )}
         </button>
       )}

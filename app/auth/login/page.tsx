@@ -12,10 +12,13 @@ import {
 } from "@/components/shared/input/statefullinput";
 import Link from "next/link";
 
+import { ChevronLeft, MailCheck } from "lucide-react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { ChevronLeft, MailCheck } from "lucide-react";
 const Login = () => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [seePassWord, setSeePassWord] = useState<boolean>(false);
@@ -28,6 +31,20 @@ const Login = () => {
     }
   };
 
+  // Form submission
+  const handleOnSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const statusOfCredentialLogin = await signIn("credentials", {
+      redirect: false,
+      email: email,
+      password: password,
+      callbackUrl: "/",
+    });
+    if (statusOfCredentialLogin?.ok) {
+      router.push(statusOfCredentialLogin.url as string);
+    }
+  };
   return (
     <main className="container my-10 ">
       <div className="max-w-5xl border mx-auto rounded-md shadow-md overflow-hidden">
@@ -53,7 +70,7 @@ const Login = () => {
               <BrandLogo />
             </div>
 
-            <form className="px-10 pt-10">
+            <form className="px-10 pt-10" onSubmit={handleOnSubmit}>
               <StateFullTextInputLabel
                 disabled={false}
                 handleOnChange={(e) => setEmail(e.target.value)}

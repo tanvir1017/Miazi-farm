@@ -16,16 +16,40 @@ import { useState } from "react";
 
 import { ChevronLeft, Mail, User, Verified } from "lucide-react";
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // String states
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [verificationCode, setVerificationCode] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [cPassword, setCPassword] = useState<string>("");
+
+  // Boolean states
   const [seePassWord, setSeePassWord] = useState<boolean>(false);
+  const [seeConfirmPassWord, setSeeConfirmPassWord] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const handelPasswordEye = () => {
-    if (seePassWord) {
-      setSeePassWord(false);
+
+  // Toggle between see the password or hide it
+  const handelPasswordEye = (type: string) => {
+    if (type !== "seeConfirmPassword") {
+      if (seePassWord) {
+        setSeePassWord(false);
+      } else {
+        setSeePassWord(true);
+      }
     } else {
-      setSeePassWord(true);
+      if (seeConfirmPassWord) {
+        setSeeConfirmPassWord(false);
+      } else {
+        setSeeConfirmPassWord(true);
+      }
     }
+  };
+
+  // Form submission
+  const handleOnSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    console.log(email, password, verificationCode, name);
   };
 
   return (
@@ -53,12 +77,12 @@ const SignUp = () => {
               <BrandLogo />
             </div>
 
-            <form className="px-10 pt-10">
+            <form className="px-10 pt-10" onSubmit={handleOnSubmit}>
               <StateFullTextInputLabel
                 disabled={false}
-                handleOnChange={(e) => setEmail(e.target.value)}
+                inputValue={name}
+                handleOnChange={(e) => setName(e.target.value)}
                 iconComponent={<User strokeWidth={0.5} className="w-5 h-5" />}
-                inputValue={email}
                 nameText="full_name"
                 placeholderText="Full Name"
                 requiredType={true}
@@ -93,11 +117,11 @@ const SignUp = () => {
                 </button>
                 <StateFullTextInputLabel
                   disabled={false}
-                  handleOnChange={(e) => setEmail(e.target.value)}
+                  inputValue={verificationCode}
+                  handleOnChange={(e) => setVerificationCode(e.target.value)}
                   iconComponent={
                     <Verified strokeWidth={0.5} className="w-5 h-5" />
                   }
-                  inputValue={email}
                   nameText="verification_code"
                   placeholderText="verification code"
                   requiredType={true}
@@ -113,7 +137,7 @@ const SignUp = () => {
                   handleOnChange={(e) => setPassword(e.target.value)}
                   labelTex="Password"
                   nameText="Password"
-                  onClickFunc={handelPasswordEye}
+                  onClickFunc={() => handelPasswordEye("seePassword")}
                   placeholderText="***"
                   requiredType={true}
                   seePassword={seePassWord}
@@ -122,20 +146,20 @@ const SignUp = () => {
               </div>
               <div className="mt-5">
                 <StateFullPasswordInputLabel
-                  inputValue={password}
-                  handleOnChange={(e) => setPassword(e.target.value)}
+                  inputValue={cPassword}
+                  handleOnChange={(e) => setCPassword(e.target.value)}
                   labelTex="Re-enter password"
                   nameText="re-enter_password"
-                  onClickFunc={handelPasswordEye}
+                  onClickFunc={() => handelPasswordEye("seeConfirmPassword")}
                   placeholderText="***"
                   requiredType={true}
-                  seePassword={seePassWord}
+                  seePassword={seeConfirmPassWord}
                   title="Re enter password"
                 />
               </div>
               <div className="mt-10"></div>
-              <SubmitButton loading={loading} loadingText="Loging">
-                Login
+              <SubmitButton loading={loading} loadingText="Signin up . . .">
+                Sign up
               </SubmitButton>
               <p className="mt-10">
                 Forget password? Don&#39;t wary
