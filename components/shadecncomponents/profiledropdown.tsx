@@ -32,25 +32,32 @@ import Image from "next/image";
 
 export function ProfileDropDown() {
   const { data: session } = useSession();
+  const handleSignInWithGoogle = () => {
+    signIn("google");
+  };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <span
-          title="Profile information"
-          className="bg-slate-200 p-2 rounded-full cursor-pointer"
-        >
-          {session && session.user ? (
+        {session && session.user ? (
+          <div className="bg-gradient-to-tr from-lime-500 via-green-600  to-cyan-600  rounded-full cursor-pointer relative overflow-hidden w-11 h-11">
             <Image
+              className="absolute object-cover p-0.5 rounded-full"
+              blurDataURL="L%SiHObFx{s:j^bIj?jryGjuRNWX"
+              placeholder="blur"
+              fill
               alt={session?.user?.name ?? ""}
               src={session?.user?.image as string}
-              width={30}
-              height={30}
             />
-          ) : (
+          </div>
+        ) : (
+          <span
+            title="Profile information"
+            className="bg-slate-200 p-2 rounded-full cursor-pointer "
+          >
             <User2 strokeWidth={1} className="hover:text-primaryalternative" />
-          )}
-        </span>
+          </span>
+        )}
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -99,7 +106,7 @@ export function ProfileDropDown() {
                   <span>Signout</span>
                 </DropdownMenuItem>
               ) : (
-                <DropdownMenuItem onClick={() => signIn()}>
+                <DropdownMenuItem onClick={handleSignInWithGoogle}>
                   <FcGoogle className="mr-2 h-4 w-4" />
                   <span>Google</span>
                 </DropdownMenuItem>
