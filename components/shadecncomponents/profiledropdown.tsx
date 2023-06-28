@@ -35,6 +35,7 @@ export function ProfileDropDown() {
   const handleSignInWithGoogle = () => {
     signIn("google");
   };
+  // Merged from api-endpoint
 
   return (
     <DropdownMenu>
