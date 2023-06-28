@@ -35,6 +35,7 @@ const Login = () => {
   const handleOnSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
+    setLoading(true);
     const statusOfCredentialLogin = await signIn("credentials", {
       redirect: false,
       email: email,
@@ -42,6 +43,7 @@ const Login = () => {
       callbackUrl: "/",
     });
     if (statusOfCredentialLogin?.ok) {
+      setLoading(false);
       router.push(statusOfCredentialLogin.url as string);
     }
   };
@@ -84,6 +86,7 @@ const Login = () => {
                 title="Your email that you provided before for registered your account"
                 type="email"
                 labelTex="Email"
+                top={2}
               />
               <div className="mt-5">
                 <StateFullPasswordInputLabel
