@@ -40,7 +40,7 @@ const Shop = () => {
     <main className="App container ">
       <div className="grid grid-cols-12 gap-4 place-items-start mt-4 ">
         {/* <div className="flex items-start gap-4 mt-4"> */}
-        <section
+        <aside
           id="PRODUCT-CATEGORIES-FILTER"
           className="col-span-2 w-full px-1 pt-2 pb-4 border-r  sticky top-[8.2rem] overflow-auto"
           style={{ height: "100dvh" }}
@@ -80,7 +80,7 @@ const Shop = () => {
               className={cn("w-[100%]")}
             />
           </div>
-        </section>
+        </aside>
         <section className="col-span-10 w-full py-5">
           <div className="flex items-center justify-between pb-5">
             <div className="flex items-center gap-1">

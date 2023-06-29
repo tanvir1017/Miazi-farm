@@ -3,13 +3,24 @@ import { NextResponse, type NextRequest } from "next/server";
 
 // Protecting route via auth token
 const protectedRouteIfTokenExist = ["/auth/login", "/auth/sign-up"];
+const protectedRouteIfTokenNotExist = [
+  "/profile",
+  "/profile/user/addressbook",
+  "/profile/user/paymentoptions",
+];
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(req: NextRequest) {
   // Getting the auth token, then conditionally protecting some route based on token
   const token = await getToken({ req });
+  console.log(!token);
   if (token) {
     if (protectedRouteIfTokenExist.includes(req.nextUrl.pathname)) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+  }
+  if (!token) {
+    if (protectedRouteIfTokenNotExist.includes(req.nextUrl.pathname)) {
       return NextResponse.redirect(new URL("/", req.url));
     }
   }
