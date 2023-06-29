@@ -16,6 +16,7 @@ import { ChevronLeft, MailCheck } from "lucide-react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
   const router = useRouter();
@@ -42,13 +43,20 @@ const Login = () => {
       password: password,
       callbackUrl: "/",
     });
-    if (statusOfCredentialLogin?.ok) {
+    if (statusOfCredentialLogin?.error) {
+      toast(`${statusOfCredentialLogin?.error}`, {
+        icon: "⚠️",
+      });
+      setLoading(false);
+    } else if (statusOfCredentialLogin?.ok) {
+      toast.success("Logged in");
       setLoading(false);
       router.push(statusOfCredentialLogin.url as string);
     }
   };
   return (
     <main className="container my-10 ">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="max-w-5xl border mx-auto rounded-md shadow-md overflow-hidden">
         <section className="grid grid-cols-2">
           <div className="bg-[url('/assets/banners/login.webp')] bg-cover bg-center relative overflow-clip">

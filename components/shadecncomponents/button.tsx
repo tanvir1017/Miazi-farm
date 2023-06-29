@@ -41,6 +41,7 @@ export function SubmitButton({
     <Button
       type="submit"
       className="w-full rounded-full border relative overflow-hidden"
+      disabled={loading}
     >
       {loading && (
         <span className="absolute left-[9.25rem] transition-transform">

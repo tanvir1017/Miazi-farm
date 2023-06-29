@@ -10,12 +10,18 @@ import {
   StateFullPasswordInputLabel,
   StateFullTextInputLabel,
 } from "@/components/shared/input/statefullinput";
-import Link from "next/link";
-
-import { useState } from "react";
-
+import { sendRequest } from "@/lib/sendrequest";
 import { ChevronLeft, Mail, User, Verified } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import useSWRMutation from "swr/mutation";
+
 const SignUp = () => {
+  // Hooks
+  const Router = useRouter();
+
   // String states
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -45,15 +51,53 @@ const SignUp = () => {
     }
   };
 
-  // Form submission
-  const handleOnSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
+  // Trigger the request event
+  const { trigger, isMutating } = useSWRMutation(
+    "/api/auth/signup",
+    sendRequest /* options */
+  );
 
-    console.log(email, password, verificationCode, name);
+  // Form submission
+  const handleOnSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+    if (!email || !password || !name) {
+      setLoading(false);
+      toast("Please fill al of the required field", {
+        icon: "⚠️",
+      });
+    } else {
+      if (password !== cPassword) {
+        setLoading(false);
+        toast("password and confirm password didn't matched yet", {
+          icon: "💡",
+        });
+      } else {
+        try {
+          setLoading(true);
+          const result = await trigger({ name, email, password });
+          if (!result.success) {
+            setLoading(false);
+            toast(`${result.message}`, {
+              icon: "🤖",
+            });
+          } else if (result.success) {
+            toast.success("account created successfully, Now login");
+            setLoading(false);
+            Router.push("/auth/login");
+          }
+        } catch (err) {
+          toast.error("something went wrong, see the error to console");
+          setLoading(false);
+          console.log(err);
+        }
+      }
+    }
   };
 
   return (
     <main className="container my-10">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="max-w-5xl border mx-auto rounded-xl shadow-md overflow-hidden">
         <section className="grid grid-cols-2">
           <div className="bg-[url('/assets/banners/login.webp')] bg-cover bg-center relative overflow-clip">
