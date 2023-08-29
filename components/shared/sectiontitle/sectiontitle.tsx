@@ -13,7 +13,7 @@ const SectionTitle = ({
   title: string;
 }) => {
   return (
-    <div className="section-heading mb-10 flex justify-between items-end">
+    <div className="mb-10 md:flex justify-between items-end ">
       <div>
         <h2 className="text-2xl font-HIND_SILIGURI_SEMI_BOLD">{title} :</h2>
         <p>
@@ -22,7 +22,10 @@ const SectionTitle = ({
           <strong className="text-primaryalternative">Farm</strong>
         </p>
       </div>
-      <Link href={url} className="text-primaryalternative flex items-center">
+      <Link
+        href={url}
+        className="text-primaryalternative flex items-center mt-5 md:mt-0"
+      >
         <span className="mr-2">{link_text}</span> <MoveRight strokeWidth={1} />
       </Link>
     </div>

@@ -12,7 +12,7 @@ const HeadingSection = () => {
             alt="Heading slider cover"
           />
         </div>
-        <div className="absolute md:px-11 inset-y-0 p-2">
+        <div className="absolute md:px-11  md:pt-28 inset-y-0 p-2">
           <strong className="bg-brand md:px-5 px-2 text-white font-HIND_SILIGURI_LIGHT text-xs md:text-base">
             Opening sale discount 50%
           </strong>

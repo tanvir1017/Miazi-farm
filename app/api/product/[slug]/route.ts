@@ -1,7 +1,8 @@
+import { ContextType } from "@/backend/interface/api/common";
 import ConnectToDB from "@/backend/lib/db.connector";
 import Products from "@/backend/models/testmodel";
 import { CaptureResponseType_Generics } from "@/backend/types/product.type";
-import { ContextType } from "@/interfaces/api/common";
+
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request, context: ContextType) {
