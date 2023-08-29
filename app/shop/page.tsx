@@ -1,7 +1,6 @@
 import ProductCard from "@/components/shop/product-card";
 import { Slider } from "@/components/ui/slider";
 import { productCateGories } from "@/data/categories";
-import { dynamic_url } from "@/lib/dynamic_url";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 
@@ -10,7 +9,10 @@ export const metadata: Metadata = {
 };
 
 const Shop = async () => {
-  const response = await fetch(`${dynamic_url}/api/product`, {
+  // const response = await fetch(`http://localhost:3000/api/product`, {
+  //   cache: "no-store",
+  // });
+  const response = await fetch(`https://miazi-farm.vercel.app/api/product`, {
     cache: "no-store",
   });
   const products = await response.json();
