@@ -7,7 +7,7 @@ import DailyBestSell from "./dailybestsell";
 
 const DailyBestSells = () => {
   return (
-    <section className="container  mt-24 mb-24">
+    <section className="md:container px-3 md:my-24 my-12">
       <SectionTitle
         link_text="View all"
         tagline="Today's best sells product till now from "
@@ -15,14 +15,14 @@ const DailyBestSells = () => {
         url="/shop"
       />
 
-      <div className="grid grid-cols-6">
-        <div className="col-span-2">
-          <div className="w-[20.375rem] h-[28rem]  relative overflow-hidden rounded-xl">
+      <div className="grid md:grid-cols-6">
+        <div className="md:col-span-2">
+          <div className="w-[20.375rem] h-[28rem] relative overflow-hidden rounded-xl">
             <Image
               src="/assets/covers/banner-deal.jpeg"
               alt="Banner deal with coffe cover & Daily best sell cover"
               fill
-              className="absolute"
+              className="md:absolute"
               style={{
                 objectFit: "cover",
               }}
@@ -40,8 +40,8 @@ const DailyBestSells = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-4 lg:-ml-20">
-          <div className="grid grid-cols-3 gap-3">
+        <div className="col-span-4 lg:-ml-20 md:-ml-20 md:mt-0 mt-5">
+          <div className="grid md:grid-cols-3 grid-cols-2 gap-3">
             {dailySells.map((item, i) => (
               <DailyBestSell key={i} item={item} />
             ))}

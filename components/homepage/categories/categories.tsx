@@ -1,4 +1,3 @@
-"use client";
 import BlurImageWithBlurHash from "@/components/blurredimage";
 import { productCateGories } from "@/data/categories";
 import Link from "next/link";
@@ -6,10 +5,10 @@ import BannerCategories from "./bannercategories";
 
 const Categories = () => {
   return (
-    <section className="container mt-24 mb-24">
-      <div className="section-heading mb-10 flex justify-between items-end">
+    <section className="md:container px-3 md:my-24 my-12 ">
+      <div className="section-heading mb-10 md:flex justify-between items-end">
         <div>
-          <h2 className="text-2xl font-HIND_SILIGURI_SEMI_BOLD">
+          <h2 className="text-xl md:text-2xl font-HIND_SILIGURI_SEMI_BOLD">
             Available product categories are :
           </h2>
           <p>Available categories with updated stock</p>
@@ -18,7 +17,7 @@ const Categories = () => {
           View all
         </Link>
       </div>
-      <div className="grid grid-cols-6 gap-3 ">
+      <div className="md:grid md:grid-cols-6 grid-cols-2 gap-3 hidden ">
         {productCateGories.map((item, i) => (
           <div
             key={i}
@@ -36,7 +35,7 @@ const Categories = () => {
                 }
               />
             </div>
-            <p>{item.title}</p>
+            <p className="text-sm md:text-base">{item.title}</p>
           </div>
         ))}
       </div>

@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const SectionBanner = () => {
   return (
-    <section className="container mt-20">
-      <div className="px-20 bg-[#f0f3f2] flex items-center justify-between py-10 rounded-lg">
+    <section className="md:container md:mt-20 px-4">
+      <div className="md:px-20 md:py-10 py-5 px-5 bg-[#f0f3f2] md:flex flex flex-col-reverse items-center justify-between  rounded-lg">
         <div className="tex">
           <h2 className="text-4xl font-HIND_SILIGURI_BOLD">
             Non Stop Grocery Shop
@@ -15,7 +15,7 @@ const SectionBanner = () => {
           </p>
           <ButtonSecondary>Get discount on share</ButtonSecondary>
         </div>
-        <div className="image">
+        <div className="image md:mb-0 mb-5">
           <Image
             width={550}
             height={100}

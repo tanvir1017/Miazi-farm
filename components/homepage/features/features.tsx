@@ -1,15 +1,17 @@
 import { featuresOfServices } from "@/data/staticfeatures";
+import { cn } from "@/lib/utils";
 
 const Features = () => {
   return (
-    <section className="container mb-[12.5rem] mt-[10.5rem]">
+    <section className="md:container px-3 my-12 md:mb-[12.5rem] md:mt-[10.5rem]">
       <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3">
         {featuresOfServices.map((item, i) => (
           <div
             key={i}
-            className={`px-5 py-7 text-center  ${
-              ![2, 5].includes(i) && "border-r-2"
-            }  ${![3, 4, 5].includes(i) && "border-b-2"}`}
+            className={cn("px-5 py-7 md:text-center", {
+              ["md:border-r-2"]: ![2, 5].includes(i),
+              ["md:border-b-2"]: ![3, 4, 5].includes(i),
+            })}
           >
             <i className="inline-block text-5xl font-HIND_SILIGURI_LIGHT text-primaryalternative">
               {item.icon}

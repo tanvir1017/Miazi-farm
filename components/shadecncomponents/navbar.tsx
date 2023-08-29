@@ -86,22 +86,27 @@ export function ShadeCnNavbar() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <Link href="/">
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Home
-              </NavigationMenuLink>
-            </Link>
+            <NavigationMenuLink
+              asChild
+              className={navigationMenuTriggerStyle()}
+            >
+              <Link href="/">Home</Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="/shop">
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Shop
-              </NavigationMenuLink>
-            </Link>
+            <NavigationMenuLink
+              asChild
+              className={navigationMenuTriggerStyle()}
+            >
+              <Link href="/shop">Shop</Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="/recipe">
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
                 Recipe
               </NavigationMenuLink>
             </Link>

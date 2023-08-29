@@ -13,7 +13,6 @@ const protectedRouteIfTokenNotExist = [
 export async function middleware(req: NextRequest) {
   // Getting the auth token, then conditionally protecting some route based on token
   const token = await getToken({ req });
-  console.log(!token);
   if (token) {
     if (protectedRouteIfTokenExist.includes(req.nextUrl.pathname)) {
       return NextResponse.redirect(new URL("/", req.url));

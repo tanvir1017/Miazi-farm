@@ -1,41 +1,19 @@
-"use client";
-import Error from "@/components/error";
-import Product from "@/components/homepage/products/product";
-import { ButtonOutline } from "@/components/shadecncomponents/button";
-import { SortBySelect } from "@/components/shadecncomponents/sortbyselect";
+import ProductCard from "@/components/shop/product-card";
 import { Slider } from "@/components/ui/slider";
 import { productCateGories } from "@/data/categories";
-import { fetcher } from "@/lib/fetcher";
+import { dynamic_url } from "@/lib/dynamic_url";
 import { cn } from "@/lib/utils";
-import { ProductData, ProductPropertiesType } from "@/types/common";
-import { LayoutDashboard, LayoutList } from "lucide-react";
-import { useState } from "react";
-import useSWR from "swr";
+import type { Metadata } from "next";
 
-const Shop = () => {
-  const [viewCol, setViewCol] = useState<"grid" | "list">("grid");
-  const {
-    data: products,
-    error,
-    isLoading,
-  }: ProductData = useSWR("/api/product", fetcher);
+export const metadata: Metadata = {
+  title: "Miazi Farm | Shop",
+};
 
-  let content = null;
-
-  if (!error && !products && isLoading)
-    content = <p className="container">Loading..</p>;
-
-  if (!products && !isLoading && error) content = <Error />;
-
-  if (!error && !isLoading && products) {
-    content = (
-      <div className={`grid grid-cols-${viewCol !== "grid" ? "1" : "4"} gap-3`}>
-        {products.data.map((item: ProductPropertiesType, i: number) => (
-          <Product key={i} item={item} />
-        ))}
-      </div>
-    );
-  }
+const Shop = async () => {
+  const response = await fetch(`${dynamic_url}/api/product`, {
+    cache: "no-store",
+  });
+  const products = await response.json();
   return (
     <main className="App container ">
       <div className="grid grid-cols-12 gap-4 place-items-start mt-4 ">
@@ -50,7 +28,7 @@ const Shop = () => {
               Available Categories
             </h1>
             <>
-              {productCateGories.map((item, i) => (
+              {productCateGories.map((item, i: number) => (
                 <div key={i} className="">
                   <div className="relative my-2 cursor-pointer">
                     <p className="text-base font-HIND_SILIGURI_LIGHT hover:text-primaryalternative">
@@ -81,44 +59,8 @@ const Shop = () => {
             />
           </div>
         </aside>
-        <section className="col-span-10 w-full py-5">
-          <div className="flex items-center justify-between pb-5">
-            <div className="flex items-center gap-1">
-              <button>Sort by</button>
-              <span className="ml-3">
-                <SortBySelect />
-              </span>
-            </div>
-            <div className="flex items-center gap-1">
-              <p className="mr-5">View as</p>
-              <span onClick={() => setViewCol("list")}>
-                <ButtonOutline>
-                  <LayoutList
-                    className={` ${
-                      viewCol !== "grid"
-                        ? "text-primaryalternative"
-                        : "text-slate-800/25"
-                    }`}
-                    strokeWidth={1.25}
-                  />
-                </ButtonOutline>
-              </span>
-              <span onClick={() => setViewCol("grid")}>
-                <ButtonOutline>
-                  <LayoutDashboard
-                    className={`${
-                      viewCol !== "list"
-                        ? "text-primaryalternative"
-                        : "text-slate-800/25"
-                    }`}
-                    strokeWidth={1}
-                  />{" "}
-                </ButtonOutline>
-              </span>
-            </div>
-          </div>
-          {content}
-        </section>
+
+        <ProductCard products={products} />
       </div>
     </main>
   );

@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -19,9 +20,9 @@ export function Navbar() {
   const ignoreRoute = ["/auth/sign-up", "/auth/login"];
   return (
     <header
-      className={`${
-        ignoreRoute.includes(pathname) && "hidden"
-      } sticky top-0 bg-white z-10 `}
+      className={cn("sticky top-0 bg-white z-10 md:block hidden", {
+        ["hidden"]: ignoreRoute.includes(pathname),
+      })}
     >
       <nav className="mb-3">
         {/*  Second row of header*/}
