@@ -13,7 +13,7 @@ const Features = () => {
               ["md:border-b-2"]: ![3, 4, 5].includes(i),
             })}
           >
-            <i className="inline-block text-5xl font-HIND_SILIGURI_LIGHT text-primaryalternative">
+            <i className="inline-block text-5xl  text-primaryalternative">
               {item.icon}
             </i>
             <h3 className="my-5 font-bold ">{item.title}</h3>

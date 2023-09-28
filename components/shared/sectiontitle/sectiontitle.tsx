@@ -15,7 +15,7 @@ const SectionTitle = ({
   return (
     <div className="mb-10 md:flex justify-between items-end ">
       <div>
-        <h2 className="text-2xl font-HIND_SILIGURI_SEMI_BOLD">{title} :</h2>
+        <h2 className="text-2xl ">{title} :</h2>
         <p>
           {tagline}
           <strong className="text-brand">Miazi</strong>{" "}

@@ -30,9 +30,7 @@ const DailyBestSells = () => {
             />
 
             <div className="cover-text absolute text-white p-10">
-              <h2 className="text-3xl font-HIND_SILIGURI_BOLD">
-                100% Organic Coffee Beans.
-              </h2>
+              <h2 className="text-3xl ">100% Organic Coffee Beans.</h2>
               <p className="my-3">Get the best deal before close.</p>
               <ButtonAlternative>
                 Shop now <ArrowRight strokeWidth={0.5} />

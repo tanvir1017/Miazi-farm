@@ -4,12 +4,12 @@ import {
   ButtonSecondary,
 } from "@/components/shadecncomponents/button";
 import { Button } from "@/components/ui/button";
-import { ProductPropertiesType } from "@/types/product/product.types";
+import { ProductType } from "@/types/product/product.types";
 
 import { DollarSign, Plus, ShoppingCart, StarIcon } from "lucide-react";
 import Link from "next/link";
 
-const Product = ({ item }: { item: ProductPropertiesType }) => {
+const Product = ({ item }: { item: ProductType }) => {
   const { slug, image, title, price, rating, blurhash, _id } = item;
   return (
     <div className="border hover:border-primaryalternative md:p-5 p-2 rounded-lg cursor-pointer overflow-hidden">

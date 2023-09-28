@@ -3,7 +3,7 @@ import { Products } from "@/types/product/product.types";
 
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, LayoutList } from "lucide-react";
-import { FC, useState } from "react";
+import React, { useState } from "react";
 import Product from "../homepage/products/product";
 import { ButtonOutline } from "../shadecncomponents/button";
 import { SortBySelect } from "../shadecncomponents/sortbyselect";
@@ -15,7 +15,7 @@ type ProductCardProps = {
     data: Products[];
   };
 };
-const ProductCard: FC<ProductCardProps> = ({ products }) => {
+const ProductCard = ({ products }: ProductCardProps): React.ReactElement => {
   const [viewCol, setViewCol] = useState<boolean>(true);
   return (
     <section className="col-span-10 w-full py-5">

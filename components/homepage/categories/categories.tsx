@@ -8,7 +8,7 @@ const Categories = () => {
     <section className="md:container px-3 md:my-24 my-12 ">
       <div className="section-heading mb-10 md:flex justify-between items-end">
         <div>
-          <h2 className="text-xl md:text-2xl font-HIND_SILIGURI_SEMI_BOLD">
+          <h2 className="text-xl md:text-2xl ">
             Available product categories are :
           </h2>
           <p>Available categories with updated stock</p>

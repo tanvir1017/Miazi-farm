@@ -13,10 +13,10 @@ const HeadingSection = () => {
           />
         </div>
         <div className="absolute md:px-11  md:pt-28 inset-y-0 p-2">
-          <strong className="bg-brand md:px-5 px-2 text-white font-HIND_SILIGURI_LIGHT text-xs md:text-base">
+          <strong className="bg-brand md:px-5 px-2 text-white  text-xs md:text-base">
             Opening sale discount 50%
           </strong>
-          <h1 className="md:text-6xl text-lg text-black font-HIND_SILIGURI_BOLD md:mt-5">
+          <h1 className="md:text-6xl text-lg text-black  md:mt-5">
             Super Market For <br /> Fresh Grocery
           </h1>
           <p className="text-accent-foreground my-5 md:block hidden">
@@ -27,7 +27,7 @@ const HeadingSection = () => {
           <ButtonSecondary>
             shop now{" "}
             <span className="ml-2">
-              <BsArrowRightShort className="font-HIND_SILIGURI_LIGHT text-base" />
+              <BsArrowRightShort className=" text-base" />
             </span>
           </ButtonSecondary>
         </div>

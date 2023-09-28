@@ -98,11 +98,6 @@ input[type="number"] {
   }
 }
 @layer utilities {
-  .App {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
   #PRODUCT-CATEGORIES-FILTER::-webkit-scrollbar {
     width: 0.7em;
   }
@@ -113,26 +108,5 @@ input[type="number"] {
   #PRODUCT-CATEGORIES-FILTER::-webkit-scrollbar-thumb {
     background: #a8a3a3;
     border-radius: 100vh;
-  }
-
-  @font-face {
-    font-family: "HindSiliguriBold";
-    src: url("/fonts/HINDSILIGURI-BOLD.TTF");
-  }
-  @font-face {
-    font-family: "HindSiliguriLight";
-    src: url("/fonts/HINDSILIGURI-LIGHT.TTF");
-  }
-  @font-face {
-    font-family: "HindSiliguriMedium";
-    src: url("/fonts/HINDSILIGURI-MEDIUM.TTF");
-  }
-  @font-face {
-    font-family: "HindSiliguriRegular";
-    src: url("/fonts/HINDSILIGURI-REGULAR.TTF");
-  }
-  @font-face {
-    font-family: "HindSiliguriSemiBold";
-    src: url("/fonts/HINDSILIGURI-SEMIBOLD.TTF");
   }
 }

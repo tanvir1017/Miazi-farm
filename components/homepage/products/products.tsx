@@ -1,7 +1,10 @@
 import SectionTitle from "@/components/shared/sectiontitle/sectiontitle";
+import { ProductType, ProductsArray } from "@/types/product/product.types";
 import Product from "./product";
 
-const Products = ({ products }: any) => {
+const Products = ({ allProducts }: { allProducts: ProductsArray }) => {
+  const { data } = allProducts;
+
   return (
     <section className="md:container md:my-24 my-12 px-3">
       <SectionTitle
@@ -11,8 +14,8 @@ const Products = ({ products }: any) => {
         url="/shop"
       />
       <div className="grid md:grid-cols-5 grid-cols-2 md:gap-3 gap-2">
-        {products.data.map((item: any, i: number) => (
-          <Product key={i} item={item} />
+        {data.map((p: ProductType) => (
+          <Product key={p._id} item={p} />
         ))}
       </div>
     </section>

@@ -66,7 +66,7 @@ const Login = () => {
                   <ChevronLeft strokeWidth={0.5} /> Home
                 </BlurredButton>
               </Link>
-              <h3 className="text-2xl font-HIND_SILIGURI_LIGHT text-white mt-16 mb-8">
+              <h3 className="text-2xl  text-white mt-16 mb-8">
                 Get access your Orders, <br /> Wishlist and Reconditions
               </h3>
               <p className="text-white mb-2">Don&#39;t have any account!</p>

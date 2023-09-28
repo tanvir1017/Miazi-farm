@@ -13,9 +13,7 @@ const ProfileActionSidebar = () => {
       style={{ height: "100dvh" }}
     >
       <div>
-        <h1 className="text-lg font-HIND_SILIGURI_MEDIUM mb-5">
-          Manage My Profile
-        </h1>
+        <h1 className="text-lg  mb-5">Manage My Profile</h1>
         <ul>
           {profileSideBardNavigation.map(
             (item: ProfileSideBardNavigationType, i: number) => (
@@ -37,7 +35,7 @@ const ProfileActionSidebar = () => {
 
       <hr className="border-t" />
       <div id="#My-Orders" className="mt-5">
-        <h1 className="text-lg font-HIND_SILIGURI_MEDIUM mb-5">My Orders</h1>
+        <h1 className="text-lg  mb-5">My Orders</h1>
       </div>
     </aside>
   );

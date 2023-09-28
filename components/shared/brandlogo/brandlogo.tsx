@@ -15,8 +15,8 @@ const BrandLogo = () => {
             alt="Miazi Farm Logo"
           />
         </div>
-        {/* <h2 className="font-HIND_SILIGURI_BOLD text-2xl text-[#388740] absolute top-7 right-16"> */}
-        <h2 className="font-HIND_SILIGURI_BOLD text-2xl text-brand-foreground">
+        {/* <h2 className=" text-2xl text-[#388740] absolute top-7 right-16"> */}
+        <h2 className=" text-2xl text-brand-foreground font-bold">
           <span className="text-brand">মিয়াজী</span> ফার্ম
         </h2>
       </div>

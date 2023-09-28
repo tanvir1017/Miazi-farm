@@ -16,13 +16,6 @@ module.exports = {
     },
 
     extend: {
-      fontFamily: {
-        HIND_SILIGURI_BOLD: "HindSiliguriBold",
-        HIND_SILIGURI_LIGHT: "HindSiliguriLight",
-        HIND_SILIGURI_MEDIUM: "HindSiliguriMedium",
-        HIND_SILIGURI_REGULAR: "HindSiliguriRegular",
-        HIND_SILIGURI_SEMI_BOLD: "HindSiliguriSemiBold",
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -87,5 +80,17 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".App": {
+          "min-height": "100vh",
+          display: "flex",
+          "flex-direction": "column",
+        },
+      };
+
+      addUtilities(newUtilities, ["responsive", "hover", "dark"]);
+    },
+  ],
 };

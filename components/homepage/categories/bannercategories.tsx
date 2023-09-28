@@ -17,15 +17,13 @@ const BannerCategories = () => {
           priority
         />
         <div className="absolute inset-y-0 px-5 mt-16">
-          <h1 className="text-2xl text-black font-HIND_SILIGURI_BOLD ">
-            Fruits & Vegetables
-          </h1>
+          <h1 className="text-2xl text-black  ">Fruits & Vegetables</h1>
           <p className="text-accent-foreground">Get Upto 30% Off</p>
           <div className="mt-2">
             <ButtonSecondary>
               shop now
               <span className="ml-2">
-                <BsArrowRightShort className="font-HIND_SILIGURI_LIGHT text-base" />
+                <BsArrowRightShort className=" text-base" />
               </span>
             </ButtonSecondary>
           </div>
@@ -42,15 +40,13 @@ const BannerCategories = () => {
         />
 
         <div className="absolute inset-y-0 px-5 mt-16">
-          <h1 className="text-2xl text-black font-HIND_SILIGURI_BOLD ">
-            Freshly Baked Buns
-          </h1>
+          <h1 className="text-2xl text-black  ">Freshly Baked Buns</h1>
           <p className="text-accent-foreground">Get Upto 25% Off</p>
           <div className=" mt-2">
             <ButtonSecondary>
               shop now
               <span className="ml-2">
-                <BsArrowRightShort className="font-HIND_SILIGURI_LIGHT text-base" />
+                <BsArrowRightShort className=" text-base" />
               </span>
             </ButtonSecondary>
           </div>
