@@ -1,7 +1,7 @@
 import { dailySells } from "@/data/product";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { ButtonAlternative } from "../../shadecncomponents/button";
+import { ButtonAlternative } from "../../../shadcn/shadecncomponents/button";
 import SectionTitle from "../../shared/sectiontitle/sectiontitle";
 import DailyBestSell from "./dailybestsell";
 

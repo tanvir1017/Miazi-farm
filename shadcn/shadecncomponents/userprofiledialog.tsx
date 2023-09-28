@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Edit } from "lucide-react";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 import {
   Dialog,
   DialogContent,
@@ -9,8 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/userprofiledialog";
-import { Edit } from "lucide-react";
+} from "../ui/userprofiledialog";
 
 export function UserProfileDialog() {
   return (
@@ -25,7 +25,8 @@ export function UserProfileDialog() {
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you&lsquo;re done.
+            Make changes to your profile here. Click save when you&lsquo;re
+            done.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">

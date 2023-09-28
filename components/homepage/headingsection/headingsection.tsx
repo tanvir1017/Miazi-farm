@@ -1,5 +1,5 @@
-import { HeadingBannerWithAspectRatio } from "@/components/shadecncomponents/aspectration";
-import { ButtonSecondary } from "@/components/shadecncomponents/button";
+import { HeadingBannerWithAspectRatio } from "@/shadcn/shadecncomponents/aspectration";
+import { ButtonSecondary } from "@/shadcn/shadecncomponents/button";
 import { BsArrowRightShort } from "react-icons/bs";
 
 const HeadingSection = () => {

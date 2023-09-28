@@ -3,6 +3,7 @@
 import Link from "next/link";
 import * as React from "react";
 
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,8 +12,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+} from "@/shadcn/ui/navigation-menu";
 import Image from "next/image";
 
 const components: { title: string; href: string; description: string }[] = [

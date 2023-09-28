@@ -1,7 +1,6 @@
-import { default as Products } from "@/backend/models/testmodel";
-
 import dbConnect from "@/backend/lib/db.connector";
-import { CaptureResponseType_Generics } from "@/backend/types/product.type";
+import { default as Products } from "@/backend/models/testmodel";
+import { ProductsResponse } from "@/types/product/product.types";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -10,7 +9,7 @@ export async function GET(req: Request) {
   console.log("connected to db");
   const products = await Products.find({});
   if (!products) {
-    return new NextResponse<CaptureResponseType_Generics>(
+    return new NextResponse<ProductsResponse>(
       JSON.stringify({
         success: false,
         message: "Failed to retrieve products data",
@@ -18,7 +17,7 @@ export async function GET(req: Request) {
       })
     );
   }
-  return new NextResponse<CaptureResponseType_Generics>(
+  return new NextResponse<ProductsResponse>(
     JSON.stringify({
       success: true,
       message: "Retrieve all data from database",

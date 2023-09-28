@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 "use client";
-import { UserProfileDialog } from "@/components/shadecncomponents/userprofiledialog";
+import { UserProfileDialog } from "@/shadcn/shadecncomponents/userprofiledialog";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 

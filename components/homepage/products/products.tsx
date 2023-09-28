@@ -1,8 +1,8 @@
 import SectionTitle from "@/components/shared/sectiontitle/sectiontitle";
-import { ProductType, ProductsArray } from "@/types/product/product.types";
+import { ProductType } from "@/types/product/product.types";
 import Product from "./product";
 
-const Products = ({ allProducts }: { allProducts: ProductsArray }) => {
+const Products = ({ allProducts }: any) => {
   const { data } = allProducts;
 
   return (

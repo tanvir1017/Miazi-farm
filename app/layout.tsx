@@ -1,8 +1,8 @@
 import Provider from "@/components/authprovider/provider";
 import HotlineAndSocialLinkTop from "@/components/hotlineandsociallinktop";
-import { CardWishlists } from "@/components/shadecncomponents/cartdropdown";
 import Footer from "@/components/shared/footer";
 import { Navbar } from "@/components/shared/navbar";
+import { CardWishlists } from "@/shadcn/shadecncomponents/cartdropdown";
 import { Hind_Siliguri } from "@next/font/google";
 import { ReactNode } from "react";
 import "./globals.css";

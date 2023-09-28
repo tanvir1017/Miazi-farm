@@ -1,7 +1,5 @@
 import ProductCard from "@/components/shop/product-card";
-import { Slider } from "@/components/ui/slider";
 import { productCateGories } from "@/data/categories";
-import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 
 export const urlForProductionAndLocalhost =
@@ -44,19 +42,6 @@ const Shop = async () => {
                 </div>
               ))}
             </>
-          </div>
-
-          <hr className="border-t" />
-
-          <div id="#PRICE-FILTER" className="mt-5">
-            <h1 className="text-lg  mb-5">Price range</h1>
-
-            <Slider
-              defaultValue={[50]}
-              max={100}
-              step={1}
-              className={cn("w-[100%]")}
-            />
           </div>
         </aside>
 

@@ -1,4 +1,4 @@
-import { ButtonSecondary } from "@/components/shadecncomponents/button";
+import { ButtonSecondary } from "@/shadcn/shadecncomponents/button";
 import Image from "next/image";
 
 const SectionBanner = () => {

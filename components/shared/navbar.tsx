@@ -1,21 +1,17 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { CardWishlists } from "../shadecncomponents/cartdropdown";
-import { ShadeCnNavbar } from "../shadecncomponents/navbar";
-import { ProfileDropDown } from "../shadecncomponents/profiledropdown";
+import { useState } from "react";
+import { CardWishlists } from "../../shadcn/shadecncomponents/cartdropdown";
+import { ProfileDropDown } from "../../shadcn/shadecncomponents/profiledropdown";
 import BrandLogo from "./brandlogo/brandlogo";
 
 export function Navbar() {
   const pathname = usePathname();
 
   const [searchProduct, setSearchProduct] = useState("");
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const ignoreRoute = ["/auth/sign-up", "/auth/login"];
   return (
@@ -28,7 +24,7 @@ export function Navbar() {
         {/*  Second row of header*/}
         <div className="sticky top-0">
           <div className="container py-2 ">
-            <div className="grid grid-cols-5 gap-5 ">
+            <div className="grid grid-cols-5 gap-5 items-center">
               <BrandLogo />
 
               {/* <div className="col-span-3 mt-2"> */}
@@ -56,7 +52,37 @@ export function Navbar() {
           </div>
 
           {/*ShadCn navigation menus*/}
-          <div className="">{mounted && <ShadeCnNavbar />}</div>
+          {/* <div className="">{mounted && <ShadeCnNavbar />}</div> */}
+          <div className="">
+            <ul className="flex items-center justify-center">
+              <li>
+                <Link
+                  href="/"
+                  className={cn(
+                    "mr-4 hover:bg-slate-200  px-5 py-2 rounded-md",
+                    {
+                      ["bg-slate-200"]: pathname === "/",
+                    }
+                  )}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop"
+                  className={cn(
+                    "mr-4 hover:bg-slate-200  px-5 py-2 rounded-md block",
+                    {
+                      ["bg-slate-200"]: pathname === "/shop",
+                    }
+                  )}
+                >
+                  Shop
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
       <hr className="border border-slate-100 " />

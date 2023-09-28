@@ -11,24 +11,6 @@ export interface Products {
   blurhash: string;
 }
 
-export type CaptureResponseType_Generics = {
-  success: boolean;
-  message: string;
-  data: {
-    _id: string;
-    title: string;
-    slug: string;
-    brand: string;
-    price: number;
-    description: string;
-    features: string[];
-    rating: number;
-    reviews: number;
-    image: string;
-    blurhash: string;
-  };
-};
-
 export interface ProductsArray {
   success: boolean;
   message: string;
@@ -45,7 +27,6 @@ export interface ProductsArray {
     image: string;
     blurhash: string;
   }[];
-
   error: any;
   isLoading: boolean;
 }
@@ -84,4 +65,16 @@ export interface ViewProductsArrayType {
   };
   error: any;
   isLoading: boolean;
+}
+
+export interface ProductsResponse {
+  success: boolean;
+  message: string;
+  data: ProductType;
+}
+
+export interface ProductsProps {
+  success: boolean;
+  message: string;
+  data: ProductType[];
 }

@@ -4,9 +4,9 @@ import { Products } from "@/types/product/product.types";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, LayoutList } from "lucide-react";
 import React, { useState } from "react";
+import { ButtonOutline } from "../../shadcn/shadecncomponents/button";
+import { SortBySelect } from "../../shadcn/shadecncomponents/sortbyselect";
 import Product from "../homepage/products/product";
-import { ButtonOutline } from "../shadecncomponents/button";
-import { SortBySelect } from "../shadecncomponents/sortbyselect";
 
 type ProductCardProps = {
   products: {

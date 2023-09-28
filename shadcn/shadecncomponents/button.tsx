@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/shadcn/ui/button";
 import { Loader } from "lucide-react";
 
 export function ButtonSecondary({ children }: { children: React.ReactNode }) {
