@@ -1,6 +1,6 @@
 // @ts-nocheck
 import dbConnect from "@/backend/lib/db.connector";
-import User from "@/backend/models/userschema";
+import User from "@/backend/models/users/user.schema";
 import { compare } from "bcryptjs";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";

@@ -78,3 +78,11 @@ export interface ProductsProps {
   message: string;
   data: ProductType[];
 }
+
+export type CartProps = {
+  _id: string;
+  image: string;
+  title: string;
+  price: number;
+  quantity: number;
+};

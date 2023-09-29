@@ -22,7 +22,8 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@profile/*": ["./app/profile/*"]
+      "@profile/*": ["./app/profile/*"],
+      "@zStore/*": ["./zustand-store/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

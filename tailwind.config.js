@@ -81,6 +81,7 @@ module.exports = {
     },
   },
   plugins: [
+    require("tailwindcss-animate"),
     function ({ addUtilities }) {
       const newUtilities = {
         ".App": {

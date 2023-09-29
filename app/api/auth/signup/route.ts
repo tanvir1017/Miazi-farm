@@ -1,5 +1,5 @@
 import dbConnect from "@/backend/lib/db.connector";
-import User from "@/backend/models/userschema";
+import User from "@/backend/models/users/user.schema";
 import { hash } from "bcryptjs";
 import { NextResponse } from "next/server";
 

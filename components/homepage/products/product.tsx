@@ -2,43 +2,15 @@
 import BlurImageWithBlurHash from "@/components/blurredimage";
 import { Button } from "@/components/shadcn/ui/button";
 import { ProductType } from "@/types/product/product.types";
+import useCartItem from "@/zustand-store/cart-store";
 
 import { DollarSign, Plus, ShoppingCart, StarIcon } from "lucide-react";
 import Link from "next/link";
 
 const Product = ({ item }: { item: ProductType }) => {
   const { image, title, price, rating, blurhash, _id } = item;
-  const handleAddToCart = ({
-    _id,
-    title,
-    image,
-    price,
-  }: {
-    _id: string;
-    title: string;
-    image: string;
-    price: number;
-  }) => {
-    const cartProduct = [
-      {
-        _id,
-        title,
-        image,
-        price,
-        quantity: 1,
-      },
-    ];
-    const retrieveItems = localStorage.getItem("cart");
-    if (retrieveItems !== null) {
-      const parseStorageValues = JSON.parse(retrieveItems);
-      localStorage.setItem(
-        "cart",
-        JSON.stringify([...parseStorageValues, ...cartProduct])
-      );
-    } else {
-      localStorage.setItem("cart", JSON.stringify(cartProduct));
-    }
-  };
+
+  const addProduct = useCartItem((state) => state.addProductToCart);
   return (
     <div className="border hover:border-primaryalternative md:p-5 p-2 rounded-lg cursor-pointer overflow-hidden">
       <Link
@@ -96,7 +68,7 @@ const Product = ({ item }: { item: ProductType }) => {
         </Link>
         <Button
           variant="outline"
-          onClick={() => handleAddToCart({ _id, title, image, price })}
+          onClick={() => addProduct({ _id, title, image, price, quantity: 1 })}
         >
           <Plus strokeWidth={1.25} className="mr-1 h-4 w-4" />{" "}
           <span className="font-thin text-xs">Add to cart</span>

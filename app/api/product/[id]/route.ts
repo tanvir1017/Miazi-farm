@@ -1,6 +1,6 @@
 import { ContextType } from "@/backend/interface/api/common";
 import ConnectToDB from "@/backend/lib/db.connector";
-import Products from "@/backend/models/testmodel";
+import Products from "@/backend/models/product/product.schema";
 import { ProductsResponse } from "@/types/product/product.types";
 
 import { NextResponse } from "next/server";

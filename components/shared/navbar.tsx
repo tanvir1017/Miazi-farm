@@ -26,8 +26,6 @@ export function Navbar() {
           <div className="container py-2 ">
             <div className="grid grid-cols-5 gap-5 items-center">
               <BrandLogo />
-
-              {/* <div className="col-span-3 mt-2"> */}
               <div className="col-span-3 ">
                 <div className="relative">
                   <span className="absolute inset-y-0 px-1.5 pt-[0.7rem]">

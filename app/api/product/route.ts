@@ -1,5 +1,5 @@
 import dbConnect from "@/backend/lib/db.connector";
-import { default as Products } from "@/backend/models/testmodel";
+import { default as Products } from "@/backend/models/product/product.schema";
 import { ProductsResponse } from "@/types/product/product.types";
 import { NextResponse } from "next/server";
 

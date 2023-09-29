@@ -1,5 +1,5 @@
 import dbConnect from "@/backend/lib/db.connector";
-import User from "@/backend/models/userschema";
+import User from "@/backend/models/user.schema";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
