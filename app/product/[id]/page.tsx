@@ -1,6 +1,6 @@
 import { urlForProductionAndLocalhost } from "@/app/shop/page";
 import BlurImageWithBlurHash from "@/components/blurredimage";
-import { Button } from "@/shadcn/ui/button";
+import { Button } from "@/components/shadcn/ui/button";
 
 import { StarIcon } from "lucide-react";
 import Link from "next/link";
@@ -22,16 +22,18 @@ const ProductDetails = async ({
       <div className="container">
         <div className="mt-8">
           <div className="grid grid-cols-2 gap-4">
-            <div className="border flex items-center justify-center">
-              <BlurImageWithBlurHash
-                src={`${product.data.image}`}
-                alt={product.data.title}
-                width={400}
-                height={100}
-                placeholder="blur"
-                className="text-center"
-                blurDataURL={product.data.blurhash}
-              />
+            <div className="h-[396px].w-[662px] border ">
+              <div className="flex items-center justify-center">
+                <BlurImageWithBlurHash
+                  src={`${product.data.image}`}
+                  alt={product.data.title}
+                  width={400}
+                  height={100}
+                  placeholder="blur"
+                  className="text-center"
+                  blurDataURL={product.data.blurhash}
+                />
+              </div>
             </div>
             <div>
               <h2 className="md:text-4xl text-2xl font-extrabold mb-4">

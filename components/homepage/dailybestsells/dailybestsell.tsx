@@ -2,8 +2,8 @@ import BlurImageWithBlurHash from "@/components/blurredimage";
 import {
   ButtonOutline,
   ButtonSecondary,
-} from "@/shadcn/shadecncomponents/button";
-import { Button } from "@/shadcn/ui/button";
+} from "@/components/shadcn/shadecncomponents/button";
+import { Button } from "@/components/shadcn/ui/button";
 import { Products } from "@/types/product/product.types";
 
 import { DollarSign, Plus, ShoppingCart, StarIcon } from "lucide-react";

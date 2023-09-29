@@ -1,7 +1,6 @@
-import { Edit } from "lucide-react";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import { Button } from "@/components/shadcn/ui/button";
+import { Input } from "@/components/shadcn/ui/input";
+import { Label } from "@/components/shadcn/ui/label";
 import {
   Dialog,
   DialogContent,
@@ -10,7 +9,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../ui/userprofiledialog";
+} from "@/components/shadcn/ui/userprofiledialog";
+import { Edit } from "lucide-react";
 
 export function UserProfileDialog() {
   return (

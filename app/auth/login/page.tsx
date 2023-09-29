@@ -1,15 +1,15 @@
 "use client";
 
+import {
+  BlurredButton,
+  LoginButton,
+  SubmitButton,
+} from "@/components/shadcn/shadecncomponents/button";
 import BrandLogo from "@/components/shared/brandlogo/brandlogo";
 import {
   StateFullPasswordInputLabel,
   StateFullTextInputLabel,
 } from "@/components/shared/input/statefullinput";
-import {
-  BlurredButton,
-  LoginButton,
-  SubmitButton,
-} from "@/shadcn/shadecncomponents/button";
 import Link from "next/link";
 
 import { ChevronLeft, MailCheck } from "lucide-react";

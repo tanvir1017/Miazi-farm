@@ -6,7 +6,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "@/components/shadcn/ui/select";
 
 export function SortBySelect() {
   return (

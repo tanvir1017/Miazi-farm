@@ -1,11 +1,11 @@
 "use client";
 import Error from "@/components/error";
+import { Button } from "@/components/shadcn/ui/button";
+import { Checkbox } from "@/components/shadcn/ui/checkbox";
+import { Input } from "@/components/shadcn/ui/input";
+import { Label } from "@/components/shadcn/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/shadcn/ui/radio-group";
 import { fetcher } from "@/lib/fetcher";
-import { Button } from "@/shadcn/ui/button";
-import { Checkbox } from "@/shadcn/ui/checkbox";
-import { Input } from "@/shadcn/ui/input";
-import { Label } from "@/shadcn/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/shadcn/ui/radio-group";
 import { ProductsResponse } from "@/types/product/product.types";
 import Image from "next/image";
 import Link from "next/link";
@@ -176,7 +176,7 @@ const BuyNow = ({ params }: { params: { id: string } }) => {
                 </div>
                 {/* Payment option section end here */}
 
-                <Button className="w-full bg-slate-100 hover:bg-slate-200 mt-5">
+                <Button className="w-full bg-slate-100 hover:bg-slate-200 mt-5 text-black">
                   Confirm Order
                 </Button>
               </form>

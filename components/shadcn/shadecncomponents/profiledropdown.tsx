@@ -37,7 +37,7 @@ export function ProfileDropDown() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className="mt-56">
+      <DropdownMenuTrigger asChild className="">
         {session && session.user ? (
           <div className="bg-gradient-to-tr from-lime-500 via-green-600  to-cyan-600  rounded-full cursor-pointer relative overflow-hidden w-11 h-11">
             <Image

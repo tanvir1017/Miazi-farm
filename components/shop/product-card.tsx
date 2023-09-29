@@ -1,11 +1,11 @@
 "use client";
 import { Products } from "@/types/product/product.types";
 
+import { ButtonOutline } from "@/components/shadcn/shadecncomponents/button";
+import { SortBySelect } from "@/components/shadcn/shadecncomponents/sortbyselect";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, LayoutList } from "lucide-react";
 import React, { useState } from "react";
-import { ButtonOutline } from "../../shadcn/shadecncomponents/button";
-import { SortBySelect } from "../../shadcn/shadecncomponents/sortbyselect";
 import Product from "../homepage/products/product";
 
 type ProductCardProps = {

@@ -1,6 +1,6 @@
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import { Button } from "@/components/shadcn/ui/button";
+import { Input } from "@/components/shadcn/ui/input";
+import { Label } from "@/components/shadcn/ui/label";
 import {
   Sheet,
   SheetClose,
@@ -10,7 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "../ui/sheet";
+} from "@/components/shadcn/ui/sheet";
 
 export function Sidebar() {
   return (
@@ -18,6 +18,7 @@ export function Sidebar() {
       <SheetTrigger asChild>
         <Button variant="outline">Open</Button>
       </SheetTrigger>
+      {/* @ts-ignore */}
       <SheetContent position="right" size="sm">
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>

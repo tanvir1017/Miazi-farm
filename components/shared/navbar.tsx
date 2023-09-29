@@ -1,11 +1,11 @@
 "use client";
+import { ProfileDropDown } from "@/components/shadcn/shadecncomponents/profiledropdown";
 import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { CardWishlists } from "../../shadcn/shadecncomponents/cartdropdown";
-import { ProfileDropDown } from "../../shadcn/shadecncomponents/profiledropdown";
+import { AddToCartSideBar } from "../shadcn/shadecncomponents/side-bar-sheet";
 import BrandLogo from "./brandlogo/brandlogo";
 
 export function Navbar() {
@@ -44,15 +44,11 @@ export function Navbar() {
                 </div>
               </div>
               <div className="col-span-1 flex items-center justify-self-end space-x-10 text-xl">
-                {/* <Wishlists /> */}
-                <CardWishlists />
+                <AddToCartSideBar />
                 <ProfileDropDown />
               </div>
             </div>
           </div>
-
-          {/*ShadCn navigation menus*/}
-          {/* <div className="">{mounted && <ShadeCnNavbar />}</div> */}
           <div className="">
             <ul className="flex items-center justify-center">
               <li>

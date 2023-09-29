@@ -1,16 +1,44 @@
+"use client";
 import BlurImageWithBlurHash from "@/components/blurredimage";
-import {
-  ButtonOutline,
-  ButtonSecondary,
-} from "@/shadcn/shadecncomponents/button";
-import { Button } from "@/shadcn/ui/button";
+import { Button } from "@/components/shadcn/ui/button";
 import { ProductType } from "@/types/product/product.types";
 
 import { DollarSign, Plus, ShoppingCart, StarIcon } from "lucide-react";
 import Link from "next/link";
 
 const Product = ({ item }: { item: ProductType }) => {
-  const { slug, image, title, price, rating, blurhash, _id } = item;
+  const { image, title, price, rating, blurhash, _id } = item;
+  const handleAddToCart = ({
+    _id,
+    title,
+    image,
+    price,
+  }: {
+    _id: string;
+    title: string;
+    image: string;
+    price: number;
+  }) => {
+    const cartProduct = [
+      {
+        _id,
+        title,
+        image,
+        price,
+        quantity: 1,
+      },
+    ];
+    const retrieveItems = localStorage.getItem("cart");
+    if (retrieveItems !== null) {
+      const parseStorageValues = JSON.parse(retrieveItems);
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([...parseStorageValues, ...cartProduct])
+      );
+    } else {
+      localStorage.setItem("cart", JSON.stringify(cartProduct));
+    }
+  };
   return (
     <div className="border hover:border-primaryalternative md:p-5 p-2 rounded-lg cursor-pointer overflow-hidden">
       <Link
@@ -59,14 +87,20 @@ const Product = ({ item }: { item: ProductType }) => {
       </p>
 
       <div className="mt-5 md:flex justify-between items-center hidden">
-        <ButtonSecondary>
+        <Link
+          href={`/checkout/${_id}`}
+          className="bg-gray-900 text-white p-3 flex items-center rounded-md"
+        >
           <ShoppingCart strokeWidth={1.25} className="mr-1 h-4 w-4" />
-          <span className="font-thin text-xs ">Buy Now</span>
-        </ButtonSecondary>
-        <ButtonOutline>
-          <Plus strokeWidth={1.25} className="mr-1 h-4 w-4" />
+          <span className="font-thin text-xs">Buy Now</span>
+        </Link>
+        <Button
+          variant="outline"
+          onClick={() => handleAddToCart({ _id, title, image, price })}
+        >
+          <Plus strokeWidth={1.25} className="mr-1 h-4 w-4" />{" "}
           <span className="font-thin text-xs">Add to cart</span>
-        </ButtonOutline>
+        </Button>
       </div>
       <div className="mt-5 md:hidden justify-between items-center flex">
         <span>

@@ -1,3 +1,6 @@
+import { Heart } from "lucide-react";
+
+import BlurImageWithBlurHash from "@/components/blurredimage";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,33 +9,26 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shadcn/ui/cart-dropdown-menu";
-import { ScrollArea } from "@/shadcn/ui/scroll-area";
-import { ShoppingCart } from "lucide-react";
-import BlurImageWithBlurHash from "../../components/blurredimage";
-import { shoppingCart } from "../../data/product";
+} from "@/components/shadcn/ui/cart-dropdown-menu";
+import { ScrollArea } from "@/components/shadcn/ui/scroll-area";
+import { shoppingCart } from "@/data/product";
 
-export function CardWishlists() {
+export function Wishlists() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <span
-          title="Shopping cart"
+          title="Wish List"
           className="bg-slate-200 p-2 rounded-full cursor-pointer relative"
         >
-          <button className="w-5 h-5 p-0.5 bg-primaryalternative rounded-full text-white text-xs absolute right-0 -top-2 overflow-hidden">
+          <button className="w-5 h-5 p-0.5 bg-brand rounded-full text-white text-xs absolute right-0 -top-2 overflow-hidden">
             {shoppingCart.length}
           </button>
-          <ShoppingCart
-            strokeWidth={1}
-            className="hover:text-primaryalternative"
-          />
+          <Heart strokeWidth={1} className="hover:text-primaryalternative" />
         </span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-80 h-96 overflow-auto z-50 relative bg-white">
-        <DropdownMenuLabel>
-          You&#39;ve added products on the cart
-        </DropdownMenuLabel>
+      <DropdownMenuContent className="w-80 h-96 overflow-auto">
+        <DropdownMenuLabel>Your wishlist</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <ScrollArea className="h-80 w-full rounded-md">

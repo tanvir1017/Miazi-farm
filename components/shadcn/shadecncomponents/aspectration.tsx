@@ -1,6 +1,5 @@
+import { AspectRatio } from "@/components/shadcn/ui/aspect-ratio";
 import Image from "next/image";
-
-import { AspectRatio } from "@/shadcn/ui/aspect-ratio";
 
 export function HeadingBannerWithAspectRatio({
   src,
