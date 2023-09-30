@@ -10,10 +10,12 @@ import useCartItem from "@/zustand-store/cart-store";
 import { Minus, Plus, ShoppingCart, Trash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
 export function AddToCartSideBar() {
+  const [mount, setMount] = useState(false);
   const {
     cartProducts,
     removeProductFromCart,
@@ -26,6 +28,10 @@ export function AddToCartSideBar() {
     decreaseProductQuantity: state.decreaseProductQuantity,
   }));
 
+  useEffect(() => {
+    setMount(true);
+  }, []);
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -35,7 +41,7 @@ export function AddToCartSideBar() {
         >
           <>
             <span className="bg-red-500 absolute -top-3 -right-1 text-white w-6 h-6 rounded-full leading-6 text-xs font-thin">
-              {cartProducts.length}
+              {mount && cartProducts.length}
             </span>
 
             <ShoppingCart

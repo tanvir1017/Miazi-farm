@@ -8,7 +8,7 @@ const ProfileActionSidebar = () => {
 
   return (
     <aside
-      id="PRODUCT-CATEGORIES-FILTER"
+      id="SCROLLER"
       className="col-span-2 w-full px-1 pt-5 pb-4 border-r  sticky top-[8.2rem] overflow-auto"
       style={{ height: "100dvh" }}
     >

@@ -21,7 +21,7 @@ const Shop = async () => {
       <div className="grid grid-cols-12 gap-4 place-items-start mt-4 ">
         {/* <div className="flex items-start gap-4 mt-4"> */}
         <aside
-          id="PRODUCT-CATEGORIES-FILTER"
+          id="SCROLLER"
           className="col-span-2 w-full px-1 pt-2 pb-4 border-r  sticky top-[8.2rem] overflow-auto"
           style={{ height: "100dvh" }}
         >

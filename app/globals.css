@@ -98,14 +98,14 @@ input[type="number"] {
   }
 }
 @layer utilities {
-  #PRODUCT-CATEGORIES-FILTER::-webkit-scrollbar {
+  #SCROLLER::-webkit-scrollbar {
     width: 0.7em;
   }
-  #PRODUCT-CATEGORIES-FILTER::-webkit-scrollbar-track {
+  #SCROLLER::-webkit-scrollbar-track {
     background-color: #e7e7e7;
     border-radius: 100vh;
   }
-  #PRODUCT-CATEGORIES-FILTER::-webkit-scrollbar-thumb {
+  #SCROLLER::-webkit-scrollbar-thumb {
     background: #a8a3a3;
     border-radius: 100vh;
   }
