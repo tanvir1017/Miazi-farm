@@ -4,8 +4,8 @@ import Image from "next/image";
 const SectionBanner = () => {
   return (
     <section className="md:container md:mt-20 px-4">
-      <div className="md:px-20 md:py-10 py-5 px-5 bg-[#f0f3f2] md:flex flex flex-col-reverse items-center justify-between  rounded-lg">
-        <div className="tex">
+      <div className="md:px-20 md:py-10 py-5 px-5 bg-[#f0f3f2] md:flex md:flex-row flex flex-col-reverse items-center justify-between rounded-lg">
+        <div className="">
           <h2 className="text-4xl ">Non Stop Grocery Shop</h2>
           <p className="my-5 text-lg">
             Shopping for your furry friend? Find food,

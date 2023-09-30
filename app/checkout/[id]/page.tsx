@@ -1,5 +1,6 @@
 "use client";
 import Error from "@/components/error";
+import Loading from "@/components/loading";
 import { Button } from "@/components/shadcn/ui/button";
 import { Checkbox } from "@/components/shadcn/ui/checkbox";
 import { Input } from "@/components/shadcn/ui/input";
@@ -40,7 +41,7 @@ const BuyNow = ({ params }: { params: { id: string } }) => {
     isLoading,
   } = useSWR(`/api/product/${id}`, fetcher) as ProductCheckout;
   let content = null;
-  if (!error && !product && isLoading) content = <p>Loading...</p>;
+  if (!error && !product && isLoading) content = <Loading />;
   if (!product && !isLoading && error) content = <Error />;
   if (!error && !isLoading && product) {
     content = (

@@ -29,18 +29,21 @@ export function AddToCartSideBar() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <div
+        <button
           title="Shopping cart"
-          className="bg-slate-200 p-2 rounded-full cursor-pointer relative"
+          className="bg-slate-200 hover:bg-slate-300  p-2 rounded-full cursor-pointer relative"
         >
-          <button className="w-5 h-5 p-0.5 bg-primaryalternative rounded-full text-white text-xs absolute right-0 -top-2 overflow-hidden">
-            {cartProducts.length}
-          </button>
-          <ShoppingCart
-            strokeWidth={1}
-            className="hover:text-primaryalternative"
-          />
-        </div>
+          <>
+            <span className="bg-red-500 absolute -top-3 -right-1 text-white w-6 h-6 rounded-full leading-6 text-xs font-thin">
+              {cartProducts.length}
+            </span>
+
+            <ShoppingCart
+              strokeWidth={1}
+              className="hover:text-primaryalternative text-black"
+            />
+          </>
+        </button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader className="sticky top-0 z-50">
@@ -59,7 +62,7 @@ export function AddToCartSideBar() {
         <div className=" grid gap-2 p-6 ">
           {cartProducts.length !== 0 ? (
             cartProducts.map((item: CartProps) => (
-              <div className="border rounded-md relative">
+              <div className="border rounded-md relative" key={item._id}>
                 <Button
                   onClick={() => removeProductFromCart(item._id)}
                   className="absolute -top-4 -right-2 bg-red-100 p-3 rounded-full text-red-500 hover:bg-red-200 "

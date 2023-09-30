@@ -10,7 +10,13 @@ import Link from "next/link";
 const Product = ({ item }: { item: ProductType }) => {
   const { image, title, price, rating, blurhash, _id } = item;
 
-  const addProduct = useCartItem((state) => state.addProductToCart);
+  const { addProduct, cartProducts, incrementProductQuantity } = useCartItem(
+    (state) => ({
+      addProduct: state.addProductToCart,
+      incrementProductQuantity: state.incrementProductQuantity,
+      cartProducts: state.cartProducts,
+    })
+  );
   return (
     <div className="border hover:border-primaryalternative md:p-5 p-2 rounded-lg cursor-pointer overflow-hidden">
       <Link
