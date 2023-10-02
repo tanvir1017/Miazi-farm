@@ -10,16 +10,7 @@ import { DollarSign, Plus, ShoppingCart, StarIcon } from "lucide-react";
 import Link from "next/link";
 
 const DailySell = ({ item }: { item: Products }): any => {
-  const {
-    brand,
-    description,
-    features,
-    image,
-    title,
-    price,
-    rating,
-    blurhash,
-  } = item;
+  const { image, title, price, rating, blurhash } = item;
   return (
     <div className="border hover:border-primaryalternative md:p-5 p-2 rounded-lg cursor-pointer overflow-hidden">
       <Link href={`/shop`} className="overflow-hidden md:block hidden">
