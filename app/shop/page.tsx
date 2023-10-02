@@ -1,5 +1,7 @@
+import ShopCategories from "@/components/shop/categories-aside/shop-categories";
 import ProductCard from "@/components/shop/product-card";
-import { productCateGories } from "@/data/categories";
+import { ProductCategoryResponse } from "@/types/product/product.interface";
+import { ProductsProps } from "@/types/product/product.types";
 import type { Metadata } from "next";
 
 export const urlForProductionAndLocalhost =
@@ -11,11 +13,42 @@ export const metadata: Metadata = {
   title: "Miazi Farm | Shop",
 };
 
-const Shop = async () => {
-  const response = await fetch(`${urlForProductionAndLocalhost}/api/product`, {
-    cache: "no-store",
-  });
-  const products = await response.json();
+const Shop = async ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) => {
+  const page = searchParams["page"] ?? "1";
+  const categorySearch = searchParams["category"] ?? "";
+
+  // const perPage = searchParams["per_page"] ?? "12";
+
+  const start = (Number(page) - 1) * 12;
+  const end = start + 12;
+
+  // GET ALL PRODUCT FOR SHOW FROM DB
+  const response: Response = await fetch(
+    `${urlForProductionAndLocalhost}/api/product`,
+    {
+      cache: "no-store",
+    }
+  );
+  const products: ProductsProps = await response.json();
+  const paginatedProducts =
+    categorySearch === ""
+      ? products.data.slice(start, end)
+      : products.data
+          .slice(start, end)
+          .filter((product) => product.category === categorySearch); // AFTER PAGINATION DATA BY SLICING
+
+  // GET ALL CATEGORY FROM PRODUCT COLLECTIONS
+  const categories: Response = await fetch(
+    `${urlForProductionAndLocalhost}/api/category`,
+    {
+      cache: "no-store",
+    }
+  );
+  const { category }: ProductCategoryResponse = await categories.json();
   return (
     <main className="App container ">
       <div className="grid grid-cols-12 gap-4 place-items-start mt-4 ">
@@ -27,25 +60,23 @@ const Shop = async () => {
         >
           <div>
             <h1 className="text-lg  mb-5">Available Categories</h1>
-            <>
-              {productCateGories.map((item, i: number) => (
-                <div key={i} className="">
-                  <div className="relative my-2 cursor-pointer">
-                    <p className="text-base  hover:text-primaryalternative">
-                      {item.title}
-                    </p>
-                    <button className="bg-secondary absolute px-5 py-0.5 rounded-full top-0 right-0 text-xs  ">
-                      {i + 1}
-                    </button>
-                  </div>
-                  <hr />
-                </div>
-              ))}
-            </>
+
+            {category !== null ? (
+              <ShopCategories categories={category} />
+            ) : (
+              <div className="relative my-2 cursor-pointer">
+                <p className="text-base text-red-500">Category not available</p>
+              </div>
+            )}
           </div>
         </aside>
 
-        <ProductCard products={products} />
+        <ProductCard
+          totalProductsAvailable={products?.data.length}
+          products={paginatedProducts}
+          hasNext={end < products.data.length}
+          hasPrev={start > 0}
+        />
       </div>
     </main>
   );

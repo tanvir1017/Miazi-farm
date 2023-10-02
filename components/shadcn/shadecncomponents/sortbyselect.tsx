@@ -1,3 +1,4 @@
+"use client";
 import {
   Select,
   SelectContent,
@@ -7,21 +8,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/shadcn/ui/select";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export function SortBySelect() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Default Sorting" />
+      <SelectTrigger className="w-[180px] cursor-pointer">
+        <SelectValue placeholder="All Available Products" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Default Sorting</SelectLabel>
-          <SelectItem value="blueberry">Price low to high</SelectItem>
-          <SelectItem value="apple">Sort by popularity</SelectItem>
-          <SelectItem value="banana">Sort by avarage rating</SelectItem>
-          <SelectItem value="grapes">Sort by latest</SelectItem>
-          <SelectItem value="pineapple">Price high to low</SelectItem>
+          <SelectLabel>All Available Products</SelectLabel>
+          <SelectItem onChange={() => alert("hello")} value="lowToHigh">
+            Price low to high
+          </SelectItem>
+          <SelectItem value="highToLow">Price high to low</SelectItem>
+          <SelectItem value="rating">Sort by popularity</SelectItem>
+          <SelectItem value="latest">Sort by latest</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

@@ -9,7 +9,7 @@ const Products = ({ allProducts }: any) => {
     <section className="md:container md:my-24 my-12 px-3">
       <SectionTitle
         link_text="View all"
-        tagline="Here are some of the popular products that people love to get from "
+        tagline="Here are some of the popular products that people love to get from"
         title="Popular products"
         url="/shop"
       />

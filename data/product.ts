@@ -1,19 +1,18 @@
 export interface Products {
   title: string;
-  slug: string;
+
   brand: string;
   price: number;
   description: string;
   features: string[];
   rating: number;
-  reviews: number;
+  category: string;
   image: string;
   blurhash: string;
 }
 export const products: Products[] = [
   {
     title: "Fresh Banana",
-    slug: "Fresh-Banana",
     brand: "Miazi Farm",
     price: 0.99,
     description:
@@ -25,13 +24,12 @@ export const products: Products[] = [
       "Versatile ingredient for various recipes",
     ],
     rating: 4.6,
-    reviews: 156,
+    category: "Fruits",
     image: "/assets/products/Banana.jpeg",
     blurhash: "L%SiHObFx{s:j^bIj?jryGjuRNWX",
   },
   {
     title: "Fresh Apple",
-    slug: "Fresh-Apple",
     brand: "Miazi Farm",
     price: 1.29,
     description:
@@ -43,13 +41,12 @@ export const products: Products[] = [
       "Packed with vitamins and antioxidants",
     ],
     rating: 4.7,
-    reviews: 234,
+    category: "Fruits",
     image: "/assets/products/Apple.jpeg",
     blurhash: "LkRo?IV[.8tQt7j[WBay?^t7IARQ",
   },
   {
     title: "Crushed Tomatoes",
-    slug: "Crushed-Tomatoes",
     brand: "Miazi Farm",
     price: 1.99,
     description:
@@ -61,13 +58,12 @@ export const products: Products[] = [
       "Enhances the flavor of your dishes",
     ],
     rating: 4.5,
-    reviews: 189,
+    category: "vegetable",
     image: "/assets/products/Crushed-tomatoes.jpg",
     blurhash: "LxRU,Tof.mazxuW;Rjo2y?afR5kC",
   },
   {
     title: "Cadbury 5 Star Chocolate",
-    slug: "Cadbury-5-Star-Chocolate",
     brand: "Cadbury",
     price: 1.99,
     description:
@@ -79,13 +75,12 @@ export const products: Products[] = [
       "Irresistible treat for chocolate lovers",
     ],
     rating: 4.8,
-    reviews: 275,
+    category: "vegetable",
     image: "/assets/products/Cadbury-5-Star-Chocolate.jpeg",
     blurhash: "LxQl]|a#?woeNLazt3j@%ij@Mwaz",
   },
   {
     title: "Britannia Cheese Slices",
-    slug: "Britannia-Cheese-Slices",
     brand: "Britannia",
     price: 2.49,
     description:
@@ -97,13 +92,12 @@ export const products: Products[] = [
       "Convenient and delicious",
     ],
     rating: 4.5,
-    reviews: 162,
+    category: "cooking item",
     image: "/assets/products/Britannia-Cheese-Slices.jpeg",
     blurhash: "LeR3WdX9?cskX9jsoIW;~qn~D$Si",
   },
   {
     title: "Blueberry Greek Yogurt",
-    slug: "Blueberry-Greek-Yogurt",
     brand: "Miazi Farm",
     price: 3.99,
     description:
@@ -115,13 +109,12 @@ export const products: Products[] = [
       "Promotes gut health",
     ],
     rating: 4.7,
-    reviews: 421,
+    category: "instant food",
     image: "/assets/products/Blueberry-Greek-Yogurt.jpeg",
     blurhash: "LSRfnMoe~pogt8ofoJRj~pWC4.oc",
   },
   {
     title: "Beatroot",
-    slug: "Beatroot",
     brand: "Miazi Farm",
     price: 0.99,
     description:
@@ -133,13 +126,12 @@ export const products: Products[] = [
       "Offers numerous health benefits",
     ],
     rating: 4.3,
-    reviews: 89,
+    category: "vegetable",
     image: "/assets/products/Beatroot.jpeg",
     blurhash: "LfS5^qWU.mxatRayV@j[?^s:H?Rj",
   },
   {
     title: "Haldiram’s Sev Bhujia",
-    slug: "Haldirams-Sev-Bhujia",
     brand: "Haldiram's",
     price: 4.49,
     description:
@@ -151,13 +143,12 @@ export const products: Products[] = [
       "Perfect for snack lovers",
     ],
     rating: 4.6,
-    reviews: 314,
+    category: "packs",
     image: "/assets/products/Haldiram’s-Sev-Bhujia.jpeg",
     blurhash: "LyR.+4ae.Tozs9jtS5ay%hj[Mwae",
   },
   {
     title: "Kellogg’s Original Cereals",
-    slug: "Kelloggs-Original-Cereals",
     brand: "Kellogg's",
     price: 3.79,
     description:
@@ -169,13 +160,12 @@ export const products: Products[] = [
       "Versatile as a cereal or topping",
     ],
     rating: 4.4,
-    reviews: 195,
+    category: "packs",
     image: "/assets/products/Kellogg’s-Original-Cereals.jpeg",
     blurhash: "LuR{Mcae%%ognhj@kCayyFj]R5js",
   },
   {
     title: "Napolitanke Ljesnjak",
-    slug: "Napolitanke-Ljesnjak",
     brand: "Miazi Farm",
     price: 2.99,
     description:
@@ -187,13 +177,12 @@ export const products: Products[] = [
       "Delicious treat for sweet cravings",
     ],
     rating: 4.8,
-    reviews: 432,
+    category: "vegetable",
     image: "/assets/products/Napolitanke-Ljesnjak.jpeg",
     blurhash: "LMOMZ+~q?b9G?bM|Rit7~paz-pt7",
   },
   {
     title: "NutriChoice Digestive",
-    slug: "NutriChoice-Digestive",
     brand: "Miazi Farm",
     price: 2.49,
     description:
@@ -205,13 +194,12 @@ export const products: Products[] = [
       "Guilt-free snack or accompaniment to tea/coffee",
     ],
     rating: 4.5,
-    reviews: 376,
+    category: "biscuits",
     image: "/assets/products/NutriChoice-Digestive.jpeg",
     blurhash: "LySFkUoex^aeoya#ayj?%%afMxkC",
   },
   {
     title: "Onion Flavour Potato",
-    slug: "Onion-Flavour-Potato",
     brand: "Miazi Farm",
     price: 1.49,
     description:
@@ -223,7 +211,7 @@ export const products: Products[] = [
       "Perfect for sharing with friends and family",
     ],
     rating: 4.7,
-    reviews: 295,
+    category: "vegetable",
     image: "/assets/products/Onion-Flavour-Potato.jpeg",
     blurhash: "LwR3cij[?dkCj[fQj[js%Nj[Mwax",
   },
@@ -231,7 +219,6 @@ export const products: Products[] = [
 export const dailySells: Products[] = [
   {
     title: "Britannia Cheese Slices",
-    slug: "Britannia-Cheese-Slices",
     brand: "Britannia",
     price: 2.49,
     description:
@@ -243,13 +230,13 @@ export const dailySells: Products[] = [
       "Convenient and delicious",
     ],
     rating: 4.5,
-    reviews: 162,
+    category: "",
     image: "/assets/products/Britannia-Cheese-Slices.jpeg",
     blurhash: "LeR3WdX9?cskX9jsoIW;~qn~D$Si",
   },
   {
     title: "Kellogg’s Original Cereals",
-    slug: "Kelloggs-Original-Cereals",
+
     brand: "Kellogg's",
     price: 3.79,
     description:
@@ -261,13 +248,14 @@ export const dailySells: Products[] = [
       "Versatile as a cereal or topping",
     ],
     rating: 4.4,
-    reviews: 195,
+    category: "",
+
     image: "/assets/products/Kellogg’s-Original-Cereals.jpeg",
     blurhash: "LuR{Mcae%%ognhj@kCayyFj]R5js",
   },
   {
     title: "Onion Flavour Potato",
-    slug: "Onion-Flavour-Potato",
+
     brand: "Miazi Farm",
     price: 1.49,
     description:
@@ -279,63 +267,8 @@ export const dailySells: Products[] = [
       "Perfect for sharing with friends and family",
     ],
     rating: 4.7,
-    reviews: 295,
-    image: "/assets/products/Onion-Flavour-Potato.jpeg",
-    blurhash: "LwR3cij[?dkCj[fQj[js%Nj[Mwax",
-  },
-];
-export const shoppingCart: Products[] = [
-  {
-    title: "Britannia Cheese Slices",
-    slug: "Britannia-Cheese-Slices",
-    brand: "Britannia",
-    price: 2.49,
-    description:
-      "Britannia Cheese Slices are a convenient and delicious way to add creamy goodness to your meals. Made from high-quality cheese, these slices are perfect for sandwiches, burgers, or simply enjoyed on their own. Each slice melts beautifully, adding a rich and cheesy flavor to your favorite dishes. Enjoy the taste and convenience of Britannia Cheese Slices.",
-    features: [
-      "Made from high-quality cheese",
-      "Perfect for sandwiches and burgers",
-      "Melts beautifully for a rich and cheesy flavor",
-      "Convenient and delicious",
-    ],
-    rating: 4.5,
-    reviews: 162,
-    image: "/assets/products/Britannia-Cheese-Slices.jpeg",
-    blurhash: "LeR3WdX9?cskX9jsoIW;~qn~D$Si",
-  },
-  {
-    title: "Kellogg’s Original Cereals",
-    slug: "Kelloggs-Original-Cereals",
-    brand: "Kellogg's",
-    price: 3.79,
-    description:
-      "Kellogg’s Original Cereals are a classic choice for a nutritious breakfast. Made from wholesome grains, these cereals offer a crunchy and satisfying start to your day. Packed with essential vitamins and minerals, they provide energy and support overall well-being. Enjoy a bowl of Kellogg’s Original Cereals with milk or as a topping for yogurt and smoothies.",
-    features: [
-      "Made from wholesome grains",
-      "Crunchy and satisfying breakfast option",
-      "Packed with essential vitamins and minerals",
-      "Versatile as a cereal or topping",
-    ],
-    rating: 4.4,
-    reviews: 195,
-    image: "/assets/products/Kellogg’s-Original-Cereals.jpeg",
-    blurhash: "LuR{Mcae%%ognhj@kCayyFj]R5js",
-  },
-  {
-    title: "Onion Flavour Potato",
-    slug: "Onion-Flavour-Potato",
-    brand: "Miazi Farm",
-    price: 1.49,
-    description:
-      "Savor the delicious taste of Miazi Farm Onion Flavour Potato chips. Made from premium quality potatoes and seasoned with a delightful onion flavor, these chips are a perfect snack for any occasion. Enjoy the crispy texture and mouthwatering taste of Miazi Farm Onion Flavour Potato chips with friends and family.",
-    features: [
-      "Made from premium quality potatoes",
-      "Delightful onion flavor",
-      "Crispy texture for an enjoyable snacking experience",
-      "Perfect for sharing with friends and family",
-    ],
-    rating: 4.7,
-    reviews: 295,
+    category: "",
+
     image: "/assets/products/Onion-Flavour-Potato.jpeg",
     blurhash: "LwR3cij[?dkCj[fQj[js%Nj[Mwax",
   },

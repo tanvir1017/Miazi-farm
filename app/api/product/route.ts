@@ -1,53 +1,54 @@
 import dbConnect from "@/backend/lib/db.connector";
-import { default as Products } from "@/backend/models/product/product.schema";
+import Products from "@/backend/models/product/product.schema";
+
 import { ProductsResponse } from "@/types/product/product.types";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request) {
-  console.log("connecting to db");
+export async function GET() {
+  console.log("db connecting...[Product route *GET*]");
   await dbConnect();
-  console.log("connected to db");
-  const products = await Products.find({});
-  if (!products) {
+  console.log("db  connected [Product route *GET*]");
+  try {
+    const products = await Products.find({});
+    if (!products) {
+      return new NextResponse<ProductsResponse>(
+        JSON.stringify({
+          success: false,
+          message: "Failed to retrieve products data",
+          data: [],
+        })
+      );
+    }
     return new NextResponse<ProductsResponse>(
       JSON.stringify({
-        success: false,
-        message: "Failed to retrieve products data",
-        data: [],
+        success: true,
+        message: "Retrieve all data from database",
+        data: products,
       })
     );
+  } catch (error) {
+    console.log(error);
   }
-  return new NextResponse<ProductsResponse>(
-    JSON.stringify({
-      success: true,
-      message: "Retrieve all data from database",
-      data: products,
-    })
-  );
 }
 
 export async function POST(req: Request) {
-  // graving document data from client
   const body = await req.json();
-
-  console.log("connecting to db");
+  console.log("db connecting... [product route]");
   await dbConnect();
-  console.log("connected to db");
+  console.log("db connected [product route]");
+  try {
+    const createProduct = Products.insertMany(body);
 
-  const postProduct = await Products.create(body);
-  if (postProduct) {
+    console.log(createProduct);
+
     console.log("product created");
     // Return back response
-    return new NextResponse(
+    return new NextResponse<ProductsResponse>(
       JSON.stringify({
-        postProduct,
-        active: true,
-        getRequest: 0,
-        postRequest: 1,
-        patchRequest: 0,
+        success: true,
+        message: "Retrieve all data from database",
+        data: createProduct,
       })
     );
-  } else {
-    throw Error("Error while creating product");
-  }
+  } catch (error) {}
 }

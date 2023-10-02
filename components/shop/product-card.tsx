@@ -1,21 +1,37 @@
 "use client";
-import { Products } from "@/types/product/product.types";
+import { ProductType } from "@/types/product/product.types";
 
 import { ButtonOutline } from "@/components/shadcn/shadecncomponents/button";
 import { SortBySelect } from "@/components/shadcn/shadecncomponents/sortbyselect";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, LayoutList } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  LayoutDashboard,
+  LayoutList,
+} from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
-import Product from "../homepage/products/product";
+import ProductShop from "./product-shop";
 
-type ProductCardProps = {
-  products: {
-    success: boolean;
-    message: string;
-    data: Products[];
-  };
-};
-const ProductCard = ({ products }: ProductCardProps): React.ReactElement => {
+interface ProductCardProps {
+  totalProductsAvailable: number;
+  products: ProductType[];
+  hasPrev: boolean;
+  hasNext: boolean;
+}
+
+const ProductCard = ({
+  totalProductsAvailable,
+  products,
+  hasNext,
+  hasPrev,
+}: ProductCardProps): React.ReactElement => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const page = searchParams.get("page") ?? "1";
+  // const perPage = searchParams.get("per_page") ?? "12";
+
   const [viewCol, setViewCol] = useState<boolean>(true);
   return (
     <section className="col-span-10 w-full py-5">
@@ -54,13 +70,32 @@ const ProductCard = ({ products }: ProductCardProps): React.ReactElement => {
       </div>
       <div
         className={cn("grid gap-3", {
-          ["grid-cols-1"]: !viewCol,
+          ["grid-cols-2"]: !viewCol,
           ["grid-cols-4"]: viewCol,
         })}
       >
-        {products.data.map((item: any, i: number) => (
-          <Product key={i} item={item} />
+        {products.map((item: any, i: number) => (
+          <ProductShop view={viewCol} key={i} item={item} />
         ))}
+      </div>
+      <div className="flex items-center justify-center my-7">
+        <button
+          className="rounded-full p-2 border disabled:bg-gray-200"
+          disabled={!hasPrev}
+          onClick={() => router.push(`/shop?page=${Number(page) - 1}`)}
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+        <div className="mx-5 px-4 py-2 ">
+          {page} / {Math.ceil(Number(totalProductsAvailable) / 12)}
+        </div>
+        <button
+          className="rounded-full p-2 border disabled:bg-gray-200"
+          disabled={!hasNext}
+          onClick={() => router.push(`/shop?page=${Number(page) + 1}`)}
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
       </div>
     </section>
   );

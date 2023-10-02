@@ -1,67 +1,41 @@
 export interface Products {
   title: string;
-  slug: string;
   brand: string;
   price: number;
   description: string;
   features: string[];
   rating: number;
-  reviews: number;
+  category: string;
   image: string;
   blurhash: string;
-}
-
-export interface ProductsArray {
-  success: boolean;
-  message: string;
-  data: {
-    _id: string;
-    title: string;
-    slug: string;
-    brand: string;
-    price: number;
-    description: string;
-    features: string[];
-    rating: number;
-    reviews: number;
-    image: string;
-    blurhash: string;
-  }[];
-  error: any;
-  isLoading: boolean;
 }
 
 export type ProductType = {
   _id: string;
   title: string;
-  slug: string;
   brand: string;
   price: number;
   description: string;
   features: string[];
   rating: number;
-  reviews: number;
+  category: string;
   image: string;
   blurhash: string;
 };
+
+export interface ProductsArray {
+  success: boolean;
+  message: string;
+  data: ProductType[];
+  error: any;
+  isLoading: boolean;
+}
 
 export interface ViewProductsArrayType {
   data: {
     success: boolean;
     message: string;
-    data: {
-      _id: string;
-      title: string;
-      slug: string;
-      brand: string;
-      price: number;
-      description: string;
-      features: string[];
-      rating: number;
-      reviews: number;
-      image: string;
-      blurhash: string;
-    };
+    data: ProductType;
   };
   error: any;
   isLoading: boolean;
@@ -86,3 +60,7 @@ export type CartProps = {
   price: number;
   quantity: number;
 };
+
+// Category route types start
+
+// Category route types end

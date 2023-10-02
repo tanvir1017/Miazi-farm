@@ -2,7 +2,7 @@ import Provider from "@/components/authprovider/provider";
 import HotlineAndSocialLinkTop from "@/components/hotlineandsociallinktop";
 import Footer from "@/components/shared/footer";
 import { Navbar } from "@/components/shared/navbar";
-import { Hind_Siliguri } from "@next/font/google";
+import { Hind_Siliguri } from "next/font/google";
 import { ReactNode } from "react";
 import "./globals.css";
 

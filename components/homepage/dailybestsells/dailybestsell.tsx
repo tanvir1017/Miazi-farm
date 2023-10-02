@@ -14,12 +14,10 @@ const DailySell = ({ item }: { item: Products }): any => {
     brand,
     description,
     features,
-    slug,
     image,
     title,
     price,
     rating,
-    reviews,
     blurhash,
   } = item;
   return (

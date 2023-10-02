@@ -8,7 +8,7 @@ import useCartItem from "@/zustand-store/cart-store";
 import { DollarSign, Plus, ShoppingCart, StarIcon } from "lucide-react";
 import Link from "next/link";
 
-const Product = ({ item }: { item: ProductType }) => {
+const ProductShop = ({ item, view }: { item: ProductType; view: boolean }) => {
   const { image, title, price, rating, blurhash, _id } = item;
 
   const { addProduct, cartProducts, incrementProductQuantity } = useCartItem(
@@ -21,7 +21,10 @@ const Product = ({ item }: { item: ProductType }) => {
   return (
     <div
       className={cn(
-        "border hover:border-primaryalternative md:p-5 p-2 rounded-lg cursor-pointer overflow-hidden"
+        "border hover:border-primaryalternative md:p-5 p-2 rounded-lg cursor-pointer overflow-hidden",
+        {
+          ["flex justify-between"]: !view,
+        }
       )}
     >
       <div>
@@ -32,7 +35,7 @@ const Product = ({ item }: { item: ProductType }) => {
           <BlurImageWithBlurHash
             src={image}
             alt={title}
-            width={350}
+            width={!view ? 200 : 350}
             height={100}
             placeholder="blur"
             blurDataURL={blurhash}
@@ -72,7 +75,11 @@ const Product = ({ item }: { item: ProductType }) => {
           ${price} <span className="line-through">$7</span>
         </p>
 
-        <div className={cn("mt-5 md:flex justify-between items-center hidden")}>
+        <div
+          className={cn("mt-5 md:flex justify-between items-center hidden", {
+            ["space-x-2"]: !view,
+          })}
+        >
           <Link
             href={`/checkout/${_id}`}
             className="bg-gray-900 text-white p-3 flex items-center rounded-md"
@@ -109,4 +116,4 @@ const Product = ({ item }: { item: ProductType }) => {
   );
 };
 
-export default Product;
+export default ProductShop;

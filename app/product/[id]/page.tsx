@@ -1,10 +1,10 @@
 import { urlForProductionAndLocalhost } from "@/app/shop/page";
 import BlurImageWithBlurHash from "@/components/blurredimage";
-import { Button } from "@/components/shadcn/ui/button";
 
+import { ProductsResponse } from "@/types/product/product.types";
 import { StarIcon } from "lucide-react";
 import Link from "next/link";
-import { CiShoppingBasket } from "react-icons/ci";
+import AddToCartButton from "../add-to-cart-button";
 
 const ProductDetails = async ({
   params,
@@ -15,7 +15,7 @@ const ProductDetails = async ({
   const response: Response = await fetch(
     `${urlForProductionAndLocalhost}/api/product/${id}`
   );
-  const product = await response.json();
+  const product: ProductsResponse = await response.json();
 
   return (
     <main className="App">
@@ -55,13 +55,7 @@ const ProductDetails = async ({
               <p>Brand: Miazi Farm</p>
 
               <div className="mt-5 flex items-center ">
-                <Button className="bg-gray-900 text-white px-8 py-3 mr-2">
-                  <CiShoppingBasket
-                    strokeWidth={1.25}
-                    className="mr-1 h-4 w-4"
-                  />
-                  Add to cart
-                </Button>
+                <AddToCartButton product={product} />
 
                 <Link
                   href={`/checkout/${id}`}
