@@ -16,6 +16,7 @@ const handler = NextAuth({
       async authorize(credentials, res) {
         // connection with mongodb by calling this function
         await dbConnect();
+        console.log(credentials);
 
         // find if user exist with given email
         const checkUser = await User.findOne({ email: credentials.email });

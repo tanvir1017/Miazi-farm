@@ -22,24 +22,20 @@ const Shop = async ({
   const categorySearch = searchParams["category"] ?? "";
 
   // const perPage = searchParams["per_page"] ?? "12";
-
-  const start = (Number(page) - 1) * 12;
-  const end = start + 12;
+  const start = (Number(page) - 1) * 10;
+  const end = start + 10;
 
   // GET ALL PRODUCT FOR SHOW FROM DB
   const response: Response = await fetch(
-    `${urlForProductionAndLocalhost}/api/product`,
+    `${urlForProductionAndLocalhost}/api/product?category=${categorySearch}`,
     {
       cache: "no-store",
     }
   );
   const products: ProductsProps = await response.json();
-  const paginatedProducts =
-    categorySearch === ""
-      ? products.data.slice(start, end)
-      : products.data
-          .slice(start, end)
-          .filter((product) => product.category === categorySearch); // AFTER PAGINATION DATA BY SLICING
+
+  const paginatedProducts = products.data.slice(start, end);
+  // AFTER PAGINATION DATA BY SLICING
 
   // GET ALL CATEGORY FROM PRODUCT COLLECTIONS
   const categories: Response = await fetch(

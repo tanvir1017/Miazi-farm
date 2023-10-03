@@ -4,13 +4,26 @@ import Products from "@/backend/models/product/product.schema";
 import { ProductsResponse } from "@/types/product/product.types";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(req: Request) {
+  const getCategory = new URL(req.url);
+  const categoryFind = getCategory.searchParams.get("category");
+
   console.log("db connecting...[Product route *GET*]");
   await dbConnect();
   console.log("db  connected [Product route *GET*]");
   try {
-    const products = await Products.find({});
-    if (!products) {
+    const getCategoryBasedProduct = async () => {
+      return await Products.find({ category: { $eq: categoryFind } });
+    };
+
+    const getAllProduct = async () => {
+      return await Products.find({});
+    };
+
+    const categoryProducts = categoryFind
+      ? await getCategoryBasedProduct()
+      : await getAllProduct();
+    if (!categoryProducts) {
       return new NextResponse<ProductsResponse>(
         JSON.stringify({
           success: false,
@@ -23,7 +36,7 @@ export async function GET() {
       JSON.stringify({
         success: true,
         message: "Retrieve all data from database",
-        data: products,
+        data: categoryProducts,
       })
     );
   } catch (error) {
@@ -38,10 +51,6 @@ export async function POST(req: Request) {
   console.log("db connected [product route]");
   try {
     const createProduct = Products.insertMany(body);
-
-    console.log(createProduct);
-
-    console.log("product created");
     // Return back response
     return new NextResponse<ProductsResponse>(
       JSON.stringify({

@@ -87,7 +87,7 @@ const ProductCard = ({
           <ChevronLeft className="w-4 h-4" />
         </button>
         <div className="mx-5 px-4 py-2 ">
-          {page} / {Math.ceil(Number(totalProductsAvailable) / 12)}
+          {page} / {Math.ceil(Number(totalProductsAvailable) / 10)}
         </div>
         <button
           className="rounded-full p-2 border disabled:bg-gray-200"
