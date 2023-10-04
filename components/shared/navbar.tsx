@@ -25,7 +25,7 @@ export function Navbar({ session }: SessionProps) {
   const { addUser } = useUserObj((state: any) => ({ addUser: state.addUser }));
   useEffect(() => {
     addUser(session);
-  });
+  }, []);
 
   const [searchProduct, setSearchProduct] = useState("");
 
