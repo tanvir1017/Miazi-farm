@@ -1,13 +1,7 @@
-// @ts-nocheck
-
-"use client";
-
 import { UserProfileDialog } from "@/components/shadcn/shadecncomponents/userprofiledialog";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
 
-const UserInfo = () => {
-  const { data: session } = useSession();
+const UserInfo = ({ session }: any | null) => {
   return (
     <div className="bg-slate-100 p-5">
       <UserProfileDialog />

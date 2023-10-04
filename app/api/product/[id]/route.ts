@@ -1,5 +1,5 @@
 import { ContextType } from "@/backend/interface/api/common";
-import ConnectToDB from "@/backend/lib/db.connector";
+import connectDB from "@/backend/lib/connectDB";
 import Products from "@/backend/models/product/product.schema";
 import { ProductsResponse } from "@/types/product/product.types";
 
@@ -8,7 +8,8 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request, context: ContextType) {
   const { params } = context;
 
-  await ConnectToDB();
+  // await ConnectToDB();
+  connectDB();
 
   const idBasedData = await Products.findById({ _id: params.id });
 

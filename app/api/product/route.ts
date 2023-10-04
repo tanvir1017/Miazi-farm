@@ -1,3 +1,4 @@
+import connectDB from "@/backend/lib/connectDB";
 import dbConnect from "@/backend/lib/db.connector";
 import Products from "@/backend/models/product/product.schema";
 
@@ -9,8 +10,8 @@ export async function GET(req: Request) {
   const categoryFind = getCategory.searchParams.get("category");
 
   console.log("db connecting...[Product route *GET*]");
-  await dbConnect();
-  console.log("db  connected [Product route *GET*]");
+  connectDB();
+
   try {
     const getCategoryBasedProduct = async () => {
       return await Products.find({ category: { $eq: categoryFind } });

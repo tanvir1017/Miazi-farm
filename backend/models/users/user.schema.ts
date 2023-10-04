@@ -4,25 +4,40 @@ const NewUserSchema = new Schema(
   {
     name: {
       type: String,
-      require: true,
+      required: [true, "Name is required"],
     },
     email: {
       type: String,
-      require: true,
+      required: [true, "Email is required"],
       unique: true,
+      lowercase: true,
     },
-    password: String,
+    password: {
+      type: Schema.Types.String,
+      required: [true, "At least 6 character need"],
+      min: 6,
+      max: 30,
+    },
     role: {
       type: String,
       default: "buyer",
     },
     createdAt: {
       type: Date,
-      default: Date.now,
+      immutable: true,
+      default: () => Date.now(),
     },
     updatedAt: {
       type: Date,
+
       default: Date.now,
+    },
+    address: {
+      type: Schema.Types.ObjectId,
+      ref: "Adress",
+    },
+    credential: {
+      type: String,
     },
   },
   { timestamps: true }

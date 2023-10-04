@@ -2,7 +2,7 @@ import { getToken } from "next-auth/jwt";
 import { NextResponse, type NextRequest } from "next/server";
 
 // Protecting route via auth token
-const protectedRouteIfTokenExist = ["/auth/login", "/auth/sign-up"];
+const protectedRouteIfTokenExist = ["/auth/sign-in", "/auth/sign-up"];
 const protectedRouteIfTokenNotExist = [
   "/profile",
   "/profile/user/addressbook",
@@ -15,11 +15,6 @@ export async function middleware(req: NextRequest) {
   const token = await getToken({ req });
   if (token) {
     if (protectedRouteIfTokenExist.includes(req.nextUrl.pathname)) {
-      return NextResponse.redirect(new URL("/", req.url));
-    }
-  }
-  if (!token) {
-    if (protectedRouteIfTokenNotExist.includes(req.nextUrl.pathname)) {
       return NextResponse.redirect(new URL("/", req.url));
     }
   }

@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const pathname = usePathname();
-  const ignoreRoute = ["/auth/login", "/auth/sign-up"];
+  const ignoreRoute = ["/auth/sign-in", "/auth/sign-up"];
   return (
     <footer
       className={`${
