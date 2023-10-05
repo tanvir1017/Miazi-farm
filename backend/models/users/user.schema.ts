@@ -32,10 +32,6 @@ const NewUserSchema = new Schema(
 
       default: Date.now,
     },
-    address: {
-      type: Schema.Types.ObjectId,
-      ref: "Adress",
-    },
     credential: {
       type: String,
     },

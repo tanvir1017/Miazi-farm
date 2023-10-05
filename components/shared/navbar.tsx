@@ -21,7 +21,6 @@ interface SessionProps {
 }
 export function Navbar({ session }: SessionProps) {
   const pathname = usePathname();
-
   const { addUser } = useUserObj((state: any) => ({ addUser: state.addUser }));
   useEffect(() => {
     addUser(session);

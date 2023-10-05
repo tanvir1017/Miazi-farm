@@ -18,6 +18,11 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL("/", req.url));
     }
   }
+  if (!token) {
+    if (protectedRouteIfTokenNotExist.includes(req.nextUrl.pathname)) {
+      return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+    }
+  }
   return;
 }
 

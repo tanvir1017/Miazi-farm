@@ -7,7 +7,7 @@ import {
 import { handelPasswordEye } from "@/lib/password-toggle";
 import { sendRequest } from "@/lib/sendrequest";
 import { ResponseAuthType, authErrorType } from "@/types/auth/auht.type.";
-import { Mail } from "lucide-react";
+import { Home, Mail } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -46,11 +46,17 @@ const SignIn = () => {
     setLoading(true);
     try {
       const result: ResponseAuthType = await trigger(authState);
+      console.log("🚀 ~ file: page.tsx:49 ~ handleOnSubmit ~ result:", result);
       if (result.status === 200) {
         setLoading(false);
         reset();
         setError({});
-        router.push("/");
+        signIn("credentials", {
+          email: authState.email,
+          password: authState.password,
+          callbackUrl: "/",
+          redirect: true,
+        });
       } else {
         setLoading(false);
         setError(result.message);
@@ -179,15 +185,23 @@ const SignIn = () => {
                 </p>
               </div>
             )}
-            <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">
-              Sign In
-            </h2>
+            <div className="flex items-center justify-between">
+              <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">
+                Create Account
+              </h2>
+              <Link
+                href="/"
+                className="px-4 py-2 bg-primary text-white flex items-center"
+              >
+                <Home className="w-4 h-4 mr-2 " /> Home
+              </Link>
+            </div>
             <p className="mt-2 text-base text-gray-600">
               Don't have account yet?{" "}
               <Link
                 href="/auth/sign-up"
                 title=""
-                className="font-medium text-black transition-all duration-200 hover:underline"
+                className="text-black transition-all duration-200 underline font-semibold italic"
               >
                 Create New
               </Link>
