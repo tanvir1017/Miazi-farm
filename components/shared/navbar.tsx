@@ -1,11 +1,10 @@
 "use client";
 import { ProfileDropDown } from "@/components/shadcn/shadecncomponents/profiledropdown";
 import { cn } from "@/lib/utils";
-import useUserObj from "@/zustand-store/user-store";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AddToCartSideBar } from "../shadcn/shadecncomponents/side-bar-sheet";
 import BrandLogo from "./brandlogo/brandlogo";
 
@@ -21,10 +20,6 @@ interface SessionProps {
 }
 export function Navbar({ session }: SessionProps) {
   const pathname = usePathname();
-  const { addUser } = useUserObj((state: any) => ({ addUser: state.addUser }));
-  useEffect(() => {
-    addUser(session);
-  }, []);
 
   const [searchProduct, setSearchProduct] = useState("");
 
@@ -58,7 +53,8 @@ export function Navbar({ session }: SessionProps) {
               </div>
               <div className="col-span-1 flex items-center justify-self-end space-x-10 text-xl">
                 <AddToCartSideBar />
-                <ProfileDropDown />
+
+                <ProfileDropDown session={session} />
               </div>
             </div>
           </div>

@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import {
@@ -21,29 +20,27 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 
-import useUserObj from "@/zustand-store/user-store";
+import { UserSession } from "@/components/shared/navbar";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 
-export function ProfileDropDown() {
-  const { userObj } = useUserObj((state: any) => ({ userObj: state.userObj }));
-
-  // Merged from api-endpoint
-
+interface SessionProps {
+  session: UserSession | null;
+}
+export function ProfileDropDown({ session }: SessionProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        {userObj && userObj.user ? (
+        {session && session.user ? (
           <div className="bg-gradient-to-tr from-lime-500 via-green-600  to-cyan-600  rounded-full cursor-pointer relative overflow-hidden w-11 h-11">
             <Image
               className="absolute object-cover p-0.5 rounded-full"
               blurDataURL="L%SiHObFx{s:j^bIj?jryGjuRNWX"
               placeholder="blur"
               fill
-              alt={userObj?.user?.name ?? ""}
+              alt={`${session.user.name} avatar` ?? ""}
               src={
-                userObj?.user?.image ||
-                ("/assets/icons/user-check.svg" as string)
+                session.user.image || ("/assets/icons/user-check.svg" as string)
               }
             />
           </div>
@@ -81,7 +78,7 @@ export function ProfileDropDown() {
           <LifeBuoy className="mr-2 h-4 w-4" />
           <span>Support</span>
         </DropdownMenuItem>
-        {userObj ? (
+        {session?.user.email ? (
           <DropdownMenuItem onClick={() => signOut()}>
             <VscSignOut className="mr-2 h-4 w-4" />
             <span>Signout</span>
