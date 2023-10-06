@@ -23,11 +23,11 @@ export function Navbar({ session }: SessionProps) {
 
   const [searchProduct, setSearchProduct] = useState("");
 
-  const ignoreRoute = ["/auth/sign-up", "/auth/sign-in"];
   return (
     <header
       className={cn("sticky top-0 bg-white z-10 md:block hidden", {
-        ["md:hidden hidden"]: ignoreRoute.includes(pathname),
+        ["md:hidden hidden"]:
+          pathname.startsWith("/profile") || pathname.startsWith("/auth"),
       })}
     >
       <nav className="mb-3">

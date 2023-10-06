@@ -1,5 +1,6 @@
 "use client";
 import { profileSideBardNavigation } from "@/data/profilesidebar";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,29 +14,50 @@ const ProfileActionSidebar = () => {
       style={{ height: "100dvh" }}
     >
       <div>
-        <h1 className="text-lg  mb-5">Manage My Profile</h1>
-        <ul>
-          {profileSideBardNavigation.map(
-            (item: ProfileSideBardNavigationType, i: number) => (
-              <Link href={item.url} key={i}>
+        <div className="mb-3">
+          <Link
+            href="/"
+            className="px-4 py-2 bg-green-50 text-green-600 text-center flex items-center rounded-md"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" /> Back to home
+          </Link>
+        </div>
+        <div className="rounded-lg border">
+          <div className="px-2 py-2">
+            <h1 className="text-lg">Manage My Profile</h1>
+          </div>
+          <hr />
+          <ul className="px-2 py-3">
+            {profileSideBardNavigation.map(
+              (item: ProfileSideBardNavigationType, i: number) => (
                 <li
-                  className={`relative my-2 cursor-pointer  rounded-lg py-1 px-2 w-full ${
-                    item.url === pathname
-                      ? "bg-primaryalternative text-white "
-                      : ""
+                  key={i}
+                  className={`relative my-2 cursor-pointer  rounded-lg py-1 px-2 w-full hover:bg-gray-100 ${
+                    item.url === pathname ? "bg-green-50 text-green-600 " : ""
                   }`}
                 >
-                  <span className="text-base font-thin">{item.title}</span>
+                  <Link href={item.url} className="block">
+                    <span className="text-base font-thin">{item.title}</span>
+                  </Link>
                 </li>
-              </Link>
-            )
-          )}
-        </ul>
+              )
+            )}
+          </ul>
+        </div>
       </div>
 
-      <hr className="border-t" />
-      <div id="#My-Orders" className="mt-5">
-        <h1 className="text-lg  mb-5">My Orders</h1>
+      <div className="rounded-lg border my-2">
+        <div className="px-2 py-2" id="#My-Orders">
+          <h1 className="text-lg">My Orders</h1>
+        </div>
+        <hr />
+        <ul className="px-2 py-3">
+          <li
+            className={`relative my-2 cursor-pointer  rounded-lg py-1 px-2 w-full hover:bg-gray-100 `}
+          >
+            <span className="text-base font-thin">Return products</span>
+          </li>
+        </ul>
       </div>
     </aside>
   );

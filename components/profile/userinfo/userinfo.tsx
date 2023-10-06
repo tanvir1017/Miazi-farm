@@ -1,10 +1,20 @@
-import { UserProfileDialog } from "@/components/shadcn/shadecncomponents/userprofiledialog";
+// @ts-nocheck
+import { Edit } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const UserInfo = ({ session }: any | null) => {
+  // console.log("🚀 ~ file: userinfo.tsx:14 ~ session:", session); // { user: { name: 'admin', email: 'admin@gmail.com', image: '' } }
   return (
     <div className="bg-slate-100 p-5">
-      <UserProfileDialog />
+      {/* <UserProfileDialog /> */}
+      <Link
+        href={`/profile/${session?.user.email}`}
+        className="flex justify-end items-center text-brand cursor-pointer"
+      >
+        <Edit strokeWidth={0.75} className="text-brand h-4 w-4 mr-2" />
+        <span>Edit</span>
+      </Link>
 
       <div className="grid grid-cols-3 gap-x-3 gap-y-10">
         <div>

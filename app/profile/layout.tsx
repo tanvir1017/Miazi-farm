@@ -10,12 +10,12 @@ const UserProfileLayout = ({ children }: PropsType) => {
     <main className="App">
       <div className="container relative">
         <div className="grid grid-cols-12 gap-5">
-          <div className="col-span-2">
+          <div className="col-span-3">
             <div className="pt-2">
               <ProfileActionSidebar />
             </div>
           </div>
-          <div className="col-span-10">
+          <div className="col-span-9">
             <div className="py-5 px-3">{children}</div>
           </div>
         </div>

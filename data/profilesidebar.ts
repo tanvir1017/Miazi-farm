@@ -5,14 +5,10 @@ export const profileSideBardNavigation: ProfileSideBardNavigationType[] = [
   },
   {
     title: "Address Book",
-    url: "/profile/user/addressbook",
+    url: "/profile/address-book",
   },
   {
     title: "Billing/Payment Options",
-    url: "/profile/user/paymentoptions",
+    url: "/profile/payment-options",
   },
-  //   {
-  //     title: "Vouchers",
-  //     url: "",
-  //   },
 ];

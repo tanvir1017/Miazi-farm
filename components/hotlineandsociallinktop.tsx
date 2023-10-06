@@ -6,11 +6,10 @@ import { SiFacebook } from "react-icons/si";
 
 const HotlineAndSocialLinkTop = () => {
   const pathname = usePathname();
-  const ignoreRoute = ["/auth/sign-up", "/auth/sign-in"];
   return (
     <div
       className={`bg-slate-100 py-1 ${
-        ignoreRoute.includes(pathname) ? "hidden" : ""
+        pathname.startsWith("/auth") ? "hidden" : ""
       }`}
     >
       <div className="container flex justify-between items-center">
