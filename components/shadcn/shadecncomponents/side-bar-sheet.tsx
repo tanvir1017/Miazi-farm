@@ -6,6 +6,7 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/shadcn/ui/sheet";
+import { cn } from "@/lib/utils";
 import { CartProps } from "@/types/product/product.types";
 import useCartItem from "@/zustand-store/cart-store";
 import { Minus, Plus, ShoppingCart, Trash } from "lucide-react";
@@ -52,13 +53,21 @@ export function AddToCartSideBar() {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader className="sticky top-0 z-50">
-          <div className="flex items-center border  ">
-            <Link
-              href="/checkout"
-              className="w-[50%] bg-primaryalternative px-4 py-3 text-white"
-            >
-              Check out
-            </Link>
+          <div className="flex items-center border">
+            {mount && cartProducts.length > 0 ? (
+              <Link
+                href="/checkout"
+                className={cn(
+                  "w-[50%] px-4 py-3 bg-primaryalternative text-white cursor-pointer"
+                )}
+              >
+                Check out
+              </Link>
+            ) : (
+              <button className="w-[50%] bg-slate-300 px-4 py-3 cursor-not-allowed italic text-gray-400">
+                Check Out
+              </button>
+            )}
             <button className="w-[50%] bg-slate-100 px-4 py-3">
               Cart total{" "}
             </button>

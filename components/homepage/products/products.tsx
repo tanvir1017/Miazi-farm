@@ -13,7 +13,7 @@ const Products = ({ allProducts }: any) => {
         title="Popular products"
         url="/shop"
       />
-      <div className="grid md:grid-cols-5 grid-cols-2 md:gap-3 gap-2">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5  sm:gap-3 gap-2">
         {data.map((p: ProductType) => (
           <Product key={p._id} item={p} />
         ))}

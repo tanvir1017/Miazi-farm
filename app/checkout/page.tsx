@@ -6,7 +6,7 @@ import { Label } from "@/components/shadcn/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/shadcn/ui/radio-group";
 import { CartProps, ProductsResponse } from "@/types/product/product.types";
 import useCartItem, { CartState } from "@/zustand-store/cart-store";
-import { Minus, Plus, Trash, X } from "lucide-react";
+import { ExternalLink, Minus, Plus, Trash, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -276,6 +276,15 @@ const CheckOut = () => {
                       <p className="text-red-500">
                         You have not added any product to cart yet
                       </p>
+                      <div className="text-center bg-green-50 text-green-500 p-2 rounded-md mt-5">
+                        <Link
+                          href="/shop"
+                          className="flex items-center justify-center"
+                        >
+                          Add some products to cart
+                          <ExternalLink className="h-4 w-4 ms-2" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 )}

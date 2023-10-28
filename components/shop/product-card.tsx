@@ -71,7 +71,7 @@ const ProductCard = ({
       <div
         className={cn("grid gap-3", {
           ["grid-cols-2"]: !viewCol,
-          ["grid-cols-4"]: viewCol,
+          ["sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"]: viewCol,
         })}
       >
         {products.map((item: any, i: number) => (
