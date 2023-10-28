@@ -18,7 +18,7 @@ const SectionTitle = ({
         <h2 className="text-2xl ">{title} :</h2>
         <p>
           {tagline}
-          <strong className="text-brand">Miazi</strong>{" "}
+          <strong className="text-brand"> Miazi</strong>{" "}
           <strong className="text-primaryalternative">Farm</strong>
         </p>
       </div>
