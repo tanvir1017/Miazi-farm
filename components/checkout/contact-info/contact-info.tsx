@@ -4,10 +4,12 @@ import { Checkbox } from "@/components/shadcn/ui/checkbox";
 import { Input } from "@/components/shadcn/ui/input";
 import { Label } from "@/components/shadcn/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/shadcn/ui/radio-group";
+import { cn } from "@/lib/utils";
 import { CartProps } from "@/types/product/product.types";
 import useCartItem, { CartState } from "@/zustand-store/cart-store";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 import PriceBreakdown from "./price-breakdown";
 
@@ -17,6 +19,7 @@ type paymentOptionsDataType = {
   id: number;
 };
 const ContactInfo = () => {
+  const pathname = usePathname();
   const { cartProducts } = useCartItem((state: CartState) => ({
     cartProducts: state.cartProducts,
   }));
@@ -91,7 +94,12 @@ const ContactInfo = () => {
         />
 
         {/* PRICE BREAKDOWN */}
-        <div className="my-8 bg-green-50 p-5 rounded-md">
+        <div
+          className={cn("my-8 bg-green-50 p-5 rounded-md", {
+            ["hidden"]: pathname !== "/checkout",
+          })}
+        >
+          {/* <div className={cn("my-8 bg-green-50 p-5 rounded-md")}> */}
           <div className="text-center space-y-3">
             <p className="font-semibold text-green-800">
               Your total payable amount is

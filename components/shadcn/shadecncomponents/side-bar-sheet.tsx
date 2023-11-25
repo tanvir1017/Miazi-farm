@@ -37,6 +37,10 @@ export function AddToCartSideBar() {
     (prev, curr) => (prev += curr.quantity),
     0
   );
+  const cartProductTotal = cartProducts.reduce(
+    (prev: number, curr: CartProps) => prev + curr.totalP_Price,
+    0
+  );
 
   return (
     <Sheet>
@@ -57,7 +61,7 @@ export function AddToCartSideBar() {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader className="sticky top-0 z-50">
-          <div className="flex items-center border">
+          <div className="flex">
             {mount && cartProducts.length > 0 ? (
               <Link
                 href="/checkout"
@@ -72,8 +76,13 @@ export function AddToCartSideBar() {
                 Check Out
               </button>
             )}
-            <button className="w-[50%] bg-slate-100 px-4 py-3">
-              Cart total{" "}
+            <button className={"w-[50%] bg-slate-100 px-4 py-3"}>
+              Cart Total{"  "}
+              {cartProducts.length > 0 && (
+                <span className="font-bold text-lg">
+                  {Number(cartProductTotal.toFixed(2))} &#2547;
+                </span>
+              )}{" "}
             </button>
           </div>
         </SheetHeader>
@@ -91,24 +100,28 @@ export function AddToCartSideBar() {
                   <div>
                     {item.title}
                     <div className="flex items-center gap-2 mt-3">
-                      <Button
-                        onClick={() => incrementProductQuantity(item._id)}
-                        className="bg-green-100 text-green-500 hover:bg-green-200 text-xl font-extrabold py-1 px-2"
-                      >
-                        <Plus className="w-4 h-4" />
-                      </Button>
-                      <Input
-                        disabled
-                        value={item.quantity}
-                        type="number"
-                        className="w-10"
-                      />
-                      <Button
-                        onClick={() => decreaseProductQuantity(item._id)}
-                        className="bg-red-100 text-red-500 hover:bg-red-200 text-xl font-extrabold py-1 px-2"
-                      >
-                        <Minus className="w-4 h-4" />
-                      </Button>
+                      <div className="flex items-center justify-center w-28 h-9 border rounded-full">
+                        <button
+                          className="bg-green-100 text-green-500 hover:bg-green-200 rounded-full w-7 h-7"
+                          onClick={() => incrementProductQuantity(item._id)}
+                        >
+                          <Plus className="w-4 h-4 mx-auto" />
+                        </button>
+                        <div>
+                          <Input
+                            value={item.quantity}
+                            disabled
+                            type="number"
+                            className="w-10 border-none text-center"
+                          />
+                        </div>
+                        <button
+                          onClick={() => decreaseProductQuantity(item._id)}
+                          className="bg-red-100 text-red-500 hover:bg-red-200 w-7 h-7 rounded-full"
+                        >
+                          <Minus className="w-4 h-4 mx-auto" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                   <Image
@@ -136,7 +149,7 @@ export function AddToCartSideBar() {
                 <div className="flex items-center justify-between px-2 py-3">
                   <p className="text-base font-bold text-gray-700">Subtotal:</p>
                   <p className="text-base font-bold text-gray-700">
-                    {Number(item.price * item.quantity).toPrecision(3)} &#2547;
+                    {Number(item.price * item.quantity).toFixed(2)} &#2547;
                   </p>
                 </div>
               </div>

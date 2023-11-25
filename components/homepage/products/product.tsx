@@ -83,7 +83,14 @@ const Product = ({ item }: { item: ProductType }) => {
           <Button
             variant="outline"
             onClick={() =>
-              addProduct({ _id, title, image, price, quantity: 1 })
+              addProduct({
+                _id,
+                title,
+                image,
+                price,
+                quantity: 1,
+                totalP_Price: price,
+              })
             }
           >
             <Plus strokeWidth={1.25} className="mr-1 h-4 w-4" />{" "}

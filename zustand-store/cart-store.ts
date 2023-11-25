@@ -27,8 +27,8 @@ const cartItem = (set: any) => ({
 
         const products = [...state.cartProducts];
         products[getProductIndex].quantity += 1;
-        products[getProductIndex].totalP_Price *=
-          products[getProductIndex].quantity;
+        products[getProductIndex].totalP_Price +=
+          products[getProductIndex].price;
 
         return { cartProducts: [...products] };
       }

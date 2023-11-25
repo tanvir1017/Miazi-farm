@@ -97,7 +97,7 @@ const ProductShop = ({ item, view }: { item: ProductType; view: boolean }) => {
                 image,
                 price,
                 quantity,
-                totalP_Price: Number(price * quantity),
+                totalP_Price: Number(price),
               })
             }
           >
