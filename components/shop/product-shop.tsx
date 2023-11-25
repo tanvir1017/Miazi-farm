@@ -18,6 +18,7 @@ const ProductShop = ({ item, view }: { item: ProductType; view: boolean }) => {
       cartProducts: state.cartProducts,
     })
   );
+  const quantity: number = 1;
   return (
     <div
       className={cn(
@@ -90,7 +91,14 @@ const ProductShop = ({ item, view }: { item: ProductType; view: boolean }) => {
           <Button
             variant="outline"
             onClick={() =>
-              addProduct({ _id, title, image, price, quantity: 1 })
+              addProduct({
+                _id,
+                title,
+                image,
+                price,
+                quantity,
+                totalP_Price: Number(price * quantity),
+              })
             }
           >
             <Plus strokeWidth={1.25} className="mr-1 h-4 w-4" />{" "}

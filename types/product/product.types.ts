@@ -58,6 +58,7 @@ export type CartProps = {
   image: string;
   title: string;
   price: number;
+  totalP_Price: number;
   quantity: number;
 };
 

@@ -34,3 +34,8 @@ Visit our website at [www.miazifarm.com](http://miazi-farm.vercel.app/) to explo
 For inquiries or assistance, feel free to contact us at [support@miazifarm.com](mailto:support@miazifarm.com). Your health and satisfaction are our top priorities!
 
 Welcome to the Miazi-Farm family, where organic goodness meets trendy excellence!
+
+# Requirement Has To Implement
+
+- checkout page will not be accessible until cart isn't empty
+-

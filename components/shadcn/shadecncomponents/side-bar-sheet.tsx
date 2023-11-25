@@ -33,6 +33,10 @@ export function AddToCartSideBar() {
   useEffect(() => {
     setMount(true);
   }, []);
+  const cartProductQuantity = cartProducts?.reduce(
+    (prev, curr) => (prev += curr.quantity),
+    0
+  );
 
   return (
     <Sheet>
@@ -42,7 +46,7 @@ export function AddToCartSideBar() {
           className="bg-slate-200 hover:bg-slate-300  p-2 rounded-full cursor-pointer relative"
         >
           <span className="bg-red-500 absolute -top-3 -right-1 text-white w-6 h-6 rounded-full leading-6 text-xs font-thin">
-            {mount && cartProducts.length}
+            {mount && cartProductQuantity}
           </span>
 
           <ShoppingCart

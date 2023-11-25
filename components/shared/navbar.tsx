@@ -39,12 +39,15 @@ export function Navbar({ session }: SessionProps) {
               <div className="col-span-3 ">
                 <div className="relative">
                   <span className="absolute inset-y-0 px-1.5 pt-[0.7rem]">
-                    <Search strokeWidth={0.5} />
+                    <Search strokeWidth={0.5} className="text-gray-400" />
                   </span>
-                  <input className="py-2.5 pl-8 border-2  focus:outline-none rounded-md w-full" />
+                  <input
+                    className="py-2.5 pl-8 border-2 focus:outline-none rounded-md w-full border-green-200 placeholder:italic"
+                    placeholder="search products..."
+                  />
                   <button
                     placeholder="search a product"
-                    className="absolute -right-[0.25rem] bg-primaryalternative text-white inset-y-0 rounded-r-lg px-5 border border-gray-500"
+                    className="absolute -right-[0.25rem] bg-green-100 text-primaryalternative inset-y-0 rounded-r-lg px-5 border-2 border-green-200"
                     type="submit"
                   >
                     search

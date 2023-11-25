@@ -4,7 +4,6 @@ import { devtools, persist } from "zustand/middleware";
 
 export type CartState = {
   cartProducts: CartProps[];
-  cartTotal: number;
   addProductToCart: (product: CartProps) => void;
   incrementProductQuantity: (productId: string) => void;
   decreaseProductQuantity: (productId: string) => void;
@@ -14,7 +13,7 @@ export type CartState = {
 const cartItem = (set: any) => ({
   // Defining state
   cartProducts: [],
-  cartTotal: 0,
+
   // Add product to local storage cart
   addProductToCart: (product: CartProps) => {
     set((state: CartState) => {
@@ -27,22 +26,14 @@ const cartItem = (set: any) => ({
         );
 
         const products = [...state.cartProducts];
-
         products[getProductIndex].quantity += 1;
+        products[getProductIndex].totalP_Price *=
+          products[getProductIndex].quantity;
 
-        const cartItemTotal = state.cartProducts.reduce(
-          (prev: number, curr: CartProps) => (prev += curr.price),
-          state.cartTotal
-        );
-
-        return { cartTotal: cartItemTotal, cartProducts: [...products] };
+        return { cartProducts: [...products] };
       }
       return {
         cartProducts: [product, ...state.cartProducts],
-        cartTotal: state.cartProducts.reduce(
-          (prev: number, curr: CartProps) => (prev += curr.price),
-          state.cartTotal
-        ),
       };
     });
   },
@@ -50,24 +41,30 @@ const cartItem = (set: any) => ({
   // Increment cart product quantity to local storage cart
   incrementProductQuantity: (productId: string) => {
     set((state: any) => ({
-      cartProducts: state.cartProducts.filter((cP: CartProps) =>
-        cP._id === productId ? { ...cP, quantity: cP.quantity++ } : cP
-      ),
-      cartTotal: state.cartProducts.reduce(
-        (prev: number, curr: CartProps) => (prev += curr.price),
-        state.cartTotal
-      ),
+      cartProducts: state.cartProducts.filter((cP: CartProps) => {
+        return cP._id === productId
+          ? {
+              ...cP,
+              quantity: cP.quantity++,
+              totalP_Price: (cP.totalP_Price += cP.price),
+            }
+          : cP;
+      }),
     }));
   },
 
   // Decrement cart product quantity to local storage cart
   decreaseProductQuantity: (productId: string) => {
     set((state: any) => ({
-      cartProducts: state.cartProducts.filter((cP: CartProps) =>
-        cP._id === productId && cP.quantity !== 1
-          ? { ...cP, quantity: cP.quantity-- }
-          : cP
-      ),
+      cartProducts: state.cartProducts.filter((cP: CartProps) => {
+        return cP._id === productId && cP.quantity !== 1
+          ? {
+              ...cP,
+              quantity: cP.quantity--,
+              totalP_Price: (cP.totalP_Price -= cP.price),
+            }
+          : cP;
+      }),
     }));
   },
   // Remove product from local storage
