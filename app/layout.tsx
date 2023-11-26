@@ -1,6 +1,7 @@
 import HotlineAndSocialLinkTop from "@/components/hotlineandsociallinktop";
 import Footer from "@/components/shared/footer";
-import { Navbar, UserSession } from "@/components/shared/navbar";
+import { Navbar } from "@/components/shared/navbar";
+import { UserSession } from "@/types/global";
 import { getServerSession } from "next-auth";
 import { Hind_Siliguri } from "next/font/google";
 import { ReactNode } from "react";

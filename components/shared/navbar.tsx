@@ -1,6 +1,7 @@
 "use client";
 import { ProfileDropDown } from "@/components/shadcn/shadecncomponents/profiledropdown";
 import { cn } from "@/lib/utils";
+import { SessionProps } from "@/types/global";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,16 +9,6 @@ import { useState } from "react";
 import { AddToCartSideBar } from "../shadcn/shadecncomponents/side-bar-sheet";
 import BrandLogo from "./brandlogo/brandlogo";
 
-export type UserSession = {
-  user: {
-    name: string;
-    email: string;
-    image: string;
-  };
-};
-interface SessionProps {
-  session: UserSession | null;
-}
 export function Navbar({ session }: SessionProps) {
   const pathname = usePathname();
 

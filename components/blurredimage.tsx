@@ -1,5 +1,5 @@
 "use client";
-import { WithClassName } from "@/types/common";
+import { WithClassName } from "@/types/global";
 import Image from "next/image";
 import { useState } from "react";
 

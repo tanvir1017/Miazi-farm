@@ -17,7 +17,9 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
 
     const preValidatorByVine = vine.compile(registerUserValidatorSchema);
+
     preValidatorByVine.errorReporter = () => new ErrorReporter();
+
     const outputAfterValidation = await preValidatorByVine.validate(body);
 
     const existUser = await User.findOne({
