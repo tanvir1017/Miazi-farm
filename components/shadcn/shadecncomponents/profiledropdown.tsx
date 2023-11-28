@@ -20,13 +20,10 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 
-import { UserSession } from "@/components/shared/navbar";
+import { SessionProps } from "@/types/global";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 
-interface SessionProps {
-  session: UserSession | null;
-}
 export function ProfileDropDown({ session }: SessionProps) {
   return (
     <DropdownMenu>

@@ -7,7 +7,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/shadcn/ui/radio-group";
 import { Textarea } from "@/components/shadcn/ui/textarea";
 import { validateBDPhoneNumber } from "@/lib/phone-number-validator";
 import { cn } from "@/lib/utils";
-import { SessionProps } from "@/types/global";
+import { UserSession } from "@/types/global";
 import { CartProps } from "@/types/product/product.types";
 import useCartItem, { CartState } from "@/zustand-store/cart-store";
 import Image from "next/image";
@@ -16,21 +16,14 @@ import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import PriceBreakdown from "./price-breakdown";
 
+// payment info data type => ts
 type paymentOptionsDataType = {
   image: string;
   name: string;
   id: number;
 };
-const paymentOptionsData: paymentOptionsDataType[] = [
-  {
-    id: 1,
-    image: "/assets/payment/cod-pay.png",
-    name: "COD",
-  },
-  { id: 2, image: "/assets/payment/card-pay.png", name: "CARD" },
-  { id: 2, image: "/assets/payment/bkash.jpg", name: "BKASH" },
-];
 
+// setting the checkout page user info type
 type checkoutInfoType = {
   fullName: string;
   email: string;
@@ -42,7 +35,25 @@ type checkoutInfoType = {
   note: string;
   postCode: number;
 };
-const ContactInfo = ({ session }: SessionProps) => {
+
+// component props type set by typescript
+type ComponentType = {
+  session: UserSession | null;
+  quantity?: number;
+};
+
+// setting demo payment info data array
+const paymentOptionsData: paymentOptionsDataType[] = [
+  {
+    id: 1,
+    image: "/assets/payment/cod-pay.png",
+    name: "COD",
+  },
+  { id: 2, image: "/assets/payment/card-pay.png", name: "CARD" },
+  { id: 2, image: "/assets/payment/bkash.jpg", name: "BKASH" },
+];
+
+const ContactInfo = ({ session, quantity }: ComponentType) => {
   const [checkoutInfo, setCheckoutInfo] = useState<checkoutInfoType>({
     fullName: session ? session.user.name : "",
     email: session ? session.user.email : "",
@@ -55,18 +66,25 @@ const ContactInfo = ({ session }: SessionProps) => {
     note: "",
   });
 
+  console.log(quantity);
+  // getting current urlPath using this usePathname() hooks
   const pathname = usePathname();
+
+  // Getting all localStorage cart-items
   const { cartProducts } = useCartItem((state: CartState) => ({
     cartProducts: state.cartProducts,
   }));
 
+  // shipping cost
   const shippingCost = 60;
+
   // calculating total cart product price, Should DRY
   const totalCartItemsPrice = cartProducts.reduce(
     (prev: number, curr: CartProps) => (prev += curr.totalP_Price),
     0
   );
 
+  // a function that will take all input data from user and submit to db
   const handleSubmit = (e: React.SyntheticEvent): void => {
     // Preventing default reload behavior of onSubmit
     e.preventDefault();

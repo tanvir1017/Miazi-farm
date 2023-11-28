@@ -1,4 +1,4 @@
-import { UserSession } from "@/components/shared/navbar";
+import { UserSession } from "@/types/global";
 import { create } from "zustand";
 
 const userStore = (set: any) => ({
