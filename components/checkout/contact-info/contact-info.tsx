@@ -54,6 +54,7 @@ const paymentOptionsData: paymentOptionsDataType[] = [
 ];
 
 const ContactInfo = ({ session, quantity }: ComponentType) => {
+  // set and get checkout page user contact and product related information
   const [checkoutInfo, setCheckoutInfo] = useState<checkoutInfoType>({
     fullName: session ? session.user.name : "",
     email: session ? session.user.email : "",
