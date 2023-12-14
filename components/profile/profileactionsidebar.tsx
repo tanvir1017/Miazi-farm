@@ -1,5 +1,8 @@
 "use client";
-import { profileSideBardNavigation } from "@/data/profilesidebar";
+import {
+  ProfileSideBardNavigationType,
+  profileSideBardNavigation,
+} from "@/data/profilesidebar";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

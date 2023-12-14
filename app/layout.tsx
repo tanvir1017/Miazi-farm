@@ -4,7 +4,6 @@ import { Navbar } from "@/components/shared/navbar";
 import { UserSession } from "@/types/global";
 import { getServerSession } from "next-auth";
 import { Hind_Siliguri } from "next/font/google";
-import NextTopLoader from "nextjs-toploader";
 import { ReactNode } from "react";
 import { authOptions } from "./api/auth/[...nextauth]/auth-option";
 import "./globals.css";
@@ -32,7 +31,7 @@ export default async function RootLayout({
       <body className="relative">
         <HotlineAndSocialLinkTop />
         <Navbar session={session} />
-        <NextTopLoader color="#515354" />
+        {/* <NextTopLoader color="#515354" /> */}
 
         {children}
         <Footer />

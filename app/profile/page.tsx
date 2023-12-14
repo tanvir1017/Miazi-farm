@@ -9,6 +9,7 @@ const Profile = async () => {
   if (!session) {
     return redirect("/auth/sign-in");
   }
+  console.log(session);
   return <UserInfo session={session} />;
 };
 

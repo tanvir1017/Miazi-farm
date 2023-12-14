@@ -1,3 +1,5 @@
+export type ProfileSideBardNavigationType = { title: string; url: string };
+
 export const profileSideBardNavigation: ProfileSideBardNavigationType[] = [
   {
     title: "My Profile",
