@@ -1,11 +1,19 @@
 import ProfileActionSidebar from "@/components/profile/profileactionsidebar";
+import { GoogleUser } from "@/types/auth/auth-interface";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 import React from "react";
+import { authOptions } from "../api/auth/[...nextauth]/auth-option";
 
 interface PropsType {
   children: React.ReactNode;
 }
 
-const UserProfileLayout = ({ children }: PropsType) => {
+const UserProfileLayout = async ({ children }: PropsType) => {
+  const session: GoogleUser | null = await getServerSession(authOptions);
+  if (!session) {
+    return redirect("/auth/sign-in");
+  }
   return (
     <main className="App">
       <div className="container relative">

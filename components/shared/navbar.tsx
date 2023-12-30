@@ -11,14 +11,13 @@ import BrandLogo from "./brandlogo/brandlogo";
 
 export function Navbar({ session }: SessionProps) {
   const pathname = usePathname();
-
   const [searchProduct, setSearchProduct] = useState("");
-
+  const ignoreRouteByPath =
+    pathname.startsWith("/dashboard") || pathname.startsWith("/auth");
   return (
     <header
       className={cn("sticky top-0 bg-white z-10 md:block hidden", {
-        ["md:hidden hidden"]:
-          pathname.startsWith("/profile") || pathname.startsWith("/auth"),
+        ["md:hidden hidden"]: ignoreRouteByPath,
       })}
     >
       <nav className="mb-3">

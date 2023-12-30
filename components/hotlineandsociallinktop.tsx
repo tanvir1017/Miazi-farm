@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { RiInstagramFill } from "react-icons/ri";
@@ -8,9 +9,10 @@ const HotlineAndSocialLinkTop = () => {
   const pathname = usePathname();
   return (
     <div
-      className={`bg-slate-100 py-1 ${
-        pathname.startsWith("/auth") ? "hidden" : ""
-      }`}
+      className={cn("bg-slate-100 py-1", {
+        ["hidden"]:
+          pathname.startsWith("/auth") || pathname.startsWith("/dashboard"),
+      })}
     >
       <div className="container flex justify-between items-center">
         <p>Help Line: +98754698</p>

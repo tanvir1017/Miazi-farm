@@ -6,6 +6,7 @@ import {
   consumers,
   programs,
 } from "@/data/footer";
+import { cn } from "@/lib/utils";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,12 +14,18 @@ import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const pathname = usePathname();
-  const ignoreRoute = ["/auth/sign-in", "/auth/sign-up"];
+  const ignoreRoute = [
+    "/auth/sign-in",
+    "/auth/sign-up",
+    "/dashboard",
+    "/dashboard/add-new-product",
+    "/dashboard/working",
+  ];
   return (
     <footer
-      className={`${
-        ignoreRoute.includes(pathname) && "hidden"
-      }  bg-secondary py-20`}
+      className={cn("bg-secondary py-20", {
+        ["hidden"]: ignoreRoute.includes(pathname),
+      })}
     >
       {/* <footer className={`bg-secondary py-20`}> */}
       <div className="container">

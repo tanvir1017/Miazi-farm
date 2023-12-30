@@ -10,11 +10,13 @@ import { ResponseAuthType, authErrorType } from "@/types/auth/auht.type.";
 import { Home, Mail } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import useSWRMutation from "swr/mutation";
 const SignInForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<authErrorType>({});
+  const router = useRouter();
 
   // Hooks
   const { trigger } = useSWRMutation("/api/auth/sign-in", sendRequest);
@@ -51,9 +53,9 @@ const SignInForm = () => {
         signIn("credentials", {
           email: authState.email,
           password: authState.password,
-          callbackUrl: "/",
-          redirect: true,
         });
+
+        router.back(); // navigating clint to where came from
       } else {
         setLoading(false);
         setError(result.message);

@@ -5,14 +5,14 @@ const ProductsModelSchema = new Schema({
     type: String,
     required: true,
   },
-  brand: String,
+  brand: { type: String, default: "Miazi Farm" },
   price: {
     type: Number,
     required: true,
   },
   features: {
     type: [String],
-    required: true,
+    // required: true,
   },
   description: {
     type: String,

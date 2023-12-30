@@ -2,7 +2,11 @@
 
 const nextConfig = {
   images: {
-    domains: ["lh3.googleusercontent.com"],
+    domains: [
+      "lh3.googleusercontent.com",
+      "avatars.githubusercontent.com",
+      "github.com",
+    ],
   },
 };
 

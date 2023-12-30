@@ -1,0 +1,4 @@
+Add new product/ Steps
+1. First make ui ready
+2. Schema Ready with existing product
+3. Push to db

@@ -64,9 +64,9 @@ const SignUpForm = () => {
         signIn("credentials", {
           email: authState.email,
           password: authState.password,
-          callbackUrl: "/",
-          redirect: true,
         });
+
+        router.back();
       } else {
         setLoading(false);
         setError(result?.message);

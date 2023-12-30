@@ -68,14 +68,6 @@ export const authOptions: AuthOptions = {
         return false;
       }
     },
-    // async redirect({ url, baseUrl }) {
-    //   const ifItIsSignInPage = url.includes("/auth/sign-in");
-    //   // Allows relative callback URLs
-    //   if (ifItIsSignInPage) return `${baseUrl}`;
-    //   // Allows callback URLs on the same origin
-    //   else if (new URL(url).origin === baseUrl) return url;
-    //   return baseUrl;
-    // },
   },
   site: process.env.NEXTAUTH_URL,
   secret: process.env.NEXTAUTH_SECRET,
