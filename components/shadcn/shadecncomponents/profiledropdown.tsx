@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  BarChart,
   CreditCard,
   DoorOpen,
   LifeBuoy,
@@ -58,6 +59,12 @@ export function ProfileDropDown({ session }: SessionProps) {
             <DropdownMenuItem>
               <User className="mr-2 h-4 w-4" />
               <span>Profile</span>
+            </DropdownMenuItem>
+          </Link>
+          <Link href={`/dashboard`}>
+            <DropdownMenuItem>
+              <BarChart className="mr-2 h-4 w-4" />
+              <span>Dashboard</span>
             </DropdownMenuItem>
           </Link>
           <DropdownMenuItem>
